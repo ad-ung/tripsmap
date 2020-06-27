@@ -1,2 +1,26 @@
-trips:
-  - title: "Voyage en Amérique Latine"
+Lima, capitale du Pérou:
+  - type: text
+    text: Arrivée à la capitale sur la côte pacifique et aride du Pérou. Nous avons passé trois jours à arpenter tous les quartiers de Lima, mais plus particulièrement Barranco, Cercado et Pueblo Libre. Une ville bouillonnante qui nous a plus immédiatement...
+  - type: photos
+    photos_paths: ["https://cdn.generationvoyage.fr/2020/04/lima-cta.jpg"]
+  - type: text
+    text: Lorsque nous déambulons dans Barranco, nous trouvons une ambiance détendue, musicale, fleurie et noctambule. C'est un quartier qui semble en pleine effervescence artistique ! Ici les bars à concerts, musées, jolies boutiques et ruelles de charme ne manquent pas. Mais surtout, des touches de couleurs sont présentes un peu partout.
+  - type: photos
+    photos_paths: ["https://static.wixstatic.com/media/108ff4_824ffa5be5b94ca0bc85700ba7b0e98f~mv2.jpg/v1/fill/w_740,h_388,al_c,q_90,usm_0.66_1.00_0.01/108ff4_824ffa5be5b94ca0bc85700ba7b0e98f~mv2.webp", "https://www.explo.com/media/catalog/category/basilica-catedral-metropolitana-de-lima-03.jpg","https://voyages.michelin.fr/sites/default/files/styles/poi_slideshow_big/public/images/travel_guide/NX-24375.jpg?itok=38p7qjXt"]
+  - type: text
+    text: Le jour, le quartier de Barranco est paisible et plutôt silencieux, propice à une ballade au hasard des ruelles qui regorgent d'oeuvres de rue, de musiciens, d'expositions et autres atouts artistiques.
+  - type : photos
+    photos_paths: ["https://static.wixstatic.com/media/108ff4_5520b535678e4ea9916f11f08dd68dac~mv2.jpg/v1/fill/w_740,h_494,al_c,q_90,usm_0.66_1.00_0.01/108ff4_5520b535678e4ea9916f11f08dd68dac~mv2.webp", "https://static.wixstatic.com/media/108ff4_5520b535678e4ea9916f11f08dd68dac~mv2.jpg/v1/fill/w_740,h_494,al_c,q_90,usm_0.66_1.00_0.01/108ff4_5520b535678e4ea9916f11f08dd68dac~mv2.webp", "https://static.wixstatic.com/media/108ff4_5520b535678e4ea9916f11f08dd68dac~mv2.jpg/v1/fill/w_740,h_494,al_c,q_90,usm_0.66_1.00_0.01/108ff4_5520b535678e4ea9916f11f08dd68dac~mv2.webp"]
+  - type: video
+    video_path : "https://player.vimeo.com/external/394438734.sd.mp4?s=948877f1cd185b9bb4640eed6da510f5cbfe18ac&profile_id=139&oauth2_token_id=57447761"
+
+Bienvenue en Bolivie:
+  - type: text
+    text: La Isla del Sol est la plus grande île du lac Titicaca, elle mesure 9,6 km de long sur 4,6 km de large. Le point culminant de l'île du soleil se nomme la colline Chequesan qui a une altitude de 4 070 mètres, dépassant de 260 mètres le niveau du lac. La Isla del Sol est peuplée par les boliviens d'origines quechas et aymaras, ils exercent les métiers d'artisans, pêcheurs, agriculteurs ou guides touristiques.
+  - type: photos
+    photos_path: ["https://static.wixstatic.com/media/108ff4_0b9706b279c1494fbb6a552da50e0cac~mv2.jpg/v1/fill/w_940,h_403,al_c,q_90,usm_0.66_1.00_0.01/108ff4_0b9706b279c1494fbb6a552da50e0cac~mv2.webp"]
+  - type: text
+    text: La légende inca raconte que le dieu Viracocha, dieu créateur, roi de la foudre et des tempêtes, a créé l'univers en sortant des eaux du lac Titicaca. Avant sa venue sur Terre, le monde était sombre. C'est alors qu'à son apparition, il créa le soleil en lui ordonnant de se lever derrière l'île du soleil. Il créa aussi la lune à cet endroit (isla de la luna). La Isla del Sol avait auparavant pour nom La Isla Titicaca, en référence au temple sacré Titi Kharka qui se trouve sur le nord de l'ïle. C'est de là que vient le nom du lac et non pas l'inverse.
+  - type: photos
+    photos_paths: ["https://static.wixstatic.com/media/108ff4_a1f0b1e997e6485ea884f918479f6650~mv2.jpg/v1/fill/w_740,h_416,al_c,q_90,usm_0.66_1.00_0.01/108ff4_a1f0b1e997e6485ea884f918479f6650~mv2.webp", "https://static.wixstatic.com/media/108ff4_a1f0b1e997e6485ea884f918479f6650~mv2.jpg/v1/fill/w_740,h_416,al_c,q_90,usm_0.66_1.00_0.01/108ff4_a1f0b1e997e6485ea884f918479f6650~mv2.webp", "https://static.wixstatic.com/media/108ff4_a6bc88885cbc44b08b53a95827e5d29f~mv2.jpg/v1/fill/w_740,h_387,al_c,q_90,usm_0.66_1.00_0.01/108ff4_a6bc88885cbc44b08b53a95827e5d29f~mv2.webp"]
+

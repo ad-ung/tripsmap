@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "open-uri"
+require "yaml"
 
 puts "Destroy blocks"
 Block.destroy_all
@@ -50,8 +51,8 @@ trip_cover_picture_path = [
 def create_trip(title, starts_on, ends_on, cover_picture_path)
   t = Trip.new(title: title, starts_on: starts_on, ends_on: ends_on)
   t.user = User.find(1)
-  file = URI.open(cover_picture_path)
-  t.cover_picture.attach(io: file, filename: "pic#{Trip.count + 1}.extension", content_type: "image/png")
+  # file = URI.open(cover_picture_path)
+  # t.cover_picture.attach(io: file, filename: "pic#{Trip.count + 1}.extension", content_type: "image/png")
   t.save!
 end
 
@@ -69,7 +70,7 @@ step_titles = [
 ]
 
 locations = [
-  ["Lima, Pérou", "Uyuni, Bolivie", "Pica, Chili", "Buenos Aires, Argentine", "Ushuaïa, Argentine"],
+  ["Lima, Pérou", "Isla Del Sol, Bolivie", "Pica, Chili", "Buenos Aires, Argentine", "Ushuaïa, Argentine"],
   ["Miami", "New Orlean", "Dallas", "Los Angeles", "Las Vegas", "Grand Canyon", "Salt Lake City"],
   ["Rome", "Venise", "Florence", "Milan"]
 ]
@@ -92,85 +93,87 @@ end
 puts "Creation blocks"
 #text, mediatype, step_id
 
-texts = [
-  "Le soir, on décide de ne pas camper à Anza Borrego, il fait mille fois trop chaud, et on s’arrête dans les montagnes à Julian, la ville de la pomme, et une ancienne mine d’or. On y était déjà passé il y a deux ans, et ça fait plaisir de retrouver la fraîcheur et la verdure des montagnes. Je trouve une cabane des plus mignonnes sur AirBnb.",
-  "Notre camping est à 1 bonne heure de route du parc national de Petrified Forest, ou la forêt pétrifiée. On roule sur un plateau, c’est plat à perte de vue, même si la route fait des bonds de temps en temps.",
-  "Aujourd’hui, c’est un jour de route, du vrai bon road trip comme on l’aime : rouler, traverser des beaux paysages.",
-  "Il est presque 19h30, après avoir posé les valises au motel, on file à White Sands Dunes, à une quinzaine de minutes de là : le soleil se couche, le ciel est tout noir d’un côté, et de l’autre, c’est festival de rose et bleu, de fin de soirée. Mais le vrai spectacle, c’est marcher dans le sable blanc : on se croirait à Boston en plein hiver, à marcher dans la neige. Magnifique !",
-  "A notre retour sur le parking du début de chemin, 2 buddies (des mecs, retraités) discutent et nous proposent une bière. On restera discuter avec Duane jusqu’à tard le soir, c’est un ancien ranger qui a fait le Vietnam et qui passe son temps à sillonner le pays dans sa Casita, une petite caravane.",
-  "Le midi, on fait la pause la plus relaxante du monde, au ranch de Frijole : une oasis de verdure et de fraîcheur en plein désert, toujours dans le parc national (merci le ranger pour le conseil !) On pique-nique puis on fait la sieste sur un banc, en écoutant la source s’écouler. Tout serait parfait si on ne savait pas que des tarentules-vautours et autres bêtes du désert rôdent dans les parages.",
-  "Le soir, on se refait un barbecue, on regarde les chauve-souris sortir du dessous du pont et puis on écoute de la musique live dans un bar : gros coup de cœur pour l’ambiance de la ville !",
-  "Notre Airbnb n’est dispo qu’après 15h30, j’ai trouvé une tiny house, et j’ai hâte de voir à quoi ça ressemble. Manu trouve ça bizarre d’avoir choisi un truc minuscule alors qu’on va camper pendant 15 jours (ou presque) mais moi je suis sûre que ça va être super.",
-  "La ville est toute petite, très touristique, et un peu carton-pâte sur les bords. Même si le côté folko-mytho des multiples musées sur les sorcières peut être décevant, il y a aussi d’autres choses sympa à voir à Salem, car la ville a longtemps été un centre commercial portuaire majeur, et en a gardé quelques vestiges intéressants, de belles maisons, et un superbe musée.",
-  "Arrivée à destination, nous avons passé trois jours à arpenter tous les quartiers de la ville, mais plus particulièrement la vieille ville. Une ville bouillonnante qui nous a plus immédiatement..",
-  "Les journées remplies de visites culturelles et de miradors, les soirées occupées par des fiestas, des concerts, des dîners savoureux, cette ville mérite vraiment de s'y attarder un peu.",
-  "Une fois sur place, nous avons visité cette ville magnifique, son centre historique avec sa place des Armes et sa cathédrale majestueuse mais surtout son sublime couvent dans lequel nous avons passé la majorité de notre temps."
-]
+file = 'seed.yml'
+sample = YAML.load(file)
 
-photos_path = [
-  "https://images.unsplash.com/photo-1529456559600-c3e56a82b3e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-  "https://images.unsplash.com/photo-1547044770-89ab01ce15c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-  "https://images.unsplash.com/photo-1577453824393-9150575ed402?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-  "https://images.unsplash.com/photo-1592520172240-129bf16547b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80",
-  "https://images.unsplash.com/photo-1592520172240-129bf16547b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80",
-  "https://images.unsplash.com/photo-1521058798685-39dd95c33314?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-  "https://images.unsplash.com/photo-1568910630345-9216afd16d43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-  "https://images.unsplash.com/photo-1542297849-fd63ad7543fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1527&q=80",
-  "https://images.unsplash.com/photo-1542297849-fd63ad7543fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1527&q=80",
-  "https://images.unsplash.com/photo-1542297849-fd63ad7543fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1527&q=80",
-  "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80",
-  "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80",
-  "https://images.unsplash.com/photo-1507295386538-ddd5e86cd597?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-  "https://images.unsplash.com/photo-1517792844039-e52afb564132?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=629&q=80",
-  "https://images.unsplash.com/photo-1517792844039-e52afb564132?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=629&q=80",
-  "https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80",
-  "https://images.unsplash.com/photo-1496864137062-a12b5defe6be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-  "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-  "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-]
+puts sample
 
-videos_path = [
-  "https://player.vimeo.com/external/344790667.sd.mp4?s=1a24517af312cda1e841ad6d71717e458379d494&profile_id=139&oauth2_token_id=57447761",
-  "https://player.vimeo.com/external/363636035.sd.mp4?s=8d1dd6d4ab6cd0f13e33bce2dd008c5a7c957b78&profile_id=139&oauth2_token_id=57447761",
-  "https://player.vimeo.com/external/363636035.sd.mp4?s=8d1dd6d4ab6cd0f13e33bce2dd008c5a7c957b78&profile_id=139&oauth2_token_id=57447761",
-  "https://player.vimeo.com/external/363636035.sd.mp4?s=8d1dd6d4ab6cd0f13e33bce2dd008c5a7c957b78&profile_id=139&oauth2_token_id=57447761",
-  "https://player.vimeo.com/external/363636035.sd.mp4?s=8d1dd6d4ab6cd0f13e33bce2dd008c5a7c957b78&profile_id=139&oauth2_token_id=57447761",
-  "https://player.vimeo.com/external/363636035.sd.mp4?s=8d1dd6d4ab6cd0f13e33bce2dd008c5a7c957b78&profile_id=139&oauth2_token_id=57447761",
-  "https://player.vimeo.com/external/363636035.sd.mp4?s=8d1dd6d4ab6cd0f13e33bce2dd008c5a7c957b78&profile_id=139&oauth2_token_id=57447761"
-]
 
-def create_block_text(text, trip_id, step_id)
-  b = Block.new
-  b.mediatype = "text"
-  b.text = text
-  b.step = Trip.find(trip_id).steps[step_id - 1]
-  b.save!
-end
+# texts = [
+#   "Le soir, on décide de ne pas camper à Anza Borrego, il fait mille fois trop chaud, et on s’arrête dans les montagnes à Julian, la ville de la pomme, et une ancienne mine d’or. On y était déjà passé il y a deux ans, et ça fait plaisir de retrouver la fraîcheur et la verdure des montagnes. Je trouve une cabane des plus mignonnes sur AirBnb.",
+#   "Notre camping est à 1 bonne heure de route du parc national de Petrified Forest, ou la forêt pétrifiée. On roule sur un plateau, c’est plat à perte de vue, même si la route fait des bonds de temps en temps.",
+#   "Aujourd’hui, c’est un jour de route, du vrai bon road trip comme on l’aime : rouler, traverser des beaux paysages.",
+#   "Il est presque 19h30, après avoir posé les valises au motel, on file à White Sands Dunes, à une quinzaine de minutes de là : le soleil se couche, le ciel est tout noir d’un côté, et de l’autre, c’est festival de rose et bleu, de fin de soirée. Mais le vrai spectacle, c’est marcher dans le sable blanc : on se croirait à Boston en plein hiver, à marcher dans la neige. Magnifique !",
+#   "A notre retour sur le parking du début de chemin, 2 buddies (des mecs, retraités) discutent et nous proposent une bière. On restera discuter avec Duane jusqu’à tard le soir, c’est un ancien ranger qui a fait le Vietnam et qui passe son temps à sillonner le pays dans sa Casita, une petite caravane.",
+#   "Le midi, on fait la pause la plus relaxante du monde, au ranch de Frijole : une oasis de verdure et de fraîcheur en plein désert, toujours dans le parc national (merci le ranger pour le conseil !) On pique-nique puis on fait la sieste sur un banc, en écoutant la source s’écouler. Tout serait parfait si on ne savait pas que des tarentules-vautours et autres bêtes du désert rôdent dans les parages.",
+#   "Le soir, on se refait un barbecue, on regarde les chauve-souris sortir du dessous du pont et puis on écoute de la musique live dans un bar : gros coup de cœur pour l’ambiance de la ville !",
+#   "Notre Airbnb n’est dispo qu’après 15h30, j’ai trouvé une tiny house, et j’ai hâte de voir à quoi ça ressemble. Manu trouve ça bizarre d’avoir choisi un truc minuscule alors qu’on va camper pendant 15 jours (ou presque) mais moi je suis sûre que ça va être super.",
+#   "La ville est toute petite, très touristique, et un peu carton-pâte sur les bords. Même si le côté folko-mytho des multiples musées sur les sorcières peut être décevant, il y a aussi d’autres choses sympa à voir à Salem, car la ville a longtemps été un centre commercial portuaire majeur, et en a gardé quelques vestiges intéressants, de belles maisons, et un superbe musée.",
+#   "Arrivée à destination, nous avons passé trois jours à arpenter tous les quartiers de la ville, mais plus particulièrement la vieille ville. Une ville bouillonnante qui nous a plus immédiatement..",
+#   "Les journées remplies de visites culturelles et de miradors, les soirées occupées par des fiestas, des concerts, des dîners savoureux, cette ville mérite vraiment de s'y attarder un peu.",
+#   "Une fois sur place, nous avons visité cette ville magnifique, son centre historique avec sa place des Armes et sa cathédrale majestueuse mais surtout son sublime couvent dans lequel nous avons passé la majorité de notre temps."
+# ]
 
-def create_block_photos(photos_paths, trip_id, step_id)
-  b = Block.new
-  b.mediatype = "photos"
-  b.step = Trip.find(trip_id).steps[step_id - 1]
-  photos_paths.each do |path|
-    file = URI.open(path)
-    b.files.attach(io: file, filename: "photo.png", content_type: "image/png")
-  end
-  b.save!
-end
+# photos_path = [
+#   "https://images.unsplash.com/photo-1529456559600-c3e56a82b3e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+#   "https://images.unsplash.com/photo-1547044770-89ab01ce15c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+#   "https://images.unsplash.com/photo-1577453824393-9150575ed402?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+#   "https://images.unsplash.com/photo-1592520172240-129bf16547b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80",
+#   "https://images.unsplash.com/photo-1592520172240-129bf16547b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80",
+#   "https://images.unsplash.com/photo-1521058798685-39dd95c33314?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+#   "https://images.unsplash.com/photo-1568910630345-9216afd16d43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+#   "https://images.unsplash.com/photo-1542297849-fd63ad7543fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1527&q=80",
+#   "https://images.unsplash.com/photo-1542297849-fd63ad7543fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1527&q=80",
+#   "https://images.unsplash.com/photo-1542297849-fd63ad7543fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1527&q=80",
+#   "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80",
+#   "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80",
+#   "https://images.unsplash.com/photo-1507295386538-ddd5e86cd597?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+#   "https://images.unsplash.com/photo-1517792844039-e52afb564132?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=629&q=80",
+#   "https://images.unsplash.com/photo-1517792844039-e52afb564132?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=629&q=80",
+#   "https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80",
+#   "https://images.unsplash.com/photo-1496864137062-a12b5defe6be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+#   "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+#   "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+# ]
 
-def create_block_video(video_path, trip_id, step_id)
-  b = Block.new
-  b.mediatype = "video"
-  b.step = Trip.find(trip_id).steps[step_id - 1]
-  file = URI.open(video_path)
-  b.files.attach(io: file, filename: "video.mp4", content_type: "video/mp4")
-  b.save!
-end
+# videos_path = [
+#   "https://player.vimeo.com/external/344790667.sd.mp4?s=1a24517af312cda1e841ad6d71717e458379d494&profile_id=139&oauth2_token_id=57447761",
+#   "https://player.vimeo.com/external/363636035.sd.mp4?s=8d1dd6d4ab6cd0f13e33bce2dd008c5a7c957b78&profile_id=139&oauth2_token_id=57447761",
+#   "https://player.vimeo.com/external/394438734.sd.mp4?s=948877f1cd185b9bb4640eed6da510f5cbfe18ac&profile_id=139&oauth2_token_id=57447761"
+# ]
 
-create_block_text(texts.sample, 1, 1)
-create_block_photos(photos_path.sample(2), 1, 1)
-create_block_text(texts.sample, 1, 1)
-create_block_photos(photos_path.sample(3), 1, 1)
-create_block_video(videos_path.sample, 1, 1)
+# def create_block_text(text, trip_id, step_id)
+#   b = Block.new
+#   b.mediatype = "text"
+#   b.text = text
+#   b.step = Trip.find(trip_id).steps[step_id - 1]
+#   b.save!
+# end
+
+# def create_block_photos(photos_paths, trip_id, step_id)
+#   b = Block.new
+#   b.mediatype = "photos"
+#   b.step = Trip.find(trip_id).steps[step_id - 1]
+#   photos_paths.each do |path|
+#     file = URI.open(path)
+#     b.files.attach(io: file, filename: "photo.png", content_type: "image/png")
+#   end
+#   b.save!
+# end
+
+# def create_block_video(video_path, trip_id, step_id)
+#   b = Block.new
+#   b.mediatype = "video"
+#   b.step = Trip.find(trip_id).steps[step_id - 1]
+#   file = URI.open(video_path)
+#   b.files.attach(io: file, filename: "video.mp4", content_type: "video/mp4")
+#   b.save!
+# end
+
+# create_block_text(texts.sample, 1, 1)
+# create_block_photos(photos_path.sample(2), 1, 1)
+# create_block_text(texts.sample, 1, 1)
+# create_block_photos(photos_path.sample(3), 1, 1)
+# create_block_video(videos_path.sample, 1, 1)
 
 
