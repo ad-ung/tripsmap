@@ -93,27 +93,68 @@ end
 puts "Creation blocks"
 #text, mediatype, step_id
 
+# puts SAMPLE[1][0]
+
+# puts SAMPLE[1][0].slice("mediatype")
+# puts SAMPLE.size
 file = 'seed.yml'
-sample = YAML::load_file(File.join(__dir__, file))
+SAMPLE = YAML::load_file(File.join(__dir__, file))
 
-puts sample[1][0]
+def create_block_text(trip_id, step_id, block_id)
+  b = Block.new(SAMPLE[step_id][block_id])
+  b.step = Trip.find(trip_id).steps[step_id]
+  b.save!
+end
 
-puts sample[1][0].slice("mediatype")
+def create_block_photos(trip_id, step_id, block_id)
+  b = Block.new(SAMPLE[step_id][block_id].slice("mediatype"))
+  b.step = Trip.find(trip_id).steps[step_id]
+  SAMPLE[step_id][block_id]["photos_paths"].each do |path|
+    file = URI.open(path)
+    b.files.attach(io: file, filename: "photo.png", content_type: "image/png")
+  end
+  b.save!
+end
 
-puts sample[1][0]["mediatype"]
+def create_block_video(trip_id, step_id, block_id)
+  b = Block.new(SAMPLE[step_id][block_id].slice("mediatype"))
+  b.step = Trip.find(1).steps[step_id]
+  file = URI.open(SAMPLE[step_id][block_id]["video_path"])
+  b.files.attach(io: file, filename: "video.mp4", content_type: "video/mp4")
+  b.save!
+end
 
-# b = Block.new(sample[1][0].slice("mediatype"))
+SAMPLE.each_with_index do |step, step_id|
+  SAMPLE[step_id].each_with_index do |block, block_id|
+
+  #puts step
+  # puts step_index
+  # puts SAMPLE[step_index].size
+
+    puts "block index:#{block_id}"
+
+    if SAMPLE[step_id][block_id]["mediatype"] === "text"
+      create_block_text(1, step_id, block_id)
+    elsif SAMPLE[step_id][block_id]["mediatype"] === "photos"
+      create_block_photos(1, step_id, block_id)
+    elsif SAMPLE[step_id][block_id]["mediatype"] === "video"
+      create_block_video(1, step_id, block_id)
+    end
+  end
+end
+
+# b = Block.new(SAMPLE[1][0].slice("mediatype"))
 # if b.mediatype === 'text'
 
 
-# b = Block.new(sample[1][0])
+# b = Block.new(SAMPLE[1][0])
 # b.step = Trip.find(1).steps[0]
 # b.save!
 
-# b = Block.new(sample[1][1])
+# b = Block.new(SAMPLE[1][1])
 
 
-# sample[1].each do |block|
+# SAMPLE[1].each do |block|
 #   Block.create! block
 # end
 
