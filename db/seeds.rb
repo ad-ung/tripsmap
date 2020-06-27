@@ -93,23 +93,19 @@ end
 puts "Creation blocks"
 #text, mediatype, step_id
 
-# puts SAMPLE[1][0]
-
-# puts SAMPLE[1][0].slice("mediatype")
-# puts SAMPLE.size
 file = 'seed.yml'
 SAMPLE = YAML::load_file(File.join(__dir__, file))
 
 def create_block_text(trip_id, step_id, block_id)
-  b = Block.new(SAMPLE[step_id][block_id])
-  b.step = Trip.find(trip_id).steps[step_id]
+  b = Block.new(SAMPLE[trip_id][step_id][block_id])
+  b.step = Trip.find(trip_id + 1).steps[step_id]
   b.save!
 end
 
 def create_block_photos(trip_id, step_id, block_id)
-  b = Block.new(SAMPLE[step_id][block_id].slice("mediatype"))
-  b.step = Trip.find(trip_id).steps[step_id]
-  SAMPLE[step_id][block_id]["photos_paths"].each do |path|
+  b = Block.new(SAMPLE[trip_id][step_id][block_id].slice("mediatype"))
+  b.step = Trip.find(trip_id + 1).steps[step_id]
+  SAMPLE[trip_id][step_id][block_id]["photos_paths"].each do |path|
     file = URI.open(path)
     b.files.attach(io: file, filename: "photo.png", content_type: "image/png")
   end
@@ -117,48 +113,32 @@ def create_block_photos(trip_id, step_id, block_id)
 end
 
 def create_block_video(trip_id, step_id, block_id)
-  b = Block.new(SAMPLE[step_id][block_id].slice("mediatype"))
-  b.step = Trip.find(1).steps[step_id]
-  file = URI.open(SAMPLE[step_id][block_id]["video_path"])
+  b = Block.new(SAMPLE[trip_id][step_id][block_id].slice("mediatype"))
+  b.step = Trip.find(trip_id + 1).steps[step_id]
+  file = URI.open(SAMPLE[trip_id][step_id][block_id]["video_path"])
   b.files.attach(io: file, filename: "video.mp4", content_type: "video/mp4")
   b.save!
 end
 
-SAMPLE.each_with_index do |step, step_id|
-  SAMPLE[step_id].each_with_index do |block, block_id|
+# puts SAMPLE[0][0][0]
+# puts SAMPLE.size
 
-  #puts step
-  # puts step_index
-  # puts SAMPLE[step_index].size
+SAMPLE.each_with_index do |trip, trip_id|
+  SAMPLE[trip_id].each_with_index do |step, step_id|
+    SAMPLE[trip_id][step_id].each_with_index do |block, block_id|
 
-    puts "block index:#{block_id}"
+      puts "block index:#{block_id}"
 
-    if SAMPLE[step_id][block_id]["mediatype"] === "text"
-      create_block_text(1, step_id, block_id)
-    elsif SAMPLE[step_id][block_id]["mediatype"] === "photos"
-      create_block_photos(1, step_id, block_id)
-    elsif SAMPLE[step_id][block_id]["mediatype"] === "video"
-      create_block_video(1, step_id, block_id)
+      if SAMPLE[trip_id][step_id][block_id]["mediatype"] === "text"
+        create_block_text(trip_id, step_id, block_id)
+      elsif SAMPLE[trip_id][step_id][block_id]["mediatype"] === "photos"
+        create_block_photos(trip_id, step_id, block_id)
+      elsif SAMPLE[trip_id][step_id][block_id]["mediatype"] === "video"
+        create_block_video(trip_id, step_id, block_id)
+      end
     end
   end
 end
-
-# b = Block.new(SAMPLE[1][0].slice("mediatype"))
-# if b.mediatype === 'text'
-
-
-# b = Block.new(SAMPLE[1][0])
-# b.step = Trip.find(1).steps[0]
-# b.save!
-
-# b = Block.new(SAMPLE[1][1])
-
-
-# SAMPLE[1].each do |block|
-#   Block.create! block
-# end
-
-
 
 # texts = [
 #   "Le soir, on décide de ne pas camper à Anza Borrego, il fait mille fois trop chaud, et on s’arrête dans les montagnes à Julian, la ville de la pomme, et une ancienne mine d’or. On y était déjà passé il y a deux ans, et ça fait plaisir de retrouver la fraîcheur et la verdure des montagnes. Je trouve une cabane des plus mignonnes sur AirBnb.",
