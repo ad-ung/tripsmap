@@ -24,15 +24,15 @@ nav{
   // height: 16px;
   margin-bottom: 8px;
   }
-  a:hover{
-    color: grey;
+}
+
+.icone-action .far {
+  &:hover {
+    @extend .fas
   }
 }
 
 
-.far:hover{
-  @extend .fas;
-}
 
 .fa-globe-americas:hover{
   color: grey;
