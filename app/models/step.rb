@@ -4,7 +4,7 @@ class Step < ApplicationRecord
 
   has_one_attached :cover_picture
 
-  validates :title, presence: true, length: { minimum: 8 }
+  validates :title, presence: true, length: { minimum: 2 }
   validates :location, presence: true
   validates :nb_of_days, presence: true
 end

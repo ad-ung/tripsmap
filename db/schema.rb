@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_100755) do
+ActiveRecord::Schema.define(version: 2020_06_27_092411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_25_100755) do
     t.bigint "step_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "mediatype"
     t.index ["step_id"], name: "index_blocks_on_step_id"
   end
 
