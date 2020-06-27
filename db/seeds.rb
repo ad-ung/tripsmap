@@ -94,9 +94,29 @@ puts "Creation blocks"
 #text, mediatype, step_id
 
 file = 'seed.yml'
-sample = YAML.load(file)
+sample = YAML::load_file(File.join(__dir__, file))
 
-puts sample
+puts sample[1][0]
+
+puts sample[1][0].slice("mediatype")
+
+puts sample[1][0]["mediatype"]
+
+# b = Block.new(sample[1][0].slice("mediatype"))
+# if b.mediatype === 'text'
+
+
+# b = Block.new(sample[1][0])
+# b.step = Trip.find(1).steps[0]
+# b.save!
+
+# b = Block.new(sample[1][1])
+
+
+# sample[1].each do |block|
+#   Block.create! block
+# end
+
 
 
 # texts = [
