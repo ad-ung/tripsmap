@@ -1,0 +1,53 @@
+.card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  color: white;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 2px solid #DDDDDD;
+}
+
+.card-infos {
+  width: 300px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.card-date {
+
+}
+
+.card-step {
+  top: 150px;
+  left: 100px;
+}
+
+.card-step-description {
+  top: 250px;
+  text-align: center;
+}
+
+.container-card-infos {
+  width: 340px;
+  height: 295px;
+}
+
+.card-infos p {
+  padding: 10px 15px;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.01em;
+  font-size: 1rem;
+  line-height: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  font-weight: 525;
+}
+
+a:hover {
+  text-decoration: none;
+}
