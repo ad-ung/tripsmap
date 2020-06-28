@@ -51,8 +51,8 @@ trip_cover_picture_path = [
 def create_trip(title, starts_on, ends_on, cover_picture_path)
   t = Trip.new(title: title, starts_on: starts_on, ends_on: ends_on)
   t.user = User.find(1)
-  # file = URI.open(cover_picture_path)
-  # t.cover_picture.attach(io: file, filename: "pic#{Trip.count + 1}.extension", content_type: "image/png")
+  file = URI.open(cover_picture_path)
+  t.cover_picture.attach(io: file, filename: "pic#{Trip.count + 1}.extension", content_type: "image/png")
   t.save!
 end
 
@@ -64,7 +64,7 @@ puts "Creation steps"
 # title, location, nb_of_days, trip_id, cover_picture
 
 step_titles = [
-  ["Lima, capitale du Pérou", "Bienvenue en Bolivie", "Pica et désert Tarapaca", "Buenos Aires", "Ushuaïa"],
+  ["Lima, capitale du Pérou", "Bienvenue en Bolivie", "Iquique", "Ushuaïa", "Buenos Aires"],
   ["Floride", "Louisiane", "Texas", "Californie", "Nevada", "Arizona", "Utah"],
   ["Rome", "Venise", "Florence", "Milan"]
 ]
@@ -79,8 +79,6 @@ def create_step(title, location, trip_id)
   s = Step.new(title: title, location: location)
   s.nb_of_days = [2,3,4,5].sample
   s.trip_id = trip_id
-  # file = URI.open(cover_picture_path)
-  # s.cover_picture.attach(io: file, filename: "pic#{Step.count + 1}.extension", content_type: "image/png")
   s.save!
 end
 
@@ -93,7 +91,7 @@ end
 puts "Creation blocks"
 #text, mediatype, step_id
 
-file = 'seed.yml'
+file = 'blocks_seed.yml'
 SAMPLE = YAML::load_file(File.join(__dir__, file))
 
 def create_block_text(trip_id, step_id, block_id)
@@ -124,10 +122,13 @@ end
 # puts SAMPLE.size
 
 SAMPLE.each_with_index do |trip, trip_id|
+  puts ""
+  puts "------ trip #{trip_id} ------"
+  puts ""
   SAMPLE[trip_id].each_with_index do |step, step_id|
     SAMPLE[trip_id][step_id].each_with_index do |block, block_id|
 
-      puts "block index:#{block_id}"
+      puts "step: #{step_id} block: #{block_id}"
 
       if SAMPLE[trip_id][step_id][block_id]["mediatype"] === "text"
         create_block_text(trip_id, step_id, block_id)
@@ -139,6 +140,8 @@ SAMPLE.each_with_index do |trip, trip_id|
     end
   end
 end
+
+puts "Seed done :)"
 
 # texts = [
 #   "Le soir, on décide de ne pas camper à Anza Borrego, il fait mille fois trop chaud, et on s’arrête dans les montagnes à Julian, la ville de la pomme, et une ancienne mine d’or. On y était déjà passé il y a deux ans, et ça fait plaisir de retrouver la fraîcheur et la verdure des montagnes. Je trouve une cabane des plus mignonnes sur AirBnb.",
