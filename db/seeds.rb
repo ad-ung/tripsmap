@@ -94,6 +94,42 @@ puts "Creation blocks"
 file = 'blocks_seed.yml'
 SAMPLE = YAML::load_file(File.join(__dir__, file))
 
+def attach_file_to_block(path, mediatype, b)
+  file = URI.open(path)
+  if mediatype === "photos"
+    b.files.attach(io: file, filename: "photo.png", content_type: "image/png")
+  elsif mediatype === "video"
+    b.files.attach(io: file, filename: "video.mp4", content_type: "video/mp4")
+  end
+end
+
+def create_block(trip_id, step_id, block_id)
+  block = SAMPLE[trip_id][step_id][block_id]
+  b = Block.new(block.slice("mediatype"))
+  b.step = Trip.find(trip_id + 1).steps[step_id]
+  if block["mediatype"] === "text"
+    b.text = block["text"]
+  elsif block["mediatype"] === "photos"
+    block["photos_paths"].each { |path| attach_file_to_block(path, "photos", b) }
+  elsif block["mediatype"] === "video"
+    attach_file_to_block(block["video_path"], "video", b)
+  end
+  b.save!
+end
+
+SAMPLE.each_with_index do |trip, trip_id|
+  puts ""
+  puts "------ trip #{trip_id} ------"
+  puts ""
+  SAMPLE[trip_id].each_with_index do |step, step_id|
+    SAMPLE[trip_id][step_id].each_with_index do |block, block_id|
+      puts "step: #{step_id} block: #{block_id}"
+      create_block(trip_id, step_id, block_id)
+    end
+  end
+end
+
+=begin
 def create_block_text(trip_id, step_id, block_id)
   b = Block.new(SAMPLE[trip_id][step_id][block_id])
   b.step = Trip.find(trip_id + 1).steps[step_id]
@@ -118,6 +154,8 @@ def create_block_video(trip_id, step_id, block_id)
   b.save!
 end
 
+
+
 # puts SAMPLE[0][0][0]
 # puts SAMPLE.size
 
@@ -140,6 +178,8 @@ SAMPLE.each_with_index do |trip, trip_id|
     end
   end
 end
+
+=end
 
 puts "Seed done :)"
 
