@@ -1,3 +1,22 @@
 
+<div class='container-index'>
+  <p> Choisissez un voyage dans lequel vous souhaitez écrire une nouvelle étape:</p>
+  <div class="row card-index new-trip justify-content-center align-items-center">
+    <p> Nouveau voyage </p>
+  </div>
+
+  <% @trips.last(4).each do |trip| %>
+    <div class="row card-index ">
+      <div class="photo col-3"> photo</div>
+      <div class="content col-9">
+        <div id="trip-title"><%= trip.title %></div>
+        <div id="trip-dates">
+          <%= trip.starts_on %> - <%= trip.ends_on %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 
 

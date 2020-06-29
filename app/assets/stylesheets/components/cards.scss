@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,800;1,400&display=swap');
+
 .container-index{
   padding: 0px 25px;
   padding-top: 35px;
+  font-family: Open Sans;
+  font-size: 13px;
 }
 
 
@@ -11,19 +15,48 @@
   width: 345px;
   height: 89px;
   border-radius: 5px;
+  color: rgba(0, 0, 0, 0.85);
   text-align : center;
 
 }
 
 .new-trip{
   background-color: #E26E2D;
+  margin-bottom: 30px;
+  border: none;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.30);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.03em;
 }
 
 .content {
-
+  display: flex;
+  flex-direction : column;
   background-color: #fff;
   border: 1px solid #eaeaea;
   color: #202020;
   text-decoration: none;
-  text-align: center
+  text-align: center;
+  font-family: Open Sans;
+}
+
+#trip-title {
+  margin: auto;
+  font-weight: 800;
+  font-size: 13px
+
+}
+
+#trip-dates{
+  margin: auto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: rgba(0, 0, 0, 0.85);
 }

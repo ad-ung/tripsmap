@@ -14,10 +14,8 @@ class StepsController < ApplicationController
 
   private
 
-
   def step_params
     params.require(:step).permit(:title, :location, :nb_of_days)
   end
-
 
 end
