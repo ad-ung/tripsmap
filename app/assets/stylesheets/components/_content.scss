@@ -1,0 +1,39 @@
+p {
+  padding: 0px 1rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+  font-family: helvetica;
+  margin-top: 1rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+h6 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.trip-infos-data {
+  font-size: 1.05rem;
+}
+
+.trip-infos-data p {
+  font-size: 1.05rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.profile-map {
+  width: 100%;
+}
+
