@@ -14,34 +14,11 @@
 }
 
 .new-trip{
-  position: absolute;
-  width: 300px;
-  left: calc(50% - 300px/2);
-  top: 57.02%;
-  bottom: 38.41%;
+p{
+font-weight: 800;
 
-  background: #E26E2D;
-  border-radius: 50px;
+}
 
-  p{
-  position: absolute;
-  width: 239.75px;
-  left: calc(50% - 239.75px/2 + 1.03px);
-  top: 57.63%;
-  bottom: 39.29%;
-
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.01em;
-
-  color: #FFFFFF;
-  }
 }
 
 .content {
