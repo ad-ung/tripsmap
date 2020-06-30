@@ -10,14 +10,35 @@
     <form>
       <div class="form-group">
       <label for="formGroupExampleInput">Donnez un titre à votre étape</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+      <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown la majestueuse">
     </div>
-    <%= simple_form_for :search, method: "GET", html: { class: 'form justify-content-center' } do |f| %>
-    <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg field", id: 'city' } %>
-    <%= f.input :title, as: :string, placeholder: "Un voyage au bout du monde", label: "Donnez un titre à votre étape", input_html:{ class: "form-control-lg bg-white field", id:'titletrip', style: "width: 180px; margin: 8px;" } %>
-    <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: "Date de début", input_html: { class: "form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" }  %>
-    <%= f.input :photodecouverture, as: :boolean, placeholder: "Ajouter une photo de couverture", input_html:{check: false, id: "photodecouverture",style: "width: 180px; margin: 8px;" } %>
-    <%= f.button :submit, "C'est parti!", disabled: true, class: "btn btn-info", id:'buttoncreate', style: "display:block;" %>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Lieu de l'étape:</label>
+      <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Lieu de l'étape:</label>
+      <input id="autocomplete"
+             placeholder="Enter your address"
+             onFocus="geolocate()"
+             type="text"/>
+    </div>
+    <%= simple_form_for :search, method: "POST", html: { class: 'form justify-content-center' } do |f| %>
+    <%= f.input :city, placeholder: "Queenstown", label: false, label: "Lieu de l'étape", input_html: { class: "form-control-lg field", id: 'city' } %>    <%= f.input :title, as: :string, placeholder: "Un voyage au bout du monde", label: "Donnez un titre à votre étape", input_html:{ class: "form-control-lg bg-white field", id:'titletrip', style: "width: 180px; margin: 8px;" } %>
+    <%= f.input :starts_on, as: :string, placeholder: "-", label: "Durée", input_html: { class: "form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" }  %>
+    <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: "Date de fin", input_html: { class: "form-control-lg bg-white field", id:'booking_end_date', style: "width: 180px; margin: 8px;" } %>
     <% end %>
   </div>
 </div>
+<!-- <div id="pac-container">
+        <input id="pac-input" type="text"
+            placeholder="Enter a location">
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>
+      <span id="place-address"></span>
+    </div>
+ -->
