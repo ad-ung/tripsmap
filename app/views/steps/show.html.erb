@@ -1,2 +1,12 @@
-<h1>Steps#show</h1>
-<p>Find me in app/views/steps/show.html.erb</p>
+<% #raise %>
+<h2><%= @trip.title%></h2>
+<h5><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
+<p>Etape <%= @step.id %> sur <%= @trip.steps.count %> : <%= @step.title %> </p>
+<% @blocks.each do |block| %>
+  <% if block.mediatype === "photos" %>
+    <h3>Block <%= block.id %></h3>
+    <% block.files.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+    <% end %>
+  <% end %>
+<% end %>
