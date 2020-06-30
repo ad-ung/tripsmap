@@ -1,0 +1,111 @@
+0:
+  0:
+    - mediatype: text
+      text: Arrivée à la capitale sur la côte pacifique et aride du Pérou. Nous avons passé trois jours à arpenter tous les quartiers de Lima, mais plus particulièrement Barranco, Cercado et Pueblo Libre. Une ville bouillonnante qui nous a plus immédiatement...
+    - mediatype: photos
+      photos_paths: ["https://cdn.generationvoyage.fr/2020/04/lima-cta.jpg"]
+    - mediatype: text
+      text: Lorsque nous déambulons dans Barranco, nous trouvons une ambiance détendue, musicale, fleurie et noctambule. C'est un quartier qui semble en pleine effervescence artistique ! Ici les bars à concerts, musées, jolies boutiques et ruelles de charme ne manquent pas. Mais surtout, des touches de couleurs sont présentes un peu partout.
+    - mediatype: photos
+      photos_paths: [
+        "https://static.wixstatic.com/media/108ff4_824ffa5be5b94ca0bc85700ba7b0e98f~mv2.jpg/v1/fill/w_740,h_388,al_c,q_90,usm_0.66_1.00_0.01/108ff4_824ffa5be5b94ca0bc85700ba7b0e98f~mv2.webp",
+        "https://www.explo.com/media/catalog/category/basilica-catedral-metropolitana-de-lima-03.jpg",
+        "https://voyages.michelin.fr/sites/default/files/styles/poi_slideshow_big/public/images/travel_guide/NX-24375.jpg?itok=38p7qjXt"
+      ]
+
+  1:
+    - mediatype: text
+      text: La Isla del Sol est la plus grande île du lac Titicaca, elle mesure 9,6 km de long sur 4,6 km de large. Le point culminant de l'île du soleil se nomme la colline Chequesan qui a une altitude de 4 070 mètres, dépassant de 260 mètres le niveau du lac. La Isla del Sol est peuplée par les boliviens d'origines quechas et aymaras, ils exercent les métiers d'artisans, pêcheurs, agriculteurs ou guides touristiques.
+    - mediatype: photos
+      photos_paths: ["https://static.wixstatic.com/media/108ff4_0b9706b279c1494fbb6a552da50e0cac~mv2.jpg/v1/fill/w_940,h_403,al_c,q_90,usm_0.66_1.00_0.01/108ff4_0b9706b279c1494fbb6a552da50e0cac~mv2.webp"]
+    - mediatype: text
+      text: La légende inca raconte que le dieu Viracocha, dieu créateur, roi de la foudre et des tempêtes, a créé l'univers en sortant des eaux du lac Titicaca. Avant sa venue sur Terre, le monde était sombre. C'est alors qu'à son apparition, il créa le soleil en lui ordonnant de se lever derrière l'île du soleil. Il créa aussi la lune à cet endroit (isla de la luna). La Isla del Sol avait auparavant pour nom La Isla Titicaca, en référence au temple sacré Titi Kharka qui se trouve sur le nord de l'ïle. C'est de là que vient le nom du lac et non pas l'inverse.
+    - mediatype: photos
+      photos_paths: [
+        "https://static.wixstatic.com/media/108ff4_9df681490ac64147a2b91150b2a266e2~mv2.jpg/v1/fill/w_740,h_416,al_c,q_90,usm_0.66_1.00_0.01/108ff4_9df681490ac64147a2b91150b2a266e2~mv2.webp",
+        "https://static.wixstatic.com/media/108ff4_a1f0b1e997e6485ea884f918479f6650~mv2.jpg/v1/fill/w_740,h_416,al_c,q_90,usm_0.66_1.00_0.01/108ff4_a1f0b1e997e6485ea884f918479f6650~mv2.webp",
+        "https://static.wixstatic.com/media/108ff4_a6bc88885cbc44b08b53a95827e5d29f~mv2.jpg/v1/fill/w_740,h_387,al_c,q_90,usm_0.66_1.00_0.01/108ff4_a6bc88885cbc44b08b53a95827e5d29f~mv2.webp"
+      ]
+
+  2:
+    - mediatype: text
+      text: Nous devions rejoindre Antofagasta donc nous sommes passés par Iquique, étrange ville balnéaire entre mer et désert, abritant une immense dune de sable en bord de route et un cimetière pour chiens face à l'océan.
+    - mediatype: photos
+      photos_paths: [
+        "https://images.myguide-cdn.com/chile/companies/iquique/large/iquique-523213.jpg",
+        "https://www.launion.com.py/wp-content/uploads/2016/06/IMG-20160613-WA00381.jpg"
+      ]
+
+  3:
+    - mediatype: photos
+      photos_paths: ["https://www.atypika.ca/media/k2/items/cache/f3fa6960b52e3c842fd94fee5eb122ab_XL.jpg"]
+    - mediatype: text
+      text: Nous avons consacré notre première journée à découvrir la Laguna Esmeralda le matin, puis arpenter les rues et humer l'ambiance locale l'après midi. Notre seconde journée a été consacrée à une sortie en mer sur Canal de Beagle et la dernière au Parc National de Terre de Feu.
+    - mediatype: photos
+      photos_paths: [
+        "https://static.wixstatic.com/media/108ff4_819df3a82ce94a48978d4a2bf21294e8~mv2.jpg/v1/fill/w_740,h_416,al_c,q_90,usm_0.66_1.00_0.01/108ff4_819df3a82ce94a48978d4a2bf21294e8~mv2.webp",
+        "https://static.wixstatic.com/media/108ff4_2d3ef51e279b47cc9bd2b939b0e14ebd~mv2.jpg/v1/fill/w_740,h_416,al_c,q_90,usm_0.66_1.00_0.01/108ff4_2d3ef51e279b47cc9bd2b939b0e14ebd~mv2.webp"
+      ]
+    - mediatype: text
+      text: Parmi les chose à visiter à Ushuaïa, il y a sans conteste le Parc National de la Terre de feu. Ce territoire classé en 1960 est montagneux de type sub-antarctique. Il est situé à 12 kilomètres d’Ushuaïa et est le parc national le plus austral d’Argentine.
+    - mediatype: photos
+      photos_paths: [
+        "https://www.lovetrotters.net/wp-content/uploads/2015/03/chile-torres-del-paine-03087.jpg",
+        "https://i.pinimg.com/originals/1f/0e/01/1f0e011c789a7a021d717ebf19cef798.jpg",
+        "https://lifestyle.boursorama.com/wp-content/uploads/2017/02/iStock-499125448-770x513.jpg",
+        "https://media.routard.com/image/47/2/torres-del-paine-parc-chili.1533472.jpeg"
+      ]
+
+  4:
+    - mediatype: text
+      text: Buenos Aires est une ville énorme au centre animé. Comme toute capitale, il faudrait des années pour en découvrir tous les attraits. Palermo est le quartier où nous avions élu domicile. Plus précisément, nous habitions à Palermo Soho, près de la place d’Arménie. C’est un coin assez hipster où il y a énormément de petites boutiques, bars et cafés sympas. Parfait pour vivre et travailler au coeur de la capitale.
+    - mediatype: photos
+      photos_paths: [
+        "https://photo.comptoir.fr/asset/guide/1429/615159-1260x630-centre-ville-buenos-aires-argentine.jpg",
+        "https://www.connections.be/~/media/images/connections/vliegtickets-f/zuid-amerika/bueonas-aires/buenosairescongres.jpg"
+      ]
+    - mediatype: text
+      text: La Boca est un quartier célèbre de Buenos Aires, situé au sud-est du centre de la capitale. Il s’appelle ainsi car il se situe à l’embouchure du Riachuelo. C’est un quartier populaire qui est devenu extrêmement touristique de par ses maisons colorées, son street art et ses spectacles de tango.
+    - mediatype: photos
+      photos_paths: ["https://1.bp.blogspot.com/-LnY8j1YxlNo/UOmPLfPmqFI/AAAAAAAAAfo/h1AHqjebSec/s1600/P1040875.JPG"]
+    - mediatype: text
+      text: Fin de journée, nous en avons décidé de nous faire plaisir pour faire une petite balade en hauteur, pour avoir une vue complète sur la ville. Magnifique journée qui se termine. Quelle sera donc la prochaine étape ?
+    - mediatype: video
+      video_path: "https://player.vimeo.com/external/371349870.sd.mp4?s=580d79d109a81a1f0a83b6db6e170d833d88da27&profile_id=139&oauth2_token_id=57447761"
+
+1:
+  0:
+    - mediatype: photos
+      photos_paths: ["https://img-4.linternaute.com/TMfoF9eOzHMmmeZ9NLuk7ggpnf4=/1240x/smart/e906c2f864fb41218923f3a858161fff/ccmcms-linternaute/10779264.jpg"]
+  1:
+    - mediatype: photos
+      photos_paths: ["https://www.jeparsauxusa.com/wp-content/uploads/2017/11/louisiane.jpg"]
+  2:
+    - mediatype: photos
+      photos_paths: ["https://photo.comptoir.fr/photos/voyage/1637/etats-unis/big-bend-national-park/parc-national-de-big-bend-texas-etats-unis-613127-1280x640.jpg"]
+  3:
+    - mediatype: photos
+      photos_paths: ["https://www.jeparsauxusa.com/wp-content/uploads/2017/11/californie.jpg"]
+  4:
+    - mediatype: photos
+      photos_paths: ["https://media.tacdn.com/media/attractions-splice-spp-674x446/07/7c/cc/6b.jpg"]
+  5:
+    - mediatype: photos
+      photos_paths: ["https://web.static-rmg.be/if/c_crop,w_1000,h_666,x_0,y_0,g_center/c_fit,w_620,h_412/81efa933c9da9e9bb21f7f4a08cc59e4.jpg"]
+  6:
+    - mediatype: photos
+      photos_paths: ["https://3wrxqs36sylaoef0l2imhgz1-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/6-shutterstock_325966574-bis-e1490800397170-670x400.jpg"]
+
+2:
+  0:
+    - mediatype: photos
+      photos_paths: ["https://img.lemde.fr/2019/04/15/41/0/500/333/688/0/60/0/875bc88_4S376NSwaGX_d8P5dfgCYl5c.jpg"]
+  1:
+    - mediatype: photos
+      photos_paths: ["https://img-4.linternaute.com/XgC-fYZPQGbSmTLoO4e_GKd3DaU=/660x366/smart/64f33616425f4532a7d864613333af12/ccmcms-linternaute/10924262.jpg"]
+  2:
+    - mediatype: photos
+      photos_paths: ["https://a.travel-assets.com/findyours-php/viewfinder/images/res40/25000/25996-share-image.jpg"]
+  3:
+    - mediatype: photos
+      photos_paths: ["https://a.cdn-hotels.com/gdcs/production89/d367/e1952dc1-3a3e-47e9-9dac-ff344d2e5836.jpg"]

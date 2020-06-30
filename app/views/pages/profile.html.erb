@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between">
+  <!-- <img class="mt-2" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1593113188/TRIPSMAP/TRIPSMAP_TripsMap_kc9ki7-media_lib_thumb_daviif.png" alt=""> -->
+  <div class="logo">
+    TripsMap
+  </div>
+  <button type="button" class="btn btn-light mt-4">Editer mon compte</button>
+</div>
+<div class="profile-infos">
+  <div class="main-infos" style="text-align: center">
+    <img class="avatar mt-5" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg" alt="">
+    <h5>Alexandre</h5>
+    <p>Aventurier chevronné, j'aime parcourir le monde pour découvrir des paysages exceptionnels que nous offre la nature.</p>
+  </div>
+  <div class="inline-infos-trips">
+  <div class="d-flex justify-content-between text-center trip-infos-data">
+    <p><strong><span style="font-size: 1.5rem">35</span></strong> étapes</p>
+    <p><strong><span style="font-size: 1.5rem">14</span></strong> pays</p>
+    <p><strong><span style="font-size: 1.5rem">250</span></strong> abonnés</p>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="profile-map mt-3 text-center">
+<img src="https://res.cloudinary.com/datbhgbcq/image/upload/v1593180337/TRIPSMAP/image_1_qmxanz.png" alt="">
+</div>
+
+<div class="container text-center">
+<h5 class="mt-4">Mes voyages</h5>
+<div class="row">
+  <% @trips = Trip.all %>
+  <% @trips.each do |trip| %>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+      <%= link_to trip_path(trip) do %>
+        <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path trip.cover_picture.key %>');">
+          <div class="card-infos">
+            <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
+              <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{l(trip.starts_on, format: '%B %Y', locale: 'fr')}" %></span>
+              <h6 style="margin: 0 auto;">5 étapes</h6>
+              <p class="mb-2" style="margin: 0 auto;"><%= trip.title %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+
