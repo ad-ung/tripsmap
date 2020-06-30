@@ -1,24 +1,3 @@
 <h1>Steps#create</h1>
 <p>Find me in app/views/steps/create.html.erb</p>
 
-<div id="creerunvoyage" class="text-center">
-  <h1>Racontez un nouveau voyage</h1>
-</div>
-
-<div id="formnew">
-  <form>
-    <div class="form-group">
-    <label for="formGroupExampleInput">Donnez un titre à votre voyage</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-  </div>
-  <%= simple_form_for :search, method: "POST", html: { class: 'form justify-content-center' } do |f| %>
-
-  <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" }, label: "Date de début" %>
-  <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white field", id:'booking_end_date', style: "width: 180px; margin: 8px;" }, label: "Date de fin" %>
-  <% end %>
-  <div>
-    <input type="checkbox" id="datedefin" name="subscribe" value="datedefin">
-    <label for="subscribeN">Je ne connais pas encore la dat de fin</label>
-  </div>
-  </form>
-</div>
