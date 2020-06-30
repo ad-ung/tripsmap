@@ -3,11 +3,8 @@
 <div class='container'>
 
   <p class = "mt-5"> Choisissez un voyage dans lequel vous souhaitez écrire une nouvelle étape:</p>
-  <div class= "new-trip ">
-    <p class="justify-content-center align-items-center"> Nouveau voyage </p>
-  </div>
-    <div class="row">
-    <% @trips.last(4).each do |trip| %>
+    <div class="row mt-5">
+    <% @trips.last(5).each do |trip| %>
     <div class="col-12">
       <%= link_to new_trip_step_path(trip), class:"card-link" do%>
           <div class="d-flex">
@@ -26,6 +23,9 @@
       <% end %>
       </div>
     <% end %>
+  </div>
+  <div class= "new-trip ">
+    <p class="justify-content-center align-items-center"> Nouveau voyage </p>
   </div>
 </div>
 
