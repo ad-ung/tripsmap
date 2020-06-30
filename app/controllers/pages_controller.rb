@@ -11,5 +11,7 @@ class PagesController < ApplicationController
   end
 
   def write
+    @trips = Trip.all
+    # @trip = Trip.find(params[:trip_id])
   end
 end
