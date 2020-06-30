@@ -15,7 +15,6 @@
   <body>
     <% if current_page?(root_path) %>
       <%= yield %>
-      <%= render 'shared/navbar' %>
     <% else %>
       <div class="container">
         <%= render 'shared/logo' unless @disable_logo %>

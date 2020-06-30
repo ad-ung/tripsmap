@@ -1,5 +1,3 @@
-
-
 .btn-grey-connexion-new {
   color: white;
   background: rgba(223, 217, 210, 0.39);
@@ -12,10 +10,23 @@
 }
 .logo-big-new {
   color: white;
+  font-family: 'Comfortaa', cursive;
+  font-size: 34px;
+  font-weight: bold;
+  line-height: 31px;
+  letter-spacing: 0.06em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .tagline-new {
   color: white;
   letter-spacing: 0.06em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  width: 92%;
+  margin: 0 auto;
 }
 .white-new {
   color: white;
@@ -25,21 +36,26 @@
   background: #E26E2D;
   border-radius: 50px;
   font-style: normal;
-  font-weight: bold;
   text-align: center;
-  font-size: 20px;
   margin: 8px;
-  width: 150px;
-  height: 48px;
+  width: 200px;
+  height: 40px;
   text-align: center;
   color: #FFFFFF;
+}
+
+.btn-orange-new:hover {
+  color: white;
+  opacity: 0.7;
 }
 .homepage-new {
   background-image: url("https://www.costarica-voyage.com/wp-content/uploads/nils-nedel-onpgbpns3cs-unsplash-2-1280x800.jpg");
   height: 100vh;
   background-size: cover;
   width: 100vw;
-  background-position: center;
+  background-position: 58%;
+  background-size: cover;
+  filter: brightness(90%);
 }
 
 .logo-big-new {
