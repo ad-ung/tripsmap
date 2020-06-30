@@ -1,2 +1,23 @@
-<h1>Steps#new</h1>
-<p>Find me in app/views/steps/new.html.erb</p>
+<div id="creerunvoyage" class="text-center">
+  <h1>L'aventure en Nouvelle-Zélande</h1>
+  <br>
+  <h7 class= "text-muted"> 1er juillet - à déterminer</h3>
+</div>
+<br>
+
+<div id="formnew">
+  <div class="container">
+    <form>
+      <div class="form-group">
+      <label for="formGroupExampleInput">Donnez un titre à votre étape</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+    </div>
+    <%= simple_form_for :search, method: "GET", html: { class: 'form justify-content-center' } do |f| %>
+    <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg field", id: 'city' } %>
+    <%= f.input :title, as: :string, placeholder: "Un voyage au bout du monde", label: "Donnez un titre à votre étape", input_html:{ class: "form-control-lg bg-white field", id:'titletrip', style: "width: 180px; margin: 8px;" } %>
+    <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: "Date de début", input_html: { class: "form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" }  %>
+    <%= f.input :photodecouverture, as: :boolean, placeholder: "Ajouter une photo de couverture", input_html:{check: false, id: "photodecouverture",style: "width: 180px; margin: 8px;" } %>
+    <%= f.button :submit, "C'est parti!", disabled: true, class: "btn btn-info", id:'buttoncreate', style: "display:block;" %>
+    <% end %>
+  </div>
+</div>
