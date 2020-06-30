@@ -50,7 +50,7 @@ trip_cover_picture_path = [
 
 def create_trip(title, starts_on, ends_on, cover_picture_path)
   t = Trip.new(title: title, starts_on: starts_on, ends_on: ends_on)
-  t.user = User.find(1)
+  t.user = User.first
   file = URI.open(cover_picture_path)
   t.cover_picture.attach(io: file, filename: "pic#{Trip.count + 1}.extension", content_type: "image/png")
   t.save!
