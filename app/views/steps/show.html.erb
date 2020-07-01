@@ -1,7 +1,7 @@
 <h2 class="trip-title"><%= @trip.title%></h2>
 <h5 class="trip-dates"><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
 <div class="step-infos bg-light py-3">
-  <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step.id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
+  <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step_id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
   <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>
 </div>
 
