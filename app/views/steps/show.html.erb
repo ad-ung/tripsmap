@@ -1,12 +1,25 @@
-<% #raise %>
 <h2><%= @trip.title%></h2>
 <h5><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
 <p>Etape <%= @step.id %> sur <%= @trip.steps.count %> : <%= @step.title %> </p>
+
 <% @blocks.each do |block| %>
   <% if block.mediatype === "photos" %>
     <h3>Block <%= block.id %></h3>
-    <% block.files.each do |photo| %>
-      <%= cl_image_tag photo.key %>
+    <% if block.files.size % 2 === 0 %>
+      <div class="pictures" >
+        <% block.files.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="pictures" >
+        <% block.files[0..-2].each do |photo| %>
+          <%= cl_image_tag photo.key %>
+        <% end %>
+      </div>
+      <div class="picture-big">
+        <%= cl_image_tag block.files[-1].key %>
+      </div>
     <% end %>
   <% end %>
 <% end %>
