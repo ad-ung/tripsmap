@@ -23,12 +23,28 @@
     <% elsif block.mediatype === "photos" %>
       <!-- <h3>Block <%= block.id %></h3> -->
       <% if block.files.size % 2 === 0 %>
-        <div class="pictures" >
-          <% block.files.each do |photo| %>
-            <%= cl_image_tag photo.key %>
-          <% end %>
-        </div>
+
+        <% if block.files.size === 4 %>
+          <div class="row">
+            <div class="col-5" style="padding-right: 2px;"><%= cl_image_tag block.files[0].key %></div>
+            <div class="col-7" style="padding-left: 2px;"><%= cl_image_tag block.files[1].key %></div>
+          </div>
+          <div class="row">
+            <div class="col-8" style="padding-right: 2px;"><%= cl_image_tag block.files[2].key %></div>
+            <div class="col-4" style="padding-left: 2px;"><%= cl_image_tag block.files[3].key %></div>
+          </div>
+
+        <% else %>
+          <div class="pictures" >
+            <% block.files.each do |photo| %>
+              <%= cl_image_tag photo.key %>
+            <% end %>
+          </div>
+        <% end %>
+
+
       <% else %>
+
         <div class="pictures" >
           <% block.files[0..-2].each do |photo| %>
             <%= cl_image_tag photo.key %>
@@ -37,6 +53,7 @@
         <div class="picture-big">
           <%= cl_image_tag block.files[-1].key %>
         </div>
+
       <% end %>
     <% end %>
   <% end %>
