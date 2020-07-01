@@ -1,25 +1,43 @@
-<h2><%= @trip.title%></h2>
-<h5><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
-<p>Etape <%= @step.id %> sur <%= @trip.steps.count %> : <%= @step.title %> </p>
+<h2 class="trip-title"><%= @trip.title%></h2>
+<h5 class="trip-dates"><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
+<div class="step-infos bg-light py-3">
+  <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step.id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
+  <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>
+</div>
 
-<% @blocks.each do |block| %>
-  <% if block.mediatype === "photos" %>
-    <h3>Block <%= block.id %></h3>
-    <% if block.files.size % 2 === 0 %>
-      <div class="pictures" >
-        <% block.files.each do |photo| %>
-          <%= cl_image_tag photo.key %>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="pictures" >
-        <% block.files[0..-2].each do |photo| %>
-          <%= cl_image_tag photo.key %>
-        <% end %>
-      </div>
-      <div class="picture-big">
-        <%= cl_image_tag block.files[-1].key %>
-      </div>
+</div>
+
+<% if @blocks[0].mediatype === "photos" %>
+  <div class="step-map mt-3 text-center" style="margin-bottom: 30px;">
+<% else %>
+  <div class="step-map mt-3 mb-2 text-center">
+<% end %>
+  <img src="https://res.cloudinary.com/datbhgbcq/image/upload/v1593180337/TRIPSMAP/image_1_qmxanz.png" alt="">
+</div>
+
+<div class="container">
+  <% @blocks.each do |block| %>
+
+    <% if block.mediatype === "text" %>
+      <p class="step-text"><%= block.text %></p>
+    <% elsif block.mediatype === "photos" %>
+      <!-- <h3>Block <%= block.id %></h3> -->
+      <% if block.files.size % 2 === 0 %>
+        <div class="pictures" >
+          <% block.files.each do |photo| %>
+            <%= cl_image_tag photo.key %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="pictures" >
+          <% block.files[0..-2].each do |photo| %>
+            <%= cl_image_tag photo.key %>
+          <% end %>
+        </div>
+        <div class="picture-big">
+          <%= cl_image_tag block.files[-1].key %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
