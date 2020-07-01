@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @disable_logo = true
+    @disable_container = true
   end
 
   def profile
@@ -9,5 +11,7 @@ class PagesController < ApplicationController
   end
 
   def write
+    @trips = Trip.all
+    # @trip = Trip.find(params[:trip_id])
   end
 end

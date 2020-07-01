@@ -12,13 +12,17 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= render 'shared/logo' unless @disable_logo %>
-      <%= render 'shared/flashes' %>
-
+    <% if current_page?(root_path) %>
       <%= yield %>
-      <%= render 'shared/white_space' %>
-    </div>
-      <%= render 'shared/navbar' %>
-  </body>
+    <% else %>
+      <div class="container">
+        <%= render 'shared/logo' unless @disable_logo %>
+        <%= render 'shared/flashes' %>
+
+        <%= yield %>
+        <%= render 'shared/white_space' %>
+      </div>
+        <%= render 'shared/navbar' %>
+    </body>
+  <% end %>
 </html>
