@@ -20,6 +20,10 @@
 
     <% if block.mediatype === "text" %>
       <p class="step-text"><%= block.text %></p>
+    <% elsif block.mediatype === "video" %>
+      <% block.files.each do |video| %>
+        <%= cl_video_tag video.key, controls: true, width: '345' %>
+      <% end %>
     <% elsif block.mediatype === "photos" %>
       <!-- <h3>Block <%= block.id %></h3> -->
       <% if block.files.size % 2 === 0 %>
