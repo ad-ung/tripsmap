@@ -32,6 +32,7 @@
 
 .picture-big img {
   width: 100% !important;
-  height: 150px !important;
+  height: 200px !important;
   margin: 2px;
+  object-fit: cover;
 }
