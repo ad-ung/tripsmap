@@ -1,11 +1,17 @@
+body {
+  background-color: #fff;
+  color: rgba(0,0,0,0.8);
+}
+
 p {
   padding: 0px 1rem;
   color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
 }
 
 h1, h2, h3, h4, h5 {
   font-weight: bold;
-  font-family: helvetica;
+  font-family: 'Open Sans', sans-serif;
   margin-top: 1rem;
 }
 

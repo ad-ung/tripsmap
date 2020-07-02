@@ -1,132 +1,63 @@
-<h1>Steps#show</h1>
-<p>Find me in app/views/steps/show.html.erb</p>
-
-<h1>Masonry - animate item size</h1>
-
-<p>Click items to toggle size</p>
-
-<div class="grid">
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
-  <div class="grid-item">
-    <div class="grid-item-content"></div>
-  </div>
+<h2 class="trip-title"><%= @trip.title%></h2>
+<h5 class="trip-dates"><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
+<div class="step-infos bg-light py-3">
+  <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step_id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
+  <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>
 </div>
 
-<style>
-  * { box-sizing: border-box; }
+</div>
 
-body { font-family: sans-serif; }
+<% if @blocks[0].mediatype === "photos" %>
+  <div class="step-map mt-3 text-center" style="margin-bottom: 30px;">
+<% else %>
+  <div class="step-map mt-3 mb-2 text-center">
+<% end %>
+  <img src="https://res.cloudinary.com/datbhgbcq/image/upload/v1593180337/TRIPSMAP/image_1_qmxanz.png" alt="">
+</div>
 
-.grid {
-  background: #EEE;
-  max-width: 1200px;
-}
+<div class="container">
+  <% @blocks.each do |block| %>
 
-.grid-item {
-  float: left;
-}
+    <% if block.mediatype === "text" %>
+      <p class="step-text"><%= block.text %></p>
+    <% elsif block.mediatype === "video" %>
+      <% block.files.each do |video| %>
+        <%= cl_video_tag video.key, controls: true, width: '345' %>
+      <% end %>
+    <% elsif block.mediatype === "photos" %>
+      <% if block.files.size % 2 === 0 %>
 
-/* item is invisible, but used for layout */
-.grid-item,
-.grid-item-content {
-  width: 120px;
-  height: 120px;
-}
+        <% if block.files.size === 4 %>
+          <div class="row">
+            <div class="col-5" style="padding-right: 2px;"><%= cl_image_tag block.files[0].key %></div>
+            <div class="col-7" style="padding-left: 2px;"><%= cl_image_tag block.files[1].key %></div>
+          </div>
+          <div class="row">
+            <div class="col-8" style="padding-right: 2px;"><%= cl_image_tag block.files[2].key %></div>
+            <div class="col-4" style="padding-left: 2px;"><%= cl_image_tag block.files[3].key %></div>
+          </div>
 
-/* grid-item-content is visible, and transitions size */
-.grid-item-content {
-  width: 120px;
-  height: 120px;
-  background: #D26;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
-  -webkit-transition: width 0.4s, height 0.4s;
-          transition: width 0.4s, height 0.4s;
-}
-
-.grid-item:hover .grid-item-content {
-  border-color: white;
-  background: #A2C;
-  cursor: pointer;
-}
-
-/* both item and item content change size */
-.grid-item.is-expanded,
-.grid-item.is-expanded .grid-item-content {
-  width: 360px;
-  height: 240px;
-}
-
-.grid-item.is-expanded {
-  z-index: 2;
-}
-
-.grid-item.is-expanded .grid-item-content {
-  background: #F90;
-}
-</style>
-
-<script>
-  // external js: masonry.pkgd.js
-
-var grid = document.querySelector('.grid');
-var msnry = new Masonry( grid, {
-  columnWidth: 120,
-  itemSelector: '.grid-item'
-});
-
-grid.addEventListener( 'click', function( event ) {
-  // don't proceed if item content was not clicked on
-  if ( !matchesSelector( event.target, '.grid-item-content' )  ) {
-    return;
-  }
-  var itemElem = event.target.parentNode;
-  itemElem.classList.toggle('is-expanded');
-
-  msnry.layout();
-});
+        <% else %>
+          <div class="pictures" >
+            <% block.files.each do |photo| %>
+              <%= cl_image_tag photo.key %>
+            <% end %>
+          </div>
+        <% end %>
 
 
-</script>
+      <% else %>
+
+        <div class="pictures" >
+          <% block.files[0..-2].each do |photo| %>
+            <%= cl_image_tag photo.key %>
+          <% end %>
+        </div>
+        <div class="picture-big">
+          <%= cl_image_tag block.files[-1].key %>
+        </div>
+
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
