@@ -1,4 +1,5 @@
 .card {
+  display: block;
   position: relative;
   background-size: cover;
   background-position: center;
@@ -46,6 +47,7 @@
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 5px;
   font-weight: 525;
+  float: left;
 }
 
 a:hover {
