@@ -1,4 +1,7 @@
 class StepsController < ApplicationController
+  def index
+  end
+
   def show
     @trip = Trip.find(params[:trip_id])
     @step_id = params[:id].to_i
