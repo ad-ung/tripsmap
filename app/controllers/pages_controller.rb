@@ -19,6 +19,5 @@ class PagesController < ApplicationController
 
   def write
     @trips = Trip.all
-    # @trip = Trip.find(params[:trip_id])
   end
 end
