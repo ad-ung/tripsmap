@@ -1,5 +1,6 @@
-<div id="creerunvoyage" class="text-center">
-  <h1>L'aventure en Nouvelle-Zélande</h1>
+<div id="creerunvoyage" class="container">
+  <div class="text-center">
+  <h4>L'aventure en Nouvelle-Zélande</h1>
   <br>
   <h7 class= "text-muted"> 1er juillet - à déterminer</h3>
 </div>
@@ -17,18 +18,39 @@
       <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown">
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput">Lieu de l'étape:</label>
-      <input id="autocomplete"
-             placeholder="Enter your address"
-             onFocus="geolocate()"
-             type="text"/>
-    </div>
-    <%= simple_form_for :search, method: "POST", html: { class: 'form justify-content-center' } do |f| %>
-    <%= f.input :city, placeholder: "Queenstown", label: false, label: "Lieu de l'étape", input_html: { class: "form-control-lg field", id: 'city' } %>    <%= f.input :title, as: :string, placeholder: "Un voyage au bout du monde", label: "Donnez un titre à votre étape", input_html:{ class: "form-control-lg bg-white field", id:'titletrip', style: "width: 180px; margin: 8px;" } %>
-    <%= f.input :starts_on, as: :string, placeholder: "-", label: "Durée", input_html: { class: "form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" }  %>
-    <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: "Date de fin", input_html: { class: "form-control-lg bg-white field", id:'booking_end_date', style: "width: 180px; margin: 8px;" } %>
-    <% end %>
+      <label for="selection">Durée:</label>
+      <select id="selection" class="form-control">
+        <option value="">jours...</option>
+        <option value=""> 1 </option>
+        <option value=""> 2 </option>
+        <option value=""> 3 </option>
+        <option value=""> 4 </option>
+        <option value=""> 5 </option>
+        <option value=""> 6 </option>
+        <option value=""> 7 </option>
+        <option value=""> 8 </option>
+        <option value=""> 9 </option>
+        <option value=""> 10 </option>
+        <option value=""> 11 </option>
+        <option value=""> 12 </option>
+        <option value=""> 13 </option>
+        <option value=""> 14 </option>
+        <option value=""> 15 </option>
+        <option value=""> 16 </option>
+        <option value=""> 17 </option>
+        <option value=""> 18 </option>
+        <option value=""> 19 </option>
+        <option value=""> 20 </option>
+      </optgroup>
+    </select>
   </div>
+</div>
+<div class="carousel-inner position-relative">
+  <div class="carousel-item active">
+    <%= image_tag "https://smart.servier.com/wp-content/uploads/2016/10/world-map-update.png", class: "img-carousel-map" %>
+  </div>
+</div>
+  <h6 class="text-muted"> Cliquez sur + pour ajouter du texte, des photos ou des vidéos.</h1>
 </div>
 <!-- <div id="pac-container">
         <input id="pac-input" type="text"
@@ -42,3 +64,33 @@
       <span id="place-address"></span>
     </div>
  -->
+ <html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Afficher / cacher un div</title>
+</head>
+<body>
+  <div class="text-center" id="d2">
+<!--       <button type="button" class="btn btn-outline-warning mb-2 dropdown-toggle">+</button>
+
+ -->
+  <div class="container">
+  <div class="avatar dropdown-toggle text-center" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> +
+  </div>
+  <div class="text-center">
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="#">Photos</a>
+      <a class="dropdown-item" href="#">Texte</a>
+      <a class="dropdown-item" href="#">Vidéos</a>
+    </div>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
+<br>
+<br>
+<br>
