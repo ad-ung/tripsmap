@@ -2,8 +2,7 @@
 <div class='container text-center'>
 
   <p class = "mt-5"> Choisissez un voyage dans lequel vous souhaitez écrire une nouvelle étape</p>
-  <h5 class="mt-5"> <%= link_to 'Mes voyages', trips_path %> </h5>
-  <div class="row mt-5 scroll-container">
+  <div class="row mt-5 container">
     <% @trips.last(5).each do |trip| %>
       <div class="col-12 col-md-6 col-lg-4 col-xl-4">
         <%= link_to new_trip_step_path(trip), class:"card-link" do%>
