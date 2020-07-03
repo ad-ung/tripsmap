@@ -11,12 +11,13 @@
 
 <div class="container">
   <div class="row mt-4">
-    <% @steps.each do |step| %>
+    <% @steps.each_with_index do |step, step_id| %>
       <div class="col-12 col-md-6 col-lg-4 col-xl-4">
         <%= link_to trip_step_path(@trip,step), class:"card-link" do%>
           <div class="d-flex">
-            <div class="photo-card" style="width: 39%;  ">
-              <%= cl_image_tag step.cover_picture_key %>
+            <div class="photo-card position-relative" style="width: 39%; text-align: center;">
+              <h2 class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -85%);  z-index: 10; color: white;"><%= step_id + 1 %></h2>
+              <%= cl_image_tag step.cover_picture_key, style:"filter: brightness(80%)" %>
             </div>
             <div class="w-75 content justify-content-center align-items-center">
               <div id="trip-title"><%= step.title %>
