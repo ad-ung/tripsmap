@@ -33,3 +33,118 @@
     <% end %>
   </div>
 </div>
+
+<h6 class="my-5">PACKERY DRAGGABLE</h6>
+
+<div class="container grid">
+<div class="row mt-4">
+  <% @steps.each_with_index do |step, step_id| %>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+      <%= link_to trip_step_path(@trip,step), class:"card-link grid-item" do%>
+        <div class="d-flex">
+          <div class="photo-card position-relative" style="width: 39%; text-align: center;">
+            <h2 class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -85%);  z-index: 10; color: white;"><%= step_id + 1 %></h2>
+            <%= cl_image_tag step.cover_picture_key, style:"filter: brightness(80%)" %>
+          </div>
+          <div class="w-75 content justify-content-center align-items-center">
+            <div id="trip-title"><%= step.title %>
+            </div>
+            <div id="trip-dates" class="text-center">
+              <p>-</p>
+              <p><%= "#{step.nb_of_days} jours" %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <!-- <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width2 grid-item--height2"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--height2"></div> -->
+</div>
+</div>
+
+<style>
+  * { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+/* ---- grid ---- */
+
+/*.grid {
+  background: #DDD;
+  max-width: 1200px;
+}*/
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+/*.grid-item {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #C09;
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+}
+*/
+/*.grid-item--width2 { width: 200px; }
+.grid-item--height2 { height: 200px; }*/
+
+.grid-item:hover {
+  border-color: hsla(0, 0%, 100%, 0.5);
+  /*cursor: move;*/
+}
+
+.grid-item.is-dragging,
+.grid-item.is-positioning-post-drag {
+  background: #C90;
+  z-index: 2;
+}
+
+.packery-drop-placeholder {
+  outline: 3px dashed hsla(0, 0%, 0%, 0.5);
+  outline-offset: -6px;
+  -webkit-transition: -webkit-transform 0.2s;
+          transition: transform 0.2s;
+}
+
+</style>
+
+<script>
+  // external js: packery.pkgd.js, draggabilly.pkgd.js
+
+var pckry = new Packery( '.grid', {
+  itemSelector: '.grid-item',
+  columnWidth: 100
+});
+
+pckry.getItemElements().forEach( function( itemElem ) {
+  var draggie = new Draggabilly( itemElem );
+  pckry.bindDraggabillyEvents( draggie );
+});
+
+  // show item order after layout
+  // function orderItems() {
+  //   pckry.getItemElements().forEach( function( itemElem, i ) {
+  //     itemElem.textContent = i + 1;
+  //   });
+  // }
+
+  pckry.on( 'layoutComplete', orderItems );
+  pckry.on( 'dragItemPositioned', orderItems );
+
+</script>
