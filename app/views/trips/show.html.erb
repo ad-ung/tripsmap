@@ -1,8 +1,8 @@
 </div>
 <div class="w-100 card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path @trip.cover_picture.key %>');">
-  <div class="card-infos">
-    <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
-      <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{l(@trip.starts_on, format: '%B %Y', locale: 'fr')}" %></span>
+  <div class="card-infos w-100">
+    <div class="w-100 d-flex flex-column align-items-start justify-content-between container-card-infos">
+      <span class="text-center" style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{l(@trip.starts_on, format: '%B %Y', locale: 'fr')}" %></span>
       <h6 style="margin: 0 auto;"><%= @trip.steps.count %> étapes</h6>
       <p class="mb-2" style="margin: 0 auto;"><%= @trip.title %></p>
     </div>
@@ -13,9 +13,9 @@
   <div class="row mt-4">
     <% @steps.each do |step| %>
       <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-        <%= link_to trip_step_path(step), class:"card-link" do%>
+        <%= link_to trip_step_path(@trip,step), class:"card-link" do%>
           <div class="d-flex">
-            <div class="photo-card" style="width: 39%;">
+            <div class="photo-card" style="width: 39%;  ">
               <%= cl_image_tag step.cover_picture_key %>
             </div>
             <div class="w-75 content justify-content-center align-items-center">
