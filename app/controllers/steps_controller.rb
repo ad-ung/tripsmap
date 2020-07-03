@@ -19,10 +19,16 @@ class StepsController < ApplicationController
     @step.save
   end
 
+  def update
+    @steps = Trip.find(params[:id]).steps
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def step_params
     params.require(:step).permit(:title, :location, :nb_of_days)
   end
-
 end

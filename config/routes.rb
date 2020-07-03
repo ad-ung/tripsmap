@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "write", to: 'pages#write'
 
   resources :trips, only: [:show] do
-    resources :steps, only: [:new, :create, :show]
+    resources :steps, only: [:new, :create, :show, :update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
