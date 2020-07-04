@@ -20,9 +20,10 @@ const packery = () => {
       elements.forEach((element, i) => {
         var step = {
           id: parseInt(element.dataset.id),
-          old_rank: parseInt(element.dataset.rank),
+          old_rank: parseInt(element.firstElementChild.querySelector("#rank").innerText),
           new_rank: i + 1
         };
+        console.log(step);
         if (step.old_rank !== step.new_rank) {
           fetchWithToken(`/steps/${step.id}`, {
             method: "PATCH",
@@ -34,7 +35,7 @@ const packery = () => {
           })
             .then(response => response.json())
             .then((data) => {
-              element.firstElementChild.querySelector("#rank").innerText = step.new_rank
+              element.firstElementChild.querySelector("#rank").innerText = data.id_in_its_trip
           });
         }
       })
