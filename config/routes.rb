@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "profile", to: 'pages#profile'
   get "write", to: 'pages#write'
+  get "explore", to: 'steps#explore'
 
   resources :trips, only: [:show] do
     resources :steps, only: [:new, :create, :show]

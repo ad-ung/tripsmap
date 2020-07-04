@@ -19,6 +19,10 @@ class StepsController < ApplicationController
     @step.save
   end
 
+  def explore
+    @blocks = Block.where(mediatype: 'photos')
+  end
+
   private
 
   def step_params
