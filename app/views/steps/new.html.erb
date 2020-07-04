@@ -5,19 +5,65 @@
   <h7 class= "text-muted"> 1er juillet - à déterminer</h3>
 </div>
 <br>
-
 <div id="formnew">
   <div class="container">
     <form>
       <div class="form-group">
-      <label for="formGroupExampleInput">Donnez un titre à votre étape</label>
-      <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown la majestueuse">
+        <label for="formGroupExampleInput">Donnez un titre à votre étape</label>
+        <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown la majestueuse" style="text-align: center">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Lieu de l'étape:</label>
+        <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown" style="text-align: center">
+      </div>
+      <div class="form-group">
+        <label for="tentacles">Durée:</label>
+        <input type="number" type="text-muted" class="form-control" id="tentacles" name="tentacles" placeholder="jours" style="width: 100px; text-align: center;"
+       min="1" max="1000" style="width: 100px;">
+     </div>
+   </div>
+ </div>
+<!-- imagemap
+ -->
+ <div class="carousel-inner position-relative">
+  <div class="carousel-item active">
+    <%= image_tag "https://smart.servier.com/wp-content/uploads/2016/10/world-map-update.png", class: "img-carousel-map" %>
     </div>
-    <div class="form-group">
-      <label for="formGroupExampleInput">Lieu de l'étape:</label>
-      <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown">
+  </div>
+  <h7 class="text-muted"> Cliquez sur + pour ajouter du texte, des photos ou des vidéos.</h1>
+  </div>
+<!-- <div id="pac-container">
+        <input id="pac-input" type="text"
+            placeholder="Enter a location">
+      </div>
     </div>
-    <div class="form-group">
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>
+      <span id="place-address"></span>
+    </div>
+ -->
+<div class="dropdown">
+  <div class="text-center">
+    <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+    +
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#"><span class="far fa-image"></i></span> Photos </a>
+      <a class="dropdown-item" href="#"><span class="far fa-edit"></i></span> Text </a>
+      <a class="dropdown-item" href="#"><span class="far fa-pause-circle"></i></span> Vidéos</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+ <div class="text-center">
+      <a href="#" class="btn btn-warning" style="width: 150px;">Poster</a>
+    </div>
+    <br>
+    <!-- <div class="form-group">
       <label for="selection">Durée:</label>
       <select id="selection" class="form-control">
         <option value="">jours...</option>
@@ -43,48 +89,4 @@
         <option value=""> 20 </option>
       </optgroup>
     </select>
-  </div>
-</div>
-<div class="carousel-inner position-relative">
-  <div class="carousel-item active">
-    <%= image_tag "https://smart.servier.com/wp-content/uploads/2016/10/world-map-update.png", class: "img-carousel-map" %>
-  </div>
-</div>
-  <h6 class="text-muted"> Cliquez sur + pour ajouter du texte, des photos ou des vidéos.</h1>
-</div>
-<!-- <div id="pac-container">
-        <input id="pac-input" type="text"
-            placeholder="Enter a location">
-      </div>
-    </div>
-    <div id="map"></div>
-    <div id="infowindow-content">
-      <img src="" width="16" height="16" id="place-icon">
-      <span id="place-name"  class="title"></span><br>
-      <span id="place-address"></span>
-    </div>
- -->
-
-<div class="dropdown">
-  <div class="text-center">
-    <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
-    +
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#"><span class="far fa-image"></i></span> Photos </a>
-      <a class="dropdown-item" href="#"><span class="far fa-edit"></i></span> Text </a>
-      <a class="dropdown-item" href="#"><span class="far fa-pause-circle"></i></span> Vidéos</a>
-
-      </div>
-    </div>
-  </div>
-</div>
-<br>
-<br>
- <div class="text-center">
-      <a href="#" class="btn btn-warning">Poster</a>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
+  </div> -->
