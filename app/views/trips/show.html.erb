@@ -36,14 +36,14 @@
 
 <h6 class="my-5">PACKERY DRAGGABLE</h6>
 
-<div class="container grid">
+<div id="grid-packery" class="container grid">
 <div class="row mt-4">
   <% @steps.each_with_index do |step, step_id| %>
     <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-      <%= link_to trip_step_path(@trip,step), id:"card_#{step.id_in_its_trip}", class:"card-link grid-item" do %>
+      <%= link_to trip_step_path(@trip,step), id:"card_#{step.id_in_its_trip}", class:"card-link grid-item", data: { id: step.id, rank: step.id_in_its_trip, new_rank: step_id + 1 } do %>
         <div class="d-flex">
           <div class="photo-card position-relative" style="width: 39%; text-align: center;">
-            <h2 id="title_<%= step.id_in_its_trip %>" class="step_id position-absolute" data-step_id="<%= step.id_in_its_trip %>" style="top: 50%; left: 50%; transform: translate(-50%, -85%);  z-index: 10; color: white;"><%= step.id_in_its_trip %></h2>
+            <h2 id="rank" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -85%);  z-index: 10; color: white;"><%= step.id_in_its_trip %></h2>
             <%= cl_image_tag step.cover_picture_key, style:"filter: brightness(80%)" %>
           </div>
           <div class="w-75 content justify-content-center align-items-center">
@@ -125,17 +125,28 @@ body { font-family: sans-serif; }
 </style>
 
 <script>
+
   // external js: packery.pkgd.js, draggabilly.pkgd.js
 
-var pckry = new Packery( '.grid', {
-  itemSelector: '.grid-item',
-  columnWidth: 100
-});
 
-pckry.getItemElements().forEach( function( itemElem ) {
-  var draggie = new Draggabilly( itemElem );
-  pckry.bindDraggabillyEvents( draggie );
-});
+  // const fetchWithToken = (url, options) => {
+  //   options.headers = {
+  //     "X-CSRF-Token": csrfToken(),
+  //     ...options.headers
+  //   };
+
+  //   return fetch(url, options);
+  // }
+
+  // var pckry = new Packery( '.grid', {
+  //   itemSelector: '.grid-item',
+  //   columnWidth: 100
+  // });
+
+  // pckry.getItemElements().forEach( function( itemElem ) {
+  //   var draggie = new Draggabilly( itemElem );
+  //   pckry.bindDraggabillyEvents( draggie );
+  // });
 
   // show item order after layout
   // function orderItems() {
@@ -148,29 +159,48 @@ pckry.getItemElements().forEach( function( itemElem ) {
 
   // const orderItems = () => {
   //   steps = document.querySelectorAll(".step_id");
-  //   console.log(steps);
-  //   // debugger;
-  //   steps.forEach((step, i) => {
-  //     // step.innerText = i + 1;
-  //     console.log(step.dataset.step_id);
-  //     console.log(step.id)
-  //     // console.log(i);
-  //     // step.dataset.step_id = i + 1;
-  //     // step.innerText = step.dataset.step_id;
+    // console.log(steps);
+    // debugger;
+    // steps.forEach((step, i) => {
+    //   console.log(i);
+    //   console.log(step);
+      // step.innerText = i + 1;
+      // console.log(step.dataset.step_id);
+      // console.log(step.id)
+      // console.log(i);
+      // step.dataset.step_id = i + 1;
+      // step.innerText = step.dataset.step_id;
   //   });
   // }
 
-  const orderItems = () => {
-    var elements = pckry.getItemElements();
-    elements.forEach((el,i) => {
-      var j = el.id.split("card_")[1];
-      var title = `title_${j}`;
-      var component= document.getElementById(title);
-      component.innerText = i+1;
-    })
-  }
+  // const orderItems = () => {
+  //   var elements = pckry.getItemElements();
+  //   elements.forEach((element) => {
+  //     fetchWithToken("/trips/:id/steps", {
+  //       method: "PATCH",
+  //       headers: {
+  //         "Accept": "application/json",
+  //         "Content-Type": "application/json"
+  //       },
+  //       body: JSON.stringify({ step: { id_in_its_trip: element.id.split("card_")[1] }})
+  //     })
+  //       .then(response => response.json())
+  //       .then((data) => {
+  //       });
+  //   });
+  // }
+
+  // const orderItems = () => {
+  //   var elements = pckry.getItemElements();
+  //   elements.forEach((el,i) => {
+  //     var j = el.id.split("card_")[1];
+  //     var title = `title_${j}`;
+  //     var component= document.getElementById(title);
+  //     component.innerText = i+1;
+  //   })
+  // }
 
   // pckry.on( 'layoutComplete', orderItems );
-  pckry.on( 'dragItemPositioned', orderItems );
+  // pckry.on( 'dragItemPositioned', orderItems );
 
 </script>

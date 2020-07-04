@@ -20,15 +20,17 @@ class StepsController < ApplicationController
   end
 
   def update
-    @steps = Trip.find(params[:id]).steps
-    respond_to do |format|
-      format.js
+    @step = Step.find(params[:id])
+    if @step.update(step_params)
+      render json: { success: true }
+    else
+      render json: { success: false, errors: step.errors.messages }, status: :unprocessable_entity
     end
   end
 
   private
 
   def step_params
-    params.require(:step).permit(:title, :location, :nb_of_days)
+    params.require(:step).permit(:title, :location, :nb_of_days, :id_in_its_trip)
   end
 end
