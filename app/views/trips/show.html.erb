@@ -19,12 +19,14 @@
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
           <div class="carousel-inner">
-            <% @photos.each do |photo| %>
-
-              <div class="carousel-item <%= "active" if photo == @photos.first %>">
-                  <%= cl_image_tag photo.key %>
+           <%@contents.each do |content| %>
+            <% content.files.each do |file|  %>
+              <div class="carousel-item <%= "active" if content == @contents.first && file == content.files.first %>">
+                  <%= content.step.title %>
+                  <%= cl_image_tag file.key, class: "img-diapo"%>
               </div>
-            <% end %>
+              <% end %>
+            <%end %>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -42,9 +44,4 @@
 </div>
 
 
-            <%# @contents.each do |content| %>
-            <%#= content.step.title %>
-              <!-- <div class="carousel-item <%#= "active" if content == @contents.first %>"> -->
-                  <%#= cl_image_tag content.files.key %>
-              <!-- </div> -->
-            <%# end %>
+
