@@ -21,6 +21,10 @@ class StepsController < ApplicationController
 
   def explore
     @blocks = Block.where(mediatype: 'photos')
+    # if params[:search]
+    #   @steps = Step.search_by_location_and_title(params[:search])
+    #   @blocks = @steps.blocks
+    #end
   end
 
   private

@@ -1,0 +1,14 @@
+.explorer-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+
+  .card {
+  height: 165px;
+}
+
+.container-card-infos {
+  width: 340px;
+  height: 295px;
+}
+}

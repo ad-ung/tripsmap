@@ -1,5 +1,27 @@
-<% @blocks.each do |block| %>
-<%  block.files.each do |file| %>
-<%= cl_image_tag file.key %>
-<% end %>
-<% end %>
+
+<form class="form-inline">
+   <label for="search"></label><br>
+    <input type="text" id="search" name="search" placeholder="Votre destination"><br>
+     <input type="submit" value="Rechercher" class="btn btn-orange-new smaller">
+</form>
+
+<div class="explorer-cards">
+
+  <% @blocks.each do |block| %>
+    <%  block.files.each do |file| %>
+
+        <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path file.key %>');">
+          <div class="card-infos">
+           <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
+              <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{(block.step.nb_of_days)} days" %></span>
+              <h6 style="margin: 0 auto;">5 étapes</h6>
+              <p class="mb-2" style="margin: 0 auto;"><%= block.step.title %></p>
+            </div>
+          </div>
+        </div>
+
+    <% end %>
+  <% end %>
+
+</div>
+
