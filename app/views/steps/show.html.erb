@@ -7,7 +7,7 @@
 
 </div>
 
-<% if @blocks[0].mediatype === "photos" %>
+<% if @blocks.sort[0].mediatype === "photos" %>
   <div class="step-map mt-3 text-center" style="margin-bottom: 30px;">
 <% else %>
   <div class="step-map mt-3 mb-2 text-center">
@@ -16,7 +16,7 @@
 </div>
 
 <div id="blocks" class="container">
-  <% @blocks.each do |block| %>
+  <% @blocks.sort.each do |block| %>
 
     <% if block.mediatype === "text" %>
       <p class="step-text"><%= block.text %></p>
