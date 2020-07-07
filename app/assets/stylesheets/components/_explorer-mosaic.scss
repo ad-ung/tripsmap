@@ -24,3 +24,10 @@
   position: absolute;
   bottom: 0;
 }
+
+.explore-form{
+  display: flex;
+  .form-control{
+    width: 75%;
+  }
+}

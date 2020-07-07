@@ -3,9 +3,13 @@ class StepsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find(params[:trip_id])
-    @step_id = params[:id].to_i
-    @step = @trip.steps[params[:id].to_i - 1]
+    @step = Step.find(params[:id])
+    @trip = @step.trip
+   # @trip = Trip.find(params[:trip_id])
+    # @step = Step.find(params[:id])
+     #@step_id = @step.id_in_its_trip
+    # @step_id = params[:id].to_i
+    # @step = @trip.steps.sort_by(&:id_in_its_trip)[@step_id - 1]
     @blocks = @step.blocks
   end
 
@@ -21,10 +25,10 @@ class StepsController < ApplicationController
 
   def explore
     @blocks = Block.where(mediatype: 'photos')
-    # if params[:search]
-    #   @steps = Step.search_by_location_and_title(params[:search])
-    #   @blocks = @steps.blocks
-    #end
+    @steps = Step.all
+    if params[:search]
+     @steps = Step.search_by_location_and_title(params[:search])
+    end
   end
 
   private
@@ -32,5 +36,4 @@ class StepsController < ApplicationController
   def step_params
     params.require(:step).permit(:title, :location, :nb_of_days)
   end
-
 end
