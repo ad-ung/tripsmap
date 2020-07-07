@@ -11,6 +11,11 @@ class StepsController < ApplicationController
     # @step_id = params[:id].to_i
     # @step = @trip.steps.sort_by(&:id_in_its_trip)[@step_id - 1]
     @blocks = @step.blocks
+
+    @marker = {
+      lat: @step.latitude,
+      lng: @step.longitude
+    }
   end
 
   def new

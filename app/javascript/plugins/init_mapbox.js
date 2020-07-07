@@ -33,13 +33,24 @@
 
 import mapboxgl from 'mapbox-gl';
 
-const mapElement = document.getElementById('map');
+const profileMapElement = document.getElementById('profile-map');
 
-const buildMap = () => {
-  mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+const stepMapElement = document.getElementById('step-map');
+
+const buildProfileMap = () => {
+  mapboxgl.accessToken = profileMapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
+    container: 'profile-map',
+    style: 'mapbox://styles/alexandrelem/ckc7ginr9142d1ioop9u9532y'
+
+  });
+};
+
+const buildStepMap = () => {
+  mapboxgl.accessToken = stepMapElement.dataset.mapboxApiKey;
+  return new mapboxgl.Map({
+    container: 'step-map',
+    style: 'mapbox://styles/alexandrelem/ckc7ginr9142d1ioop9u9532y'
 
   });
 };
@@ -97,27 +108,31 @@ const line = (map, trip) => {
 }
 
 const initMapbox = () => {
-  if (mapElement) {
-    const map = buildMap();
-    const trips = JSON.parse(mapElement.dataset.markers);
 
-
+  if (profileMapElement) {
+    const map = buildProfileMap();
+    const trips = JSON.parse(profileMapElement.dataset.markers);
     trips.forEach((trip) => {
       addMarkersToMap(map, trip);
       fitMapToMarkers(map, trip);
-
     })
 
-      map.on('load', function() {
-        trips.forEach((trip) => {
-          line(map, trip);
-        })
+    map.on('load', function() {
+      trips.forEach((trip) => {
+        line(map, trip);
       })
+    })
+  } else if (stepMapElement) {
+    const map = buildStepMap();
+    const marker = JSON.parse(stepMapElement.dataset.marker);
 
-    map.addControl(new mapboxgl.FullscreenControl());
-    // console.log(markers.map(marker => [marker.lat, marker.lng]));
-
+    addMarkersToMap(map, marker);
+    fitMapToMarkers(map, marker);
+    console.log(map);
   }
+  map.addControl(new mapboxgl.FullscreenControl());
+  map.addControl(new mapboxgl.NavigationControl());
+    // console.log(markers.map(marker => [marker.lat, marker.lng]));
 }
 
 export { initMapbox };

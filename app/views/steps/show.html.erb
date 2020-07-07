@@ -12,7 +12,11 @@
 <% else %>
   <div class="step-map mt-3 mb-2 text-center">
 <% end %>
-  <img src="https://res.cloudinary.com/datbhgbcq/image/upload/v1593180337/TRIPSMAP/image_1_qmxanz.png" alt="">
+    <div id="step-map"
+      style="width: 100%; height: 600px;"
+      data-marker="<%= [@marker].to_json  %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
 </div>
 
 <div id="blocks" class="container">
