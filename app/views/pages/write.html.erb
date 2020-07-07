@@ -7,7 +7,7 @@
     <p class="btn btn-orange-new"> <i class="far fa-edit mr-1"></i> Nouveau voyage </p>
   </div>
   <div class="row mt-4">
-    <% @trips.last(5).each do |trip| %>
+    <% @trips.order('starts_on DESC').each do |trip| %>
       <div class="col-12 col-md-6 col-lg-4 col-xl-4">
         <%= link_to new_trip_step_path(trip), class:"card-link" do%>
           <div class="d-flex">
