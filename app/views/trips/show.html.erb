@@ -13,7 +13,7 @@
   <div class="row mt-4">
     <% @steps.each_with_index do |step, step_id| %>
       <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-        <%= link_to trip_step_path(@trip, step), class:"card-link grid-item", data: { id: step.id, new_rank: step_id + 1 } do %>
+        <%= link_to step_path(step), class:"card-link grid-item", data: { id: step.id, new_rank: step_id + 1 } do %>
           <div class="d-flex">
             <div class="photo-card position-relative" style="width: 39%; text-align: center;">
               <h2 id="rank" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -85%);  z-index: 10; color: white;"><%= step.id_in_its_trip %></h2>

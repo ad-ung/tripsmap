@@ -4,6 +4,7 @@ class StepsController < ApplicationController
 
   def show
     @step = Step.find(params[:id])
+    @trip = @step.trip
    # @trip = Trip.find(params[:trip_id])
     # @step = Step.find(params[:id])
      @step_id = @step.id_in_its_trip
