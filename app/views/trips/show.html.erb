@@ -1,2 +1,41 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+</div>
+<div class="w-100 card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path @trip.cover_picture.key %>');">
+  <div class="card-infos w-100">
+    <div class="w-100 d-flex flex-column align-items-start justify-content-between container-card-infos">
+      <span class="text-center" style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{l(@trip.starts_on, format: '%B %Y', locale: 'fr')}" %></span>
+      <h6 style="margin: 0 auto;"><%= @trip.steps.count %> étapes</h6>
+      <p class="mb-2" style="margin: 0 auto;"><%= @trip.title %></p>
+    </div>
+  </div>
+</div>
+
+<div id="grid-packery" class="container grid">
+  <div class="row mt-4">
+    <% @steps.each_with_index do |step, step_id| %>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+        <%= link_to trip_step_path(@trip, step), class:"card-link grid-item", data: { id: step.id, new_rank: step_id + 1 } do %>
+          <div class="d-flex">
+            <div class="photo-card position-relative" style="width: 39%; text-align: center;">
+              <h2 id="rank" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -85%);  z-index: 10; color: white;"><%= step.id_in_its_trip %></h2>
+              <%= cl_image_tag step.cover_picture_key, style:"filter: brightness(80%)" %>
+            </div>
+            <div class="w-75 content justify-content-center align-items-center">
+              <div id="trip-title"><%= step.title %>
+              </div>
+              <div id="trip-dates" class="text-center">
+                <p>-</p>
+                <p><%= "#{step.nb_of_days} jours" %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+ <%= render 'shared/carousel_btn' %>
+
+
+

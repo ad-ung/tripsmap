@@ -1,3 +1,105 @@
-<h1>Steps#new</h1>
-<p>Find me in app/views/steps/new.html.erb</p>
+<div id="creerunvoyage" class="container">
+  <div class="text-center">
+  <h4>L'aventure en Nouvelle-Zélande</h1>
+  <h7 class= "text-muted"> 1er juillet - à déterminer</h3>
+</div>
+<br>
+<div id="formnew">
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Donnez un titre à votre étape</label>
+        <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown la majestueuse" style="text-align: center">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Lieu de l'étape:</label>
+        <input type="text-muted" class="form-control" id="place-address" placeholder="Queenstown" style="text-align: center">
+      </div>
+      <div class="form-group d-flex align-items-center justify-content-center">
+        <label class="mr-3 mb-0" for="tentacles">Durée:</label>
+        <input type="number" type="text-muted" class="form-control" id="tentacles" name="tentacles" placeholder="---" style="width: 70px; text-align: center;"
+       min="1" max="1000" style="width: 100px;">
+        <label class="ml-3 mb-0 mr-3">jours</label>
+     </div>
+   </div>
+ </div>
+<!-- imagemap
+ -->
+ <div class="carousel-inner position-relative">
+  <div class="carousel-item active">
+    <img class="img-carousel-map" src="https://ametice.univ-amu.fr/pluginfile.php/2634238/course/overviewfiles/240_F_85375005_7hhPOeV07eMsuofw95PL24rhK8W2UsSS.jpg" style="width:317px;" alt="">
 
+<%#= image_tag "https://ametice.univ-amu.fr/pluginfile.php/2634238/course/overviewfiles/240_F_85375005_7hhPOeV07eMsuofw95PL24rhK8W2UsSS.jpg", class: "img-carousel-map" %>
+<!-- https://smart.servier.com/wp-content/uploads/2016/10/world-map-update.png
+ --></div>
+  </div>
+  <h7 class="text-muted"> Cliquez sur + pour ajouter du texte, des photos ou des vidéos.</h1>
+  </div>
+<!-- <div id="pac-container">
+        <input id="pac-input" type="text"
+            placeholder="Enter a location">
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>
+      <span id="place-address"></span>
+    </div>
+ -->
+<div class="dropdown">
+  <button class="btn btn-warning d-block mx-auto mb-3" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2"> + </button>
+<div class="d-flex align-items-center justify-content-center">
+  <div class="">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <a class="dropdown-item" href="#"><span class="far fa-image"></i></span> Photos </a>
+    </div>
+  </div>
+  <div class="">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <a class="dropdown-item" href="#"><span class="far fa-edit"></i></span> Text </a>
+    </div>
+  </div>
+  <div class="">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <a class="dropdown-item" href="#"><span class="far fa-pause-circle"></i></span> Vidéos</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+ <div class="text-center">
+      <a href="#" class="btn btn-warning" style="width: 150px;">Poster</a>
+    </div>
+    <br>
+
+
+
+    <!-- <div class="form-group">
+      <label for="selection">Durée:</label>
+      <select id="selection" class="form-control">
+        <option value="">jours...</option>
+        <option value=""> 1 </option>
+        <option value=""> 2 </option>
+        <option value=""> 3 </option>
+        <option value=""> 4 </option>
+        <option value=""> 5 </option>
+        <option value=""> 6 </option>
+        <option value=""> 7 </option>
+        <option value=""> 8 </option>
+        <option value=""> 9 </option>
+        <option value=""> 10 </option>
+        <option value=""> 11 </option>
+        <option value=""> 12 </option>
+        <option value=""> 13 </option>
+        <option value=""> 14 </option>
+        <option value=""> 15 </option>
+        <option value=""> 16 </option>
+        <option value=""> 17 </option>
+        <option value=""> 18 </option>
+        <option value=""> 19 </option>
+        <option value=""> 20 </option>
+      </optgroup>
+    </select>
+  </div> -->

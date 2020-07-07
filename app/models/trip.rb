@@ -1,6 +1,7 @@
 class Trip < ApplicationRecord
   belongs_to :user
   has_many :steps, dependent: :destroy
+  has_many :blocks, through: :steps
 
   has_one_attached :cover_picture
 

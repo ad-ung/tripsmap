@@ -1,32 +1,28 @@
+<p class = "mb-4" style="margin-top: 36px; text-align: justify; text-justify: inter-character;"> Choisissez un voyage dans lequel vous souhaitez écrire une nouvelle étape: </p>
 
-<div class='container text-center'>
-
-  <p class = "mt-5"> Choisissez un voyage dans lequel vous souhaitez écrire une nouvelle étape</p>
-  <div class="row mt-5 container">
-    <% @trips.last(5).each do |trip| %>
-      <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-        <%= link_to new_trip_step_path(trip), class:"card-link" do%>
-          <div class="d-flex">
-            <div class="w-25 photo-card">
-              <%= cl_image_tag trip.cover_picture.key %>
+<div class= "new-trip text-center">
+  <p class="btn btn-orange-new"> <i class="far fa-edit mr-1"></i> Nouveau voyage </p>
+</div>
+<div class="row mt-4">
+  <% @trips.last(5).each do |trip| %>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+      <%= link_to new_trip_step_path(trip), class:"card-link" do%>
+        <div class="d-flex">
+          <div class="photo-card" style="width: 37%;">
+            <%= cl_image_tag trip.cover_picture.key %>
+          </div>
+          <div class="w-75 content justify-content-center align-items-center">
+            <div id="trip-title"><%= trip.title %>
             </div>
-            <div class="w-75 content justify-content-center align-items-center">
-              <div id="trip-title"><%= trip.title %>
-              </div>
-              <div id="trip-dates">
-                <%= trip.starts_on %> - <%= trip.ends_on %>
-              </div>
+            <div id="trip-dates">
+              <%= l(trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(trip.ends_on, format: '%e %b %Y', locale: 'fr') %>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class= "new-trip text-center">
-    <p class="btn btn-orange-new"> Nouveau voyage </p>
-  </div>
-
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+
 
 
