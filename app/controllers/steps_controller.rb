@@ -13,7 +13,6 @@ class StepsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @step = Step.new
     @step.blocks.build
-    @step.blocks.build
   end
 
   def create
@@ -21,8 +20,9 @@ class StepsController < ApplicationController
     @step = Step.new(step_params)
     @step.trip = @trip
     @step.id_in_its_trip = @trip.steps.count + 1
-    raise
+    @step.blocks.each { |block| find_mediatype(block) }
     @step.save
+    redirect_to trip_path(@trip)
   end
 
   def update
@@ -40,5 +40,13 @@ class StepsController < ApplicationController
     params.require(:step).permit(:title, :location, :nb_of_days, :id_in_its_trip, blocks_attributes: [
       :text, :mediatype, files: []
     ])
+  end
+
+  def find_mediatype(block)
+    if !block.text.nil?
+      block.mediatype = "text"
+    else
+      block.mediatype = "photos"
+    end
   end
 end
