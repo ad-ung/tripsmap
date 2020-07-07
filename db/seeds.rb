@@ -75,16 +75,17 @@ locations = [
   ["Rome", "Venise", "Florence", "Milan"]
 ]
 
-def create_step(title, location, trip_id)
+def create_step(title, location, trip_id, rank)
   s = Step.new(title: title, location: location)
   s.nb_of_days = [2,3,4,5].sample
   s.trip_id = trip_id
+  s.id_in_its_trip = rank
   s.save!
 end
 
 step_titles.each_with_index do |itinerary, i|
   itinerary.each_with_index do |step_title, j|
-    create_step(step_title, locations[i][j], i + 1)
+    create_step(step_title, locations[i][j], i + 1, j + 1)
   end
 end
 
