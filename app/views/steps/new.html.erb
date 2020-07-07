@@ -1,7 +1,6 @@
 <div id="creerunvoyage" class="container">
   <div class="text-center">
   <h4>L'aventure en Nouvelle-Zélande</h1>
-  <br>
   <h7 class= "text-muted"> 1er juillet - à déterminer</h3>
 </div>
 <br>
@@ -28,8 +27,11 @@
  -->
  <div class="carousel-inner position-relative">
   <div class="carousel-item active">
-    <%= image_tag "https://smart.servier.com/wp-content/uploads/2016/10/world-map-update.png", class: "img-carousel-map" %>
-    </div>
+    <img class="img-carousel-map" src="https://ametice.univ-amu.fr/pluginfile.php/2634238/course/overviewfiles/240_F_85375005_7hhPOeV07eMsuofw95PL24rhK8W2UsSS.jpg" style="width:317px;" alt="">
+
+<%#= image_tag "https://ametice.univ-amu.fr/pluginfile.php/2634238/course/overviewfiles/240_F_85375005_7hhPOeV07eMsuofw95PL24rhK8W2UsSS.jpg", class: "img-carousel-map" %>
+<!-- https://smart.servier.com/wp-content/uploads/2016/10/world-map-update.png
+ --></div>
   </div>
   <h7 class="text-muted"> Cliquez sur + pour ajouter du texte, des photos ou des vidéos.</h1>
   </div>
@@ -46,24 +48,34 @@
     </div>
  -->
 <div class="dropdown">
-  <div class="text-center">
-    <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
-    +
-    </button>
-    <div class="dropdown-menu">
+  <button class="btn btn-warning d-block mx-auto mb-3" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2"> + </button>
+<div class="d-flex align-items-center justify-content-center">
+  <div class="">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
       <a class="dropdown-item" href="#"><span class="far fa-image"></i></span> Photos </a>
+    </div>
+  </div>
+  <div class="">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
       <a class="dropdown-item" href="#"><span class="far fa-edit"></i></span> Text </a>
+    </div>
+  </div>
+  <div class="">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
       <a class="dropdown-item" href="#"><span class="far fa-pause-circle"></i></span> Vidéos</a>
-
-      </div>
     </div>
   </div>
 </div>
+</div>
+
 <br>
  <div class="text-center">
       <a href="#" class="btn btn-warning" style="width: 150px;">Poster</a>
     </div>
     <br>
+
+
+
     <!-- <div class="form-group">
       <label for="selection">Durée:</label>
       <select id="selection" class="form-control">
