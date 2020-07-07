@@ -26,13 +26,15 @@ require("channels")
 
 import "bootstrap";
 import {location} from "../plugins/location";
-location();
+import { initMapbox } from '../plugins/init_mapbox';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initMapbox();
+  location();
 });
 // app/assets/javascripts/application.js
 //= require jquery

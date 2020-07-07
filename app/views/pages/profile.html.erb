@@ -6,12 +6,12 @@
   <button type="button" class="btn btn-light mt-4">Editer mon compte</button>
 </div>
 <div class="profile-infos">
-  <div class="main-infos" style="text-align: center">
+  <div class="main-infos mb-3" style="text-align: center">
     <img class="avatar mt-5" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg" alt="">
     <h5>Alexandre</h5>
     <p>Aventurier chevronné, j'aime parcourir le monde pour découvrir des paysages exceptionnels que nous offre la nature.</p>
   </div>
-  <div class="inline-infos-trips">
+  <div class="inline-infos-trips mb-4">
   <div class="d-flex justify-content-between text-center trip-infos-data">
     <p><strong><span style="font-size: 1.5rem">35</span></strong> étapes</p>
     <p><strong><span style="font-size: 1.5rem">14</span></strong> pays</p>
@@ -21,15 +21,17 @@
 </div>
 </div>
 
-<div class="profile-map mt-3 text-center">
-<img src="https://res.cloudinary.com/datbhgbcq/image/upload/v1593180337/TRIPSMAP/image_1_qmxanz.png" alt="">
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
 
 <div class="container text-center">
-<h5 class="mt-4">Mes voyages</h5>
+<h5 class="mt-4"> Mes voyages </h5>
 <div class="row">
   <% @trips = Trip.all %>
-  <% @trips.each do |trip| %>
+  <% @trips.order('starts_on DESC').each do |trip| %>
     <div class="col-12 col-md-6 col-lg-4 col-xl-4">
       <%= link_to trip_path(trip) do %>
         <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path trip.cover_picture.key %>');">
