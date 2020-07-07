@@ -14,6 +14,7 @@ class StepsController < ApplicationController
   end
 
   def new
+    @trip = Trip.find(params[:trip_id])
     @step = Step.new
   end
 
