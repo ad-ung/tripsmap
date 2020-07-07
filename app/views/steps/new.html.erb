@@ -6,7 +6,18 @@
 </div>
 <br>
 <div id="formnew">
-  <form>
+
+  <%= simple_form_for([@trip, @step]) do |f| %>
+    <%= f.input :title %>
+
+    <%= f.simple_fields_for :blocks do |block| %>
+      <%= block.input :text %>
+      <%= block.file_field :files %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+
+ <!--  <form>
     <div class="form-group">
       <label for="formGroupExampleInput">Donnez un titre à votre étape</label>
       <input type="text-muted" class="form-control" id="formGroupExampleInput" placeholder="Queenstown la majestueuse" style="text-align: center">
@@ -21,7 +32,7 @@
      min="1" max="1000" style="width: 100px;">
       <label class="ml-3 mb-0 mr-3">jours</label>
    </div>
-  </form>
+  </form> -->
 </div>
 
  <!-- </div> -->
