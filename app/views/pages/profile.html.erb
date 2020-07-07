@@ -38,7 +38,7 @@
           <div class="card-infos">
             <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
               <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{l(trip.starts_on, format: '%B %Y', locale: 'fr')}" %></span>
-              <h6 style="margin: 0 auto;"><%= trip.steps.count %> étapes</h6>
+              <h6 style="margin: 0 auto; color: #fff;"><%= trip.steps.count %> étapes</h6>
               <p class="mb-2" style="margin: 0 auto;"><%= trip.title %></p>
             </div>
           </div>
@@ -47,6 +47,3 @@
     </div>
   <% end %>
 </div>
-
-
-

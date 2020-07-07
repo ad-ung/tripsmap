@@ -4384,6 +4384,11 @@ make-dir@^3.0.2:
   dependencies:
     semver "^6.0.0"
 
+maki@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/maki/-/maki-2.1.0.tgz#ef9f2b17508293102a7a8e4667d0d27cd89b55ce"
+  integrity sha1-758rF1CCkxAqeo5GZ9DSfNibVc4=
+
 map-cache@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"

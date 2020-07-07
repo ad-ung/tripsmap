@@ -3,9 +3,11 @@ class StepsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find(params[:trip_id])
     @step = Step.find(params[:id])
-    @step_id = @step.id_in_its_trip
+    @trip = @step.trip
+   # @trip = Trip.find(params[:trip_id])
+    # @step = Step.find(params[:id])
+     @step_id = @step.id_in_its_trip
     # @step_id = params[:id].to_i
     # @step = @trip.steps.sort_by(&:id_in_its_trip)[@step_id - 1]
     @blocks = @step.blocks

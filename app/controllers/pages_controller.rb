@@ -8,16 +8,28 @@ class PagesController < ApplicationController
 
   def profile
     @disable_logo = true
-    @steps = current_user.steps
-    @markers = @steps.map do |step|
-      {
-        lat: step.latitude,
-        lng: step.longitude
-      }
+    @trips = current_user.trips
+    @markers = []
+
+    @trips.each do |trip|
+      @markers << markers(trip)
     end
   end
 
   def write
     @trips = Trip.all
+  end
+
+  private
+
+  def markers(trip)
+    trip.steps.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { step: step }),
+        id: trip.id,
+      }
+    end
   end
 end
