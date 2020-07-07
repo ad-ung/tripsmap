@@ -1,140 +1,49 @@
-<html>
+<div class="d-flex justify-content-between">
+  <!-- <img class="mt-2" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1593113188/TRIPSMAP/TRIPSMAP_TripsMap_kc9ki7-media_lib_thumb_daviif.png" alt=""> -->
+  <div class="logo">
+    TripsMap
+  </div>
+  <button type="button" class="btn btn-light mt-4">Editer mon compte</button>
+</div>
+<div class="profile-infos">
+  <div class="main-infos" style="text-align: center">
+    <img class="avatar mt-5" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg" alt="">
+    <h5>Alexandre</h5>
+    <p>Aventurier chevronné, j'aime parcourir le monde pour découvrir des paysages exceptionnels que nous offre la nature.</p>
+  </div>
+  <div class="inline-infos-trips">
+  <div class="d-flex justify-content-between text-center trip-infos-data">
+    <p><strong><span style="font-size: 1.5rem">35</span></strong> étapes</p>
+    <p><strong><span style="font-size: 1.5rem">14</span></strong> pays</p>
+    <p><strong><span style="font-size: 1.5rem">250</span></strong> abonnés</p>
+  </div>
+  </div>
+</div>
+</div>
 
-  <head>
-    <meta charset=utf-8 />
-    <title>Slideshow gallery in a marker tooltip</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
-    <style>
-      body { margin:0; padding:0; }
-      #map-test { position:absolute; top:0; bottom:0; width:100%; }
-    </style>
-  </head>
-
-<div id='map-test'
+<div id="map"
      style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"></div>
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
 
-<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
-<script>
-
-L.mapbox.accessToken = 'pk.eyJ1IjoiYWxleGFuZHJlbGVtIiwiYSI6ImNrOW8wdjV0ajA3Z20zZnA3ODd6bnF1cHIifQ.KvMJqOeGF8F91xC_nC3AnA';
-
-var map = L.mapbox.map('map-test')
-  .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
-
-var myLayer = L.mapbox.featureLayer().addTo(map);
-
-
-
-var geoJson = {
-  type: 'FeatureCollection',
-  features: [{
-      type: 'Feature',
-      "geometry": { "type": "Point", "coordinates": [
-      <% @steps = current_user.steps %>
-      <% @markers = @steps.map do |step| %>
-      <%  {
-        lat: step.latitude,
-        lng: step.longitude
-      } %>
+<div class="container text-center">
+<h5 class="mt-4"> Mes voyages </h5>
+<div class="row">
+  <% @trips = Trip.all %>
+  <% @trips.each do |trip| %>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+      <%= link_to trip_path(trip) do %>
+        <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path trip.cover_picture.key %>');">
+          <div class="card-infos">
+            <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
+              <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{l(trip.starts_on, format: '%B %Y', locale: 'fr')}" %></span>
+              <h6 style="margin: 0 auto; color: #fff;"><%= trip.steps.count %> étapes</h6>
+              <p class="mb-2" style="margin: 0 auto;"><%= trip.title %></p>
+            </div>
+          </div>
+        </div>
       <% end %>
-      <%= Step.first.latitude %>, <%= Step.first.longitude %>]
-    },
-      "properties": {
-          'title': <%= Trip.first.title %>,
-          'marker-color': '#3c4e5a',
-          'marker-symbol': 'monument',
-          'marker-size': 'large',
-
-          // Store the image url and caption in an array.
-          'images': [
-            ['https://i.imgur.com/O6QEpBs.jpg','The U.S. Capitol after the burning of Washington during the War of 1812'],
-            ['https://i.imgur.com/xND1MND.jpg','Ford\'s Theatre in the 19th century, site of the 1865 assassination of President Lincoln'],
-            ['https://i.imgur.com/EKJmqui.jpg','The National Cherry Blossom Festival is celebrated around the city each spring.']
-          ]
-      }
-  }, {
-      type: 'Feature',
-      "geometry": { "type": "Point", "coordinates": [-74.00, 40.71]},
-      "properties": {
-          'title': 'New York City',
-          'marker-color': '#3c4e5a',
-          'marker-symbol': 'city',
-          'marker-size': 'large',
-          'images': [
-            ['https://i.imgur.com/O6QEpBs.jpg','The U.S. Capitol after the burning of Washington during the War of 1812'],
-            ['https://i.imgur.com/xND1MND.jpg','Ford\'s Theatre in the 19th century, site of the 1865 assassination of President Lincoln'],
-            ['https://i.imgur.com/EKJmqui.jpg','The National Cherry Blossom Festival is celebrated around the city each spring.']
-          ]
-
-      }
-  }]
-};
-
-// Add custom popup html to each marker.
-myLayer.on('layeradd', function(e) {
-    var marker = e.layer;
-    var feature = marker.feature;
-    var images = feature.properties.images
-    var slideshowContent = '';
-
-    for(var i = 0; i < images.length; i++) {
-        var img = images[i];
-
-        slideshowContent += '<div class="image' + (i === 0 ? ' active' : '') + '">' +
-                              '<img src="' + img[0] + '" />' +
-                              '<div class="caption">' + img[1] + '</div>' +
-                            '</div>';
-    }
-
-    // Create custom popup content
-    var popupContent =  '<div id="' + feature.properties.id + '" class="popup">' +
-                            '<h2>' + feature.properties.title + '</h2>' +
-                            '<div class="slideshow">' +
-                                slideshowContent +
-                            '</div>' +
-                            '<div class="cycle">' +
-                                '<a href="#" class="prev">&laquo; Previous</a>' +
-                                '<a href="#" class="next">Next &raquo;</a>' +
-                            '</div>'
-                        '</div>';
-
-    // http://leafletjs.com/reference.html#popup
-    marker.bindPopup(popupContent,{
-        closeButton: false,
-        minWidth: 320
-    });
-});
-
-// Add features to the map
-myLayer.setGeoJSON(geoJson);
-
-$('#map').on('click', '.popup .cycle a', function() {
-    var $slideshow = $('.slideshow'),
-        $newSlide;
-
-    if ($(this).hasClass('prev')) {
-        $newSlide = $slideshow.find('.active').prev();
-        if ($newSlide.index() < 0) {
-            $newSlide = $('.image').last();
-        }
-    } else {
-        $newSlide = $slideshow.find('.active').next();
-        if ($newSlide.index() < 0) {
-            $newSlide = $('.image').first();
-        }
-    }
-
-    $slideshow.find('.active').removeClass('active').hide();
-    $newSlide.addClass('active').show();
-    return false;
-});
-
-map.setView([40, -75], 6);
-
-</script>
-</html>
-
-
+    </div>
+  <% end %>
+</div>

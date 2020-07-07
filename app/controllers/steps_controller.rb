@@ -3,6 +3,7 @@ class StepsController < ApplicationController
   end
 
   def show
+    @step = Step.find(params[:id])
   end
 
   def new
@@ -20,5 +21,4 @@ class StepsController < ApplicationController
   def step_params
     params.require(:step).permit(:title, :location, :nb_of_days)
   end
-
 end
