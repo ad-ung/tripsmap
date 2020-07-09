@@ -50,7 +50,7 @@ const addMarkersToMap = (map, markers) => {
 
     const element = document.createElement('div');
     element.className = 'marker';
-    element.style.backgroundImage = `url('https://res.cloudinary.com/datbhgbcq/image/upload/v1594292915/TRIPSMAP/openbook_iknmdj.png')`;
+    element.style.backgroundImage = `url('https://res.cloudinary.com/datbhgbcq/image/upload/v1593879728/TRIPSMAP/Plane_gsg74i.png')`;
     element.style.backgroundSize = 'contain';
     element.style.width = '50px';
     element.style.height = '50px';
@@ -91,7 +91,7 @@ const line = (map, trip) => {
             },
             'paint': {
                 'line-color': colors[trip[0].id-1],
-                'line-width': 8
+                'line-width': 4
             }
         });
 }
