@@ -39,7 +39,7 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
+    style: 'mapbox://styles/alexandrelem/ckc7ginr9142d1ioop9u9532y'
 
   });
 };
@@ -50,7 +50,7 @@ const addMarkersToMap = (map, markers) => {
 
     const element = document.createElement('div');
     element.className = 'marker';
-    element.style.backgroundImage = `url('https://res.cloudinary.com/datbhgbcq/image/upload/v1593879728/TRIPSMAP/Plane_gsg74i.png')`;
+    element.style.backgroundImage = `url('https://res.cloudinary.com/datbhgbcq/image/upload/v1594292915/TRIPSMAP/openbook_iknmdj.png')`;
     element.style.backgroundSize = 'contain';
     element.style.width = '50px';
     element.style.height = '50px';
@@ -69,7 +69,7 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const line = (map, trip) => {
-  const colors = ["#888", "#f69e7b", "#12cad6"]
+  const colors = ["#1D1B38", "#E7305B", "#D63447"]
     map.addSource(`${trip[0].id}`, {
             'type': 'geojson',
             'data': {
@@ -116,6 +116,8 @@ const initMapbox = () => {
 
     map.addControl(new mapboxgl.FullscreenControl());
     // console.log(markers.map(marker => [marker.lat, marker.lng]));
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
 
   }
 }
