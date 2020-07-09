@@ -66,7 +66,7 @@ puts "Creation steps"
 step_titles = [
   ["Lima, capitale du Pérou", "Bienvenue en Bolivie", "Iquique", "Ushuaïa", "Buenos Aires"],
   ["Floride", "Illinois", "Texas", "Californie", "Nevada", "Arizona", "Utah"],
-  ["Rome", "Venise", "Florence", "Milan"]
+  ["La mythique", "La splendide", "La merveilleuse", "La sublime"]
 ]
 
 locations = [
