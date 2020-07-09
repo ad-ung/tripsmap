@@ -64,13 +64,13 @@ puts "Creation steps"
 # title, location, nb_of_days, trip_id, cover_picture
 
 step_titles = [
-  ["Lima, capitale du Pérou", "Bienvenue en Bolivie", "Iquique", "Tango!", "Cascades de rêve"],
+  ["Lima, capitale du Pérou", "Bienvenue en Bolivie", "Iquique", "Cascades de rêve", "Tango!"],
   ["Floride", "Illinois", "Texas", "Californie", "Nevada", "Arizona", "Utah"],
   ["La mythique", "La splendide", "La merveilleuse", "La sublime"]
 ]
 
 locations = [
-  ["Lima, Pérou", "Isla Del Sol, Bolivie", "Pica, Chili", "Buenos Aires, Argentine", "Ushuaïa, Argentine"],
+  ["Lima, Pérou", "Isla Del Sol, Bolivie", "Pica, Chili", "Ushuaïa, Argentine", "Buenos Aires, Argentine"],
   ["Miami", "Chicago", "Dallas", "Los Angeles", "Las Vegas", "Grand Canyon", "Salt Lake City"],
   ["Rome", "Venise", "Florence", "Milan"]
 ]
