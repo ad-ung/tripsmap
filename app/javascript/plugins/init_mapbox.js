@@ -33,11 +33,7 @@
 
 import mapboxgl from 'mapbox-gl';
 
-const profileMapElement = document.getElementById('profile-map');
-
-const stepMapElement = document.getElementById('step-map');
-
-const buildProfileMap = () => {
+const buildProfileMap = (profileMapElement) => {
   mapboxgl.accessToken = profileMapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'profile-map',
@@ -46,7 +42,7 @@ const buildProfileMap = () => {
   });
 };
 
-const buildStepMap = () => {
+const buildStepMap = (stepMapElement) => {
   mapboxgl.accessToken = stepMapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'step-map',
@@ -109,8 +105,14 @@ const line = (map, trip) => {
 
 const initMapbox = () => {
 
+  const profileMapElement = document.getElementById('profile-map');
+
+  const stepMapElement = document.getElementById('step-map');
+
+  let map;
+
   if (profileMapElement) {
-    const map = buildProfileMap();
+    map = buildProfileMap(profileMapElement);
     const trips = JSON.parse(profileMapElement.dataset.markers);
     trips.forEach((trip) => {
       addMarkersToMap(map, trip);
@@ -122,17 +124,20 @@ const initMapbox = () => {
         line(map, trip);
       })
     })
+
+    map.addControl(new mapboxgl.FullscreenControl());
+    map.addControl(new mapboxgl.NavigationControl());
+
   } else if (stepMapElement) {
-    const map = buildStepMap();
+
+    map = buildStepMap(stepMapElement);
     const marker = JSON.parse(stepMapElement.dataset.marker);
 
     addMarkersToMap(map, marker);
     fitMapToMarkers(map, marker);
-    console.log(map);
+    map.addControl(new mapboxgl.FullscreenControl());
+    map.addControl(new mapboxgl.NavigationControl());
   }
-  map.addControl(new mapboxgl.FullscreenControl());
-  map.addControl(new mapboxgl.NavigationControl());
-    // console.log(markers.map(marker => [marker.lat, marker.lng]));
 }
 
 export { initMapbox };
