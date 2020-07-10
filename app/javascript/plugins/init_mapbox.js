@@ -33,13 +33,20 @@
 
 import mapboxgl from 'mapbox-gl';
 
-const mapElement = document.getElementById('map');
-
-const buildMap = () => {
-  mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+const buildProfileMap = (profileMapElement) => {
+  mapboxgl.accessToken = profileMapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
+    container: 'profile-map',
+    style: 'mapbox://styles/alexandrelem/ckc7ginr9142d1ioop9u9532y'
+
+  });
+};
+
+const buildStepMap = (stepMapElement) => {
+  mapboxgl.accessToken = stepMapElement.dataset.mapboxApiKey;
+  return new mapboxgl.Map({
+    container: 'step-map',
+    style: 'mapbox://styles/alexandrelem/ckc7ginr9142d1ioop9u9532y'
 
   });
 };
@@ -69,7 +76,7 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const line = (map, trip) => {
-  const colors = ["#888", "#f69e7b", "#12cad6"]
+  const colors = ["#1D1B38", "#E7305B", "#D63447"]
     map.addSource(`${trip[0].id}`, {
             'type': 'geojson',
             'data': {
@@ -91,32 +98,47 @@ const line = (map, trip) => {
             },
             'paint': {
                 'line-color': colors[trip[0].id-1],
-                'line-width': 8
+                'line-width': 4
             }
         });
 }
 
 const initMapbox = () => {
-  if (mapElement) {
-    const map = buildMap();
-    const trips = JSON.parse(mapElement.dataset.markers);
 
+  const profileMapElement = document.getElementById('profile-map');
 
+  const stepMapElement = document.getElementById('step-map');
+
+  let map;
+
+  if (profileMapElement) {
+    map = buildProfileMap(profileMapElement);
+    const trips = JSON.parse(profileMapElement.dataset.markers);
     trips.forEach((trip) => {
       addMarkersToMap(map, trip);
       fitMapToMarkers(map, trip);
-
     })
 
-      map.on('load', function() {
-        trips.forEach((trip) => {
-          line(map, trip);
-        })
+    map.on('load', function() {
+      trips.forEach((trip) => {
+        line(map, trip);
       })
+    })
 
     map.addControl(new mapboxgl.FullscreenControl());
-    // console.log(markers.map(marker => [marker.lat, marker.lng]));
+    map.addControl(new mapboxgl.NavigationControl());
 
+  } else if (stepMapElement) {
+    // console.log(markers.map(marker => [marker.lat, marker.lng]));
+    // Add zoom and rotation controls to the map.
+
+    map = buildStepMap(stepMapElement);
+    const marker = JSON.parse(stepMapElement.dataset.marker);
+
+    addMarkersToMap(map, marker);
+    fitMapToMarkers(map, marker);
+    map.addControl(new mapboxgl.FullscreenControl());
+    map.addControl(new mapboxgl.NavigationControl());
   }
 }
 
