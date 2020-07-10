@@ -7,6 +7,11 @@ class StepsController < ApplicationController
     @trip = @step.trip
     @step_id = @step.id_in_its_trip
     @blocks = @step.blocks
+
+    @marker = {
+      lat: @step.latitude,
+      lng: @step.longitude
+    }
   end
 
   def new
