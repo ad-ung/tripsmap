@@ -76,7 +76,7 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const line = (map, trip) => {
-  const colors = ["#888", "#f69e7b", "#12cad6"]
+  const colors = ["#1D1B38", "#E7305B", "#D63447"]
     map.addSource(`${trip[0].id}`, {
             'type': 'geojson',
             'data': {
@@ -98,7 +98,7 @@ const line = (map, trip) => {
             },
             'paint': {
                 'line-color': colors[trip[0].id-1],
-                'line-width': 8
+                'line-width': 4
             }
         });
 }
@@ -129,6 +129,8 @@ const initMapbox = () => {
     map.addControl(new mapboxgl.NavigationControl());
 
   } else if (stepMapElement) {
+    // console.log(markers.map(marker => [marker.lat, marker.lng]));
+    // Add zoom and rotation controls to the map.
 
     map = buildStepMap(stepMapElement);
     const marker = JSON.parse(stepMapElement.dataset.marker);
