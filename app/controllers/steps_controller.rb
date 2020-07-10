@@ -38,7 +38,7 @@ class StepsController < ApplicationController
 
   def step_params
     params.require(:step).permit(:title, :location, :nb_of_days, :id_in_its_trip, blocks_attributes: [
-      :text, :mediatype, files: []
+      :text, :mediatype, :_destroy, files: []
     ])
   end
 

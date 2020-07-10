@@ -25,6 +25,7 @@ require("channels")
 // External imports
 
 import "bootstrap";
+import "cocoon";
 import {location} from "../plugins/location";
 import { initMapbox } from '../plugins/init_mapbox';
 import { packery } from '../plugins/packery'
