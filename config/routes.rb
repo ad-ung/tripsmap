@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "profile", to: 'pages#profile'
   get "write", to: 'pages#write'
+  get "explore", to: 'steps#explore'
   patch "steps/:id", to: "steps#update"
 
   resources :trips, only: [:show] do
@@ -10,4 +11,5 @@ Rails.application.routes.draw do
   end
   resources :steps, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :steps, only:[:show]
 end

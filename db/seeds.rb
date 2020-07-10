@@ -27,6 +27,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 puts "Creation user"
 User.create!(email: "johndoe@gmail.com", pseudo: "John_Doe", password: "topsecret")
+User.create!(email: "janedoe@gmail.com", pseudo: "Jane_Doe", password: "topsecret")
+User.create!(email: "jean-mi@gmail.com", pseudo: "Jean_Mi", password: "topsecret")
 
 puts "Creation trips"
 
@@ -48,17 +50,19 @@ trip_cover_picture_path = [
   "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"
 ]
 
-def create_trip(title, starts_on, ends_on, cover_picture_path)
+def create_trip(title, starts_on, ends_on, cover_picture_path, user)
   t = Trip.new(title: title, starts_on: starts_on, ends_on: ends_on)
-  t.user = User.first
+  t.user = user
   file = URI.open(cover_picture_path)
   t.cover_picture.attach(io: file, filename: "pic#{Trip.count + 1}.extension", content_type: "image/png")
   t.save!
 end
 
-trip_titles.each_with_index do |title, index|
-  create_trip(title, trip_dates[index][0], trip_dates[index][1], trip_cover_picture_path[index])
-end
+# trip_titles.each_with_index do |title, index|
+  create_trip(trip_titles[0], trip_dates[0][0], trip_dates[0][1], trip_cover_picture_path[0], User.first)
+  create_trip(trip_titles[1], trip_dates[1][0], trip_dates[1][1], trip_cover_picture_path[1], User.second)
+  create_trip(trip_titles[2], trip_dates[2][0], trip_dates[2][1], trip_cover_picture_path[2], User.last)
+# end
 
 puts "Creation steps"
 # title, location, nb_of_days, trip_id, cover_picture

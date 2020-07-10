@@ -30,6 +30,14 @@ class StepsController < ApplicationController
     redirect_to trip_path(@trip)
   end
 
+  def explore
+    @blocks = Block.where(mediatype: 'photos')
+    @steps = Step.all
+    if params[:search]
+      @steps = Step.search_by_location_and_title(params[:search])
+    end
+  end
+
   def update
     @step = Step.find(params[:id])
     if @step.update(step_params)

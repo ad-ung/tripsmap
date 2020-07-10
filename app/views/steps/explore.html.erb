@@ -1,0 +1,21 @@
+
+<%= render 'shared/explore_search_form' %>
+
+<div class="explorer-cards">
+
+  <% @steps.each do |step| %>
+      <%=  link_to step_path(step) do %>
+        <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path step.cover_picture_key%>');">
+          <div class="card-infos">
+            <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
+              <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 50px;"><%= "#{(step.nb_of_days)} days" %></span>
+              <p class="fixed-bottom" style="margin: 0 auto;"><%= step.title %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
+
+</div>
+
+
