@@ -2,6 +2,8 @@
 
 <div class= "new-trip text-center">
   <p class="btn btn-orange-new"> <i class="far fa-edit mr-1"></i> Nouveau voyage </p>
+   <%= link_to "Nouveau voyage", new_trip_path, class:"btn btn-orange-new far fa-edit mr-1" %>
+
 </div>
 <div class="row mt-4">
   <% @trips.order('starts_on DESC').each do |trip| %>
