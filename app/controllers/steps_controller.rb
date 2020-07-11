@@ -7,6 +7,11 @@ class StepsController < ApplicationController
     @trip = @step.trip
     @step_id = @step.id_in_its_trip
     @blocks = @step.blocks
+
+    @marker = {
+      lat: @step.latitude,
+      lng: @step.longitude
+    }
   end
 
   def new
@@ -22,6 +27,14 @@ class StepsController < ApplicationController
     @step.blocks.each { |block| find_mediatype(block) }
     @step.save
     redirect_to trip_path(@trip)
+  end
+
+  def explore
+    @blocks = Block.where(mediatype: 'photos')
+    @steps = Step.all
+    if params[:search]
+      @steps = Step.search_by_location_and_title(params[:search])
+    end
   end
 
   def update

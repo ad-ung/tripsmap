@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-xs-12">
       <nav>
+        <%= link_to explore_path do %>
         <div class="icone-action"> <i class="fas fa-globe-americas icones"></i> <p class="d-none d-sm-block">Explorer</p></div>
+        <% end %>
         <div class="icone-action"> <i class="far fa-heart"></i> <p class="d-none d-sm-block"> Enregistrés </p> </div>
          <%= link_to write_path do%>
         <div class="icone-action"> <i class="far fa-edit"></i> <p class="d-none d-sm-block">Ecrire</p></div>
