@@ -65,3 +65,10 @@
     <% end %>
   <% end %>
 </div>
+<%= link_to 'Voir le voyage', trip_path(@trip) %>
+
+<% previous_step = Step.find_by(trip: @step.trip, id_in_its_trip: @step.id_in_its_trip - 1)  %>
+<%= link_to 'Précédent', step_path(@step.id - 1) unless previous_step.nil? %>
+
+<% next_step = Step.find_by(trip: @step.trip, id_in_its_trip: @step.id_in_its_trip + 1)  %>
+<%= link_to 'Next', step_path(@step_id + 1) unless next_step.nil? %>
