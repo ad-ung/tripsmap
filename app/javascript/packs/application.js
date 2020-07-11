@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("src/cocoon")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -25,7 +26,7 @@ require("channels")
 // External imports
 
 import "bootstrap";
-import "cocoon";
+// import "cocoon";
 import {location} from "../plugins/location";
 import { initMapbox } from '../plugins/init_mapbox';
 import { packery } from '../plugins/packery'

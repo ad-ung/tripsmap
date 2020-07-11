@@ -8,7 +8,7 @@ class Step < ApplicationRecord
   validates :location, presence: true
   validates :nb_of_days, presence: true
 
-  accepts_nested_attributes_for :blocks, reject_if: :all_blank
+  accepts_nested_attributes_for :blocks, reject_if: :all_blank, allow_destroy: true
 
   def cover_picture_key
     block_photos = blocks.find_by(mediatype: "photos")
