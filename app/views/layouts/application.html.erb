@@ -18,13 +18,6 @@
     <% if current_page?(root_path) %>
       <%= render 'shared/flashes' %>
       <%= yield %>
-    <% elsif current_page?(new_trip_step_path) %>
-      <%= render 'shared/logo' unless @disable_logo %>
-      <%= render 'shared/flashes' %>
-
-      <%= yield %>
-      <%= render 'shared/white_space' %>
-      <%= render 'shared/navbar' %>
     <% else %>
       <div class="container">
         <%= render 'shared/logo' unless @disable_logo %>
