@@ -76,7 +76,8 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const line = (map, trip) => {
-  const colors = ["#1D1B38", "#E7305B", "#D63447"]
+  const colors = ["#1D1B38", "#E7305B", "#D63447", "#99b898", "#726a95", "#5c2a9d", "#ff5200", "#035aa6", "#ff6363" ]
+  console.log(trip);
     map.addSource(`${trip[0].id}`, {
             'type': 'geojson',
             'data': {
@@ -97,7 +98,7 @@ const line = (map, trip) => {
                 'line-cap': 'round'
             },
             'paint': {
-                'line-color': colors[trip[0].id-1],
+                'line-color': colors[trip[0].id - 1],
                 'line-width': 4
             }
         });
