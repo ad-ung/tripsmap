@@ -7,6 +7,7 @@ p {
   padding: 0px 1rem;
   // color: rgba(0, 0, 0, 0.8);
   margin-bottom: 0;
+  line-height: 28px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -60,6 +61,7 @@ h6 {
 .note-style {
   // text-decoration: underline;
   // text-underline-position: under;
+
 }
 
 .note-style > u {
@@ -68,8 +70,8 @@ h6 {
 
 
 .step-text-background {
-  background-image: url('https://res.cloudinary.com/datbhgbcq/image/upload/v1594461543/TRIPSMAP/Screenshot_from_2020-07-11_11-58-37_caijox.png');
+  background-image: url('https://res.cloudinary.com/datbhgbcq/image/upload/v1594473616/TRIPSMAP/Screenshot_from_2020-07-11_15-19-59_nn8qjd.png');
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.8;
+  background-size: cover;
 }
