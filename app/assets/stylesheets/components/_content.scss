@@ -7,7 +7,7 @@ p {
   padding: 0px 1rem;
   // color: rgba(0, 0, 0, 0.8);
   margin-bottom: 0;
-  line-height: 28px;
+  line-height: 24px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -74,4 +74,9 @@ h6 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.cedarville {
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 1.25rem;
 }
