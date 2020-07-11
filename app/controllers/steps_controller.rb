@@ -7,7 +7,6 @@ class StepsController < ApplicationController
     @trip = @step.trip
     @step_id = @step.id_in_its_trip
     @blocks = @step.blocks
-    #@next_step = @step.id +1
 
     @marker = {
       lat: @step.latitude,
