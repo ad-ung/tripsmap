@@ -1,4 +1,4 @@
-class FavoriteController < ApplicationController
+class FavoritesController < ApplicationController
   def index
     @favorites = Favorite.where(user: current_user)
   end
@@ -8,7 +8,7 @@ class FavoriteController < ApplicationController
     @favorite = Favorite.new
     @favorite.step = @step
     @favorite.user = current_user
-    favorite.save
+    @favorite.save
   end
 
   def destroy

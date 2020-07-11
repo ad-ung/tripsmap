@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(version: 2020_07_11_085423) do
     t.index ["step_id"], name: "index_blocks_on_step_id"
   end
 
-  create_table "favoris", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "step_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["step_id"], name: "index_favoris_on_step_id"
-    t.index ["user_id"], name: "index_favoris_on_user_id"
+    t.index ["step_id"], name: "index_favorites_on_step_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 2020_07_11_085423) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "blocks", "steps"
-  add_foreign_key "favoris", "steps"
-  add_foreign_key "favoris", "users"
+  add_foreign_key "favorites", "steps"
+  add_foreign_key "favorites", "users"
   add_foreign_key "steps", "trips"
   add_foreign_key "trips", "users"
 end

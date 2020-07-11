@@ -1,3 +1,11 @@
+ <% if @favorite.exists%>
+   <i class="far fa-heart" style="padding-right: 10px;"></i>
+     <%= link_to 'delete', step_favorite_path(step_id), method: :delete, remote: true %>
+
+<% else %>
+
   <i class="far fa-heart" style="padding-right: 10px;"></i>
-   <%= link_to 'Ajouter aux favoris', step_path, method: :post, remote: true %>
+   <%= link_to 'Ajouter aux favoris', step_favorites_path(step_id), method: :post, remote: true %>
+<% end %>
+
 
