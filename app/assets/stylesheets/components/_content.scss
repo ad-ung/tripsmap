@@ -44,3 +44,32 @@ h6 {
   width: 100%;
 }
 
+.post-it {
+  position: relative;
+}
+
+.post-it-text {
+  position: absolute;
+  top: -10px;
+}
+
+.post-it > img {
+  max-width: 375px !important;
+}
+
+.note-style {
+  // text-decoration: underline;
+  // text-underline-position: under;
+}
+
+.note-style > u {
+  // color: #rgba(0, 0, 0, 0.8);
+}
+
+
+.step-text-background {
+  background-image: url('https://res.cloudinary.com/datbhgbcq/image/upload/v1594461543/TRIPSMAP/Screenshot_from_2020-07-11_11-58-37_caijox.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
