@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'favorite/index'
+  get 'favorite/create'
+  get 'favorite/destroy'
   devise_for :users
   root to: 'pages#home'
   get "profile", to: 'pages#profile'
   get "write", to: 'pages#write'
   get "explore", to: 'steps#explore'
+  get "favoris", to: 'favorite#index'
   patch "steps/:id", to: "steps#update"
 
   resources :trips, only: [:show] do
