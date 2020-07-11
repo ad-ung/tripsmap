@@ -66,6 +66,8 @@
   <% end %>
 </div>
 <%= link_to 'Voir le voyage', trip_path(@trip) %>
+
+
 <%= link_to 'Précédent', step_path(@step.id - 1) %>
-<% if trip %>
-<%= link_to 'Next', step_path(@step.id + 1) %>
+
+<%= link_to 'Next', step_path(@step_id + 1) %>
