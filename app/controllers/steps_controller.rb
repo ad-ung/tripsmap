@@ -7,6 +7,7 @@ class StepsController < ApplicationController
     @trip = @step.trip
     @step_id = @step.id_in_its_trip
     @blocks = @step.blocks
+    @favorite = Favorite.find_by(user: current_user, step: @step)
 
     @marker = {
       lat: @step.latitude,

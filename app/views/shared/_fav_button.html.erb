@@ -1,6 +1,6 @@
- <% if @favorite.exists%>
+ <% if @favorite.present?%>
    <i class="far fa-heart" style="padding-right: 10px;"></i>
-     <%= link_to 'delete', step_favorite_path(step_id), method: :delete, remote: true %>
+     <%= link_to 'delete', favorite_path(@favorite.id), method: :delete, remote: true%>
 
 <% else %>
 
