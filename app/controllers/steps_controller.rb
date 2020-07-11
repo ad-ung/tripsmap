@@ -12,11 +12,9 @@ class StepsController < ApplicationController
   def new
     @trip = Trip.find(params[:trip_id])
     @step = Step.new
-    # @step.blocks.build
   end
 
   def create
-    raise
     @trip = Trip.find(params[:trip_id])
     @step = Step.new(step_params)
     @step.trip = @trip

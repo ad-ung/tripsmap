@@ -29,7 +29,8 @@ import "bootstrap";
 // import "cocoon";
 import {location} from "../plugins/location";
 import { initMapbox } from '../plugins/init_mapbox';
-import { packery } from '../plugins/packery'
+import { packery } from '../plugins/packery';
+import { dropdrownForm } from '../plugins/dropdown_form';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -39,6 +40,15 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   packery();
   location();
+  dropdrownForm();
+  // const dropdown = document.querySelector(".dropdown button");
+  // const elements = document.querySelectorAll(".multi-collapse");
+  // elements.forEach ((element) => {
+  //   element.addEventListener('click', (event) => {
+  //     dropdown.classList.add("collapsed");
+  //     elements.forEach(l => l.classList.remove("show"));
+  //   });
+  // });
 
 });
 // app/assets/javascripts/application.js
