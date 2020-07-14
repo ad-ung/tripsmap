@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :trips, only: [:show, :new, :create] do
     resources :steps, only: [:new, :create]
   end
-  resources :steps, only: [:show]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :steps, only:[:show]
+  resources :steps, only: [:show] do
+    resources :favorites, only: [:create]
+  end
+
+  resources :favorites, only: [:index, :destroy]
 end
