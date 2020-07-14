@@ -12,9 +12,9 @@
             <%= cl_image_tag trip.cover_picture.key %>
           </div>
           <div class="w-75 content justify-content-center pl-3 pr-2">
-            <div class="pb-2 flower" id="trip-title"><%= trip.title %>
+            <div class="pb-2" id="trip-title"><%= trip.title %>
             </div>
-            <div class="flower" id="trip-dates">
+            <div class="" id="trip-dates">
               <%= l(trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(trip.ends_on, format: '%e %b %Y', locale: 'fr') %>
             </div>
           </div>
