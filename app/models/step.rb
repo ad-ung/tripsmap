@@ -26,5 +26,4 @@ class Step < ApplicationRecord
       "bxeesxc0j8voxhzw2krz"
     end
   end
-
 end
