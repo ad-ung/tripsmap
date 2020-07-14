@@ -23,9 +23,10 @@
   <% @blocks.sort.each do |block| %>
 
     <% if block.mediatype === "text" %>
-    <div class="step-text-background">
-      <p class="step-text note-style cedarville"><%= block.text %></p>
-    </div>
+    <!-- <div class="step-text-background"> -->
+      <!-- <p class="step-text note-style cedarville"><%= block.text %></p> -->
+      <p class="step-text"><%= block.text %></p>
+    <!-- </div> -->
     <% elsif block.mediatype === "video" %>
       <% block.files.each do |video| %>
         <%= cl_video_tag video.key, controls: true, width: '345' %>
