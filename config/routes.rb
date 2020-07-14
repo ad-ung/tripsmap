@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "favoris", to: 'favorite#index'
   patch "steps/:id", to: "steps#update"
 
-  resources :trips, only: [:show] do
+  resources :trips, only: [:show, :new, :create] do
     resources :steps, only: [:new, :create]
   end
   resources :steps, only: [:show] do

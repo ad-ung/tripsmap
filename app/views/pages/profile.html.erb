@@ -30,7 +30,6 @@
 <div class="container text-center">
 <h5 class="mt-4"> Mes voyages </h5>
 <div id="profile-cards" class="row">
-  <% @trips = Trip.all %>
   <% @trips.order('starts_on DESC').each do |trip| %>
     <div class="col-12 col-md-6 col-lg-4 col-xl-4">
       <%= link_to trip_path(trip) do %>

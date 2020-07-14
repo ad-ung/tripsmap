@@ -1,3 +1,13 @@
+<!-- Flèches -->
+<br>
+<div class="container">
+  <div class="d-flex align-items-center justify-content-between" style="color:orange;">
+    <div btn btn-warning class="previous" style="color:rgba(226, 110, 45, 0.67);"> <i class="fas fa-angle-double-left"></i> Précédent</div>
+    <div btn btn-warning class="next" style="color:rgba(226, 110, 45, 0.67);">  Suivant <i class="fas fa-angle-double-right"></i></div>
+
+  </div>
+
+<!-- trip -->
 <h2 class="trip-title"><%= @trip.title%></h2>
 <h5 class="trip-dates"><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
 <div class="step-infos bg-light py-3">
@@ -65,3 +75,10 @@
     <% end %>
   <% end %>
 </div>
+<%= link_to 'Voir le voyage', trip_path(@trip) %>
+
+<% previous_step = Step.find_by(trip: @step.trip, id_in_its_trip: @step.id_in_its_trip - 1)  %>
+<%= link_to 'Précédent', step_path(@step.id - 1) unless previous_step.nil? %>
+
+<% next_step = Step.find_by(trip: @step.trip, id_in_its_trip: @step.id_in_its_trip + 1)  %>
+<%= link_to 'Next', step_path(@step_id + 1) unless next_step.nil? %>

@@ -18,7 +18,6 @@ class StepsController < ApplicationController
   def new
     @trip = Trip.find(params[:trip_id])
     @step = Step.new
-    @step.blocks.build
   end
 
   def create
@@ -52,7 +51,7 @@ class StepsController < ApplicationController
 
   def step_params
     params.require(:step).permit(:title, :location, :nb_of_days, :id_in_its_trip, blocks_attributes: [
-      :text, :mediatype, files: []
+      :text, :mediatype, :_destroy, :files
     ])
   end
 
