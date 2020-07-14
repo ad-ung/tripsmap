@@ -29,10 +29,10 @@
     <h2 class="trip-title"><%= @trip.title%></h2>
   <% end %>
   <h5 class="trip-dates"><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
-  <div class="d-flex justify-content-center pt-2">
-    <img class="avatar-small" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg" alt="">
+  <%= link_to user_path(@user), class: "d-flex justify-content-center pt-2", style: "text-decoration: none; color: rgba(0,0,0,0.8);" do  %>
+    <%= cl_image_tag @user.avatar.key, class: "avatar-small"  %>
     <p style="font-size: 15px;" class="pl-2"><%= @user.pseudo %></p>
-  </div>
+  <% end %>
   <div class="step-infos bg-light py-3 position-relative">
     <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step_id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
     <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>

@@ -7,15 +7,15 @@
 </div>
 <div class="profile-infos">
   <div class="main-infos mb-3" style="text-align: center">
-    <img class="avatar mt-5" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg" alt="">
-    <h5>Alexandre</h5>
+    <%= cl_image_tag @user.avatar.key, class: "avatar mt-5"  %>
+    <h5><%= @user.pseudo %></h5>
     <p>Aventurier chevronné, j'aime parcourir le monde pour découvrir des paysages exceptionnels que nous offre la nature.</p>
   </div>
   <div class="inline-infos-trips mb-4">
-  <div class="d-flex justify-content-between text-center trip-infos-data">
-    <p><strong><span style="font-size: 1.5rem">35</span></strong> étapes</p>
-    <p><strong><span style="font-size: 1.5rem">14</span></strong> pays</p>
-    <p><strong><span style="font-size: 1.5rem">250</span></strong> abonnés</p>
+    <div class="container d-flex justify-content-around">
+    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @count_steps %></span></strong> étapes</div>
+    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @trips.count %></span></strong> pays</div>
+    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem">250</span></strong> abonnés</div>
   </div>
   </div>
 </div>
