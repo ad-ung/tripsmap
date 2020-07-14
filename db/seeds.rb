@@ -27,19 +27,31 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 puts "Creation user"
 User.create!(email: "johndoe@gmail.com", pseudo: "John_Doe", password: "topsecret")
-User.create!(email: "janedoe@gmail.com", pseudo: "Jane_Doe", password: "topsecret")
-User.create!(email: "jean-mi@gmail.com", pseudo: "Jean_Mi", password: "topsecret")
+User.create!(email: "janedoe@gmail.com", pseudo: "Adeline", password: "topsecret")
+User.create!(email: "jean-mi@gmail.com", pseudo: "Bernadette", password: "topsecret")
 
 puts "Creation trips"
 
 trip_titles = [
   "Voyage en Amérique latine",
   "Road-trip aux US",
-  "Petite escapade en Italie"
+  "Petite escapade en Italie",
+  "Road trip en Thaïlande",
+  "A la découverte du Japon",
+  "Les merveilles du Nepal",
+  "Ambiance temple, jungle et marchés nocturnes au Cambodge",
+  "Sphynx, pyramides et plongée en Egypte",
+  "Au bout du monde: Australie & Nouvelle Zélande"
 ]
 
 trip_dates = [
-  ["03/04/2018", "06/05/2018"],
+  ["03/04/2016", "06/05/2016"],
+  ["03/06/2016", "06/07/2016"],
+  ["03/06/2017", "10/06/2017"],
+  ["03/04/2017", "06/05/2017"],
+  ["03/06/2018", "06/07/2018"],
+  ["03/06/2019", "10/06/2019"],
+  ["03/04/2019", "06/05/2019"],
   ["03/06/2019", "06/07/2019"],
   ["03/06/2020", "10/06/2020"]
 ]
@@ -47,7 +59,13 @@ trip_dates = [
 trip_cover_picture_path = [
   "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
   "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-  "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"
+  "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,w_1350/v1594467377/TRIPSMAP/trip_cover_pictures/Thailande/debbie-molle-6DSID8Ey9-U-unsplash_qmtm3x.jpg",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,w_1350/v1594467554/TRIPSMAP/trip_cover_pictures/martijn-baudoin-c_uHShdMI4Q-unsplash_uosz93.jpg",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,w_1350/v1594467612/TRIPSMAP/trip_cover_pictures/prasesh-shiwakoti-lomash-NHh19i0IhO8-unsplash_hs4set.jpg",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,w_1350/v1594467725/TRIPSMAP/trip_cover_pictures/james-wheeler-WXqvglwd4hU-unsplash_syauut.jpg",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,w_1350/v1594467778/TRIPSMAP/trip_cover_pictures/jeremy-bishop-HcgK4WoBwzg-unsplash_o27und.jpg",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,w_1350/v1594467827/TRIPSMAP/trip_cover_pictures/keith-zhu-qaNcz43MeY8-unsplash_t8lo68.jpg"
 ]
 
 def create_trip(title, starts_on, ends_on, cover_picture_path, user)
@@ -62,6 +80,12 @@ end
   create_trip(trip_titles[0], trip_dates[0][0], trip_dates[0][1], trip_cover_picture_path[0], User.first)
   create_trip(trip_titles[1], trip_dates[1][0], trip_dates[1][1], trip_cover_picture_path[1], User.second)
   create_trip(trip_titles[2], trip_dates[2][0], trip_dates[2][1], trip_cover_picture_path[2], User.last)
+  create_trip(trip_titles[3], trip_dates[3][0], trip_dates[3][1], trip_cover_picture_path[3], User.first)
+  create_trip(trip_titles[4], trip_dates[4][0], trip_dates[4][1], trip_cover_picture_path[4], User.second)
+  create_trip(trip_titles[5], trip_dates[5][0], trip_dates[5][1], trip_cover_picture_path[5], User.last)
+  create_trip(trip_titles[6], trip_dates[6][0], trip_dates[6][1], trip_cover_picture_path[6], User.first)
+  create_trip(trip_titles[7], trip_dates[7][0], trip_dates[7][1], trip_cover_picture_path[7], User.second)
+  create_trip(trip_titles[8], trip_dates[8][0], trip_dates[8][1], trip_cover_picture_path[8], User.last)
 # end
 
 puts "Creation steps"
@@ -70,13 +94,27 @@ puts "Creation steps"
 step_titles = [
   ["Lima, capitale du Pérou", "Bienvenue en Bolivie", "Iquique", "Cascades de rêve", "Tango!"],
   ["Floride", "Illinois", "Texas", "Californie", "Nevada", "Arizona", "Utah"],
-  ["La mythique", "La splendide", "La merveilleuse", "La sublime"]
+  ["La mythique", "La splendide", "La merveilleuse", "La sublime"],
+  ["Ville nouvelle", "La fourmilière", "Eau turquoise et sable fin", "Seul au monde"],
+  ["Dépaysement total", "Sanctuaires et Samuraï", "Temple de la gastronomie", "Temples et montagnes", "L'inquiétante"],
+  ["Découverte du bouddhisme", "Monastère de Kopan", "Jardins de Lumbini", "Le meilleur café au monde"],
+  ["Temples Khmers", "Pagodes à Phnom Penh", "Farniente à Sihanoukville", "Marais salants et poivriers"],
+  ["Les pyramides", "La ville de l'or", "Excursion dans le Sinaï", "Port immortel"],
+  ["La fascinante", "Découverte des vignobles", "Ambiance surf et robinson crusoé", "Pêche et plongée", "La fascinante"],
+
+
 ]
 
 locations = [
   ["Lima, Pérou", "Isla Del Sol, Bolivie", "Pica, Chili", "Ushuaïa, Argentine", "Buenos Aires, Argentine"],
   ["Miami", "Chicago", "Dallas", "Los Angeles", "Las Vegas", "Grand Canyon", "Salt Lake City"],
-  ["Rome", "Venise", "Florence", "Milan"]
+  ["Rome", "Venise", "Florence", "Milan"],
+  ["Chiang Mai", "Bangkok", "Koh phi phi", "Koh Tao,"],
+  ["Tokyo", "Osaka", "Kyoto", "Kamakura", "Hiroshima"],
+  ["Bodnath", "Kopan", "Lumbini", "Katmandou"],
+  ["Angkor", "Phnom Penh", "Sihanoukville", "Kampot" ],
+  ["Caire", "Dahab", "Charm el-Cheikh", "Alexandrie"],
+  ["Sydney", "Melbourne", "Gold Coast", "Auckland", "Queenstown"]
 ]
 
 def create_step(title, location, trip_id, rank)
