@@ -10,6 +10,7 @@ class Step < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
   belongs_to :trip
   has_many :blocks, dependent: :destroy, inverse_of: :step
+  has_many :favorites, dependent: :destroy
 
   validates :title, presence: true, length: { minimum: 2 }
   validates :location, presence: true

@@ -9,6 +9,10 @@
 require "open-uri"
 require "yaml"
 
+puts "Destroy favorites"
+Favorite.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
+
 puts "Destroy blocks"
 Block.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('blocks')
