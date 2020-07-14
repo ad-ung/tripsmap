@@ -10,9 +10,13 @@ class PagesController < ApplicationController
     @disable_logo = true
     @trips = current_user.trips
     @markers = []
+    @count_steps = 0
 
     @trips.each do |trip|
       @markers << markers(trip)
+      trip.steps.each do |step|
+        @count_steps += 1
+      end
     end
   end
 
