@@ -1,22 +1,41 @@
+<% previous_step = Step.find_by(trip: @step.trip, id_in_its_trip: @step.id_in_its_trip - 1)  %>
+<% next_step = Step.find_by(trip: @step.trip, id_in_its_trip: @step.id_in_its_trip + 1)  %>
 <!-- Flèches -->
 <br>
 <div class="container">
   <div class="d-flex align-items-center justify-content-between" style="color:orange;">
-    <div btn btn-warning class="previous" style="color:rgba(226, 110, 45, 0.67);"> <i class="fas fa-angle-double-left"></i> Précédent</div>
-    <div btn btn-warning class="next" style="color:rgba(226, 110, 45, 0.67);">  Suivant <i class="fas fa-angle-double-right"></i></div>
-
+    <% if previous_step.nil? %>
+      <div btn btn-warning class="previous" style="color:white;">
+        <i class="fas fa-angle-double-left"></i> Précédent
+      </div>
+    <% else %>
+      <%= link_to step_path(@step.id - 1) do %>
+        <div btn btn-warning class="previous" style="color:rgba(226, 110, 45, 0.67);">
+          <i class="fas fa-angle-double-left"></i> Précédent
+        </div>
+      <% end %>
+    <% end %>
+    <% unless next_step.nil? %>
+      <%= link_to step_path(@step_id + 1) do %>
+        <div btn btn-warning class="next" style="color:rgba(226, 110, 45, 0.67);">
+          Suivant <i class="fas fa-angle-double-right"></i>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
 <!-- trip -->
-<h2 class="trip-title"><%= @trip.title%></h2>
-<h5 class="trip-dates"><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
-<div class="step-infos bg-light py-3">
-  <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step_id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
-  <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>
-</div>
+  <%= link_to trip_path(@trip) do %>
+    <h2 class="trip-title"><%= @trip.title%></h2>
+  <% end %>
+  <h5 class="trip-dates"><%= l(@trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(@trip.ends_on, format: '%e %b %Y', locale: 'fr') %></h5>
+  <div class="step-infos bg-light py-3">
+    <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step_id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
+    <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>
+  </div>
 
+  <%= render 'shared/fav_button', step_id: @step.id %>
 </div>
- <%= render 'shared/fav_button', step_id: @step.id %>
 <% if @blocks.sort[0].mediatype === "photos" %>
   <div class="step-map mt-3 text-center" style="margin-bottom: 30px;">
 <% else %>
@@ -78,10 +97,4 @@
     <% end %>
   <% end %>
 </div>
-<%= link_to 'Voir le voyage', trip_path(@trip) %>
 
-<% previous_step = Step.find_by(trip: @step.trip, id_in_its_trip: @step.id_in_its_trip - 1)  %>
-<%= link_to 'Précédent', step_path(@step.id - 1) unless previous_step.nil? %>
-
-<% next_step = Step.find_by(trip: @step.trip, id_in_its_trip: @step.id_in_its_trip + 1)  %>
-<%= link_to 'Next', step_path(@step_id + 1) unless next_step.nil? %>

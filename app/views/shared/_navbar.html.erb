@@ -5,14 +5,16 @@
         <%= link_to explore_path do %>
         <div class="icone-action"> <i class="fas fa-globe-americas icones"></i> <p class="d-none d-sm-block">Explorer</p></div>
         <% end %>
-        <div class="icone-action"> <i class="far fa-heart"></i> <p class="d-none d-sm-block"> Enregistrés </p> </div>
-         <%= link_to write_path do%>
-        <div class="icone-action"> <i class="far fa-edit"></i> <p class="d-none d-sm-block">Ecrire</p></div>
+        <%= link_to favorites_path do %>
+          <div class="icone-action"> <i class="far fa-heart"></i> <p class="d-none d-sm-block"> Enregistrés </p> </div>
+        <% end %>
+        <%= link_to write_path do%>
+          <div class="icone-action"> <i class="far fa-edit"></i> <p class="d-none d-sm-block">Ecrire</p></div>
         <% end %>
         <div class="icone-action"> <i class="far fa-comment-alt"></i> <p class="d-none d-sm-block">Messages</p></div>
-         <%= link_to profile_path do%>
-        <div class="icone-action"> <i class="far fa-user"></i> <p class="d-none d-sm-block"> Profil </p> </div>
-      <% end %>
+        <%= link_to profile_path do%>
+          <div class="icone-action"> <i class="far fa-user"></i> <p class="d-none d-sm-block"> Profil </p> </div>
+        <% end %>
       </nav>
      </div>
   </div>
