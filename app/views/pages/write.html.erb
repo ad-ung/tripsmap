@@ -1,9 +1,9 @@
 <p class = "mb-4" style="margin-top: 36px; text-align: justify; text-justify: inter-character;"> Choisissez un voyage dans lequel vous souhaitez écrire une nouvelle étape: </p>
 
 <div class= "new-trip text-center">
-  <p class="btn btn-orange-new"> <i class="far fa-edit mr-1"></i> Nouveau voyage </p>
-   <%= link_to "Nouveau voyage", new_trip_path, class:"btn btn-orange-new far fa-edit mr-1" %>
-
+   <%= link_to new_trip_path, class:"btn btn-orange-new" do %>
+    <p><i class="far fa-edit mr-1"></i> Nouveau voyage</p>
+   <% end %>
 </div>
 <div class="row mt-4">
   <% @trips.order('starts_on DESC').each do |trip| %>
