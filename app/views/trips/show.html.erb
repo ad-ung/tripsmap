@@ -22,12 +22,11 @@
               <h2 id="rank" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -85%);  z-index: 10; color: white;"><%= step.id_in_its_trip %></h2>
               <%= cl_image_tag step.cover_picture_key, style:"filter: brightness(80%)" %>
             </div>
-            <div class="w-75 content justify-content-center align-items-center">
-              <div id="trip-title"><%= step.title %>
+            <div class="w-75 content justify-content-center pl-3 pr-2">
+              <div class="pb-2" id="trip-title"><%= step.title %>
               </div>
-              <div id="trip-dates" class="text-center">
-                <p>-</p>
-                <p><%= "#{step.nb_of_days} jours" %></p>
+              <div id="trip-dates" class="">
+                <%= "#{step.nb_of_days} jours" %>
               </div>
             </div>
           </div>
@@ -37,7 +36,7 @@
   </div>
 </div>
 
-
+ <%= link_to "nouvelle étape", new_trip_step_path(@trip)%>
 
 
 
