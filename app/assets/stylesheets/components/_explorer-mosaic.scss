@@ -1,33 +1,28 @@
-.explorer-cards{
+.explorer-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 
   .card {
-  height: 170px;
+    height: 170px;
 
-  .card-infos{
-    font-size: 8px;
-    width: 100px;
+    .card-infos {
+      font-size: 10px;
+      width: 100px;
+    }
+
+    .card-infos p {
+      font-size: 13px;
+      border-radius: 1px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 5px 5px;
+    }
   }
-
-  .card-infos p {
-  font-size: 11px;
-  line-height: 1px;
-  border-radius: 1px;
-}
 }
 
-}
 
-.fixed-bottom{
-  position: absolute;
-  bottom: 0;
-}
-
-.explore-form{
+.explore-form {
   display: flex;
-  .form-control{
-    width: 75%;
-  }
+  width: 75%;
 }
