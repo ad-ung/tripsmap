@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-xs-12">
       <nav>
-        <%= link_to explore_path do %>
-        <div class="icone-action"> <i class="fas fa-search icones"></i> <p class="d-none d-sm-block">Explorer</p></div>
+        <%= link_to explore_path, class: "icone-action #{current_class?(explore_path)}" do %>
+          <i class="fas fa-search icones"></i> <p class="d-none d-sm-block">Explorer</p>
         <% end %>
         <%= link_to favorites_path, class: "icone-action #{current_class?(favorites_path)}" do %>
           <i class="far fa-heart"></i> <p class="d-none d-sm-block"> Enregistrés </p>
