@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   end
 
   def write
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   private
