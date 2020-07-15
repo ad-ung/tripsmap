@@ -1,4 +1,4 @@
- <% if @favorite.present?%>
+ <% if @favorite.present? %>
      <%= link_to ( '<i class= "fas fa-heart"></i>').html_safe,
      favorite_path(@favorite.id), method: :delete, remote: true, class: "heart-fav" %>
 <% else %>

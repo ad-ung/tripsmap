@@ -6,7 +6,11 @@
   <% if @user == current_user %>
     <button type="button" class="btn btn-light mt-4">Editer mon compte</button>
   <% else %>
-    <button type="button" class="btn btn-light mt-4">S'abonner</button>
+    <% if @follower %>
+      <%= link_to "Abonné(e)",follower_path(@follower.id), method: :delete, remote: true, class: "btn btn-light mt-4" %>
+    <% else %>
+      <%= link_to "S'abonner", user_followers_path(@user, @follower), method: :post, remote: true, class: "btn btn-light mt-4" %>
+    <% end %>
   <% end %>
 </div>
 <div class="profile-infos">
@@ -19,7 +23,7 @@
     <div class="container d-flex justify-content-around">
     <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @count_steps %></span></strong> étapes</div>
     <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @trips.count %></span></strong> pays</div>
-    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem">250</span></strong> abonnés</div>
+    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @followers.count %></span></strong> abonnés</div>
   </div>
   </div>
 </div>
