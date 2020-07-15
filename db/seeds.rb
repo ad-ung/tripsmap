@@ -116,7 +116,7 @@ locations = [
   ["Chiang Mai", "Bangkok", "Koh phi phi", "Koh Tao,"],
   ["Tokyo", "Osaka", "Kyoto", "Kamakura", "Hiroshima"],
   ["Bodnath", "Kopan", "Lumbini", "Katmandou"],
-  ["Angkor", "Phnom Penh", "Sihanoukville", "Kampot" ],
+  ["Siem Reap", "Phnom Penh", "Sihanoukville", "Kampot" ],
   ["Caire", "Dahab", "Charm el-Cheikh", "Alexandrie"],
   ["Sydney", "Melbourne", "Gold Coast", "Auckland", "Queenstown"]
 ]
