@@ -38,9 +38,9 @@ def create_user(email, pseudo, password, avatar_path)
   u.save!
 end
 
-create_user("johndoe@gmail.com", "John_Doe", "topsecret", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg")
-create_user("janedoe@gmail.com", "Adeline_U", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752028/P1170915_tx7cpm.jpg")
-create_user("jean-mi@gmail.com", "JeanMi_123", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752040/nicolas-horn-MTZTGvDsHFY-unsplash_ia6ohd.jpg")
+create_user("johndoe@gmail.com", "Alexandre", "topsecret", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg")
+create_user("janedoe@gmail.com", "Adeline", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752028/P1170915_tx7cpm.jpg")
+create_user("jean-mi@gmail.com", "Jean-Mi", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752040/nicolas-horn-MTZTGvDsHFY-unsplash_ia6ohd.jpg")
 
 puts "Creation trips"
 
