@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :trips
   has_many :steps, through: :trips
   validates :pseudo, presence: true, uniqueness: true
+  has_one_attached :avatar
 end
