@@ -3,7 +3,11 @@
   <div class="logo">
     TripsMap
   </div>
-  <button type="button" class="btn btn-light mt-4">Editer mon compte</button>
+  <% if @user == current_user %>
+    <button type="button" class="btn btn-light mt-4">Editer mon compte</button>
+  <% else %>
+    <button type="button" class="btn btn-light mt-4">S'abonner</button>
+  <% end %>
 </div>
 <div class="profile-infos">
   <div class="main-infos mb-3" style="text-align: center">
