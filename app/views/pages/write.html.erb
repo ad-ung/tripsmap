@@ -1,7 +1,9 @@
 <p class = "mb-4" style="margin-top: 36px; text-align: justify; text-justify: inter-character;"> Choisissez un voyage dans lequel vous souhaitez écrire une nouvelle étape: </p>
 
 <div class= "new-trip text-center">
-  <p class="btn btn-orange-new"> <i class="far fa-edit mr-1"></i> Nouveau voyage </p>
+   <%= link_to new_trip_path, class:"btn btn-orange-new" do %>
+    <p><i class="far fa-edit mr-1"></i> Nouveau voyage</p>
+   <% end %>
 </div>
 <div class="row mt-4">
   <% @trips.order('starts_on DESC').each do |trip| %>
@@ -11,10 +13,10 @@
           <div class="photo-card" style="width: 37%;">
             <%= cl_image_tag trip.cover_picture.key %>
           </div>
-          <div class="w-75 content justify-content-center align-items-center">
-            <div id="trip-title"><%= trip.title %>
+          <div class="w-75 content justify-content-center pl-3 pr-2">
+            <div class="pb-2" id="trip-title"><%= trip.title %>
             </div>
-            <div id="trip-dates">
+            <div class="" id="trip-dates">
               <%= l(trip.starts_on, format: '%e %b %Y', locale: 'fr') %> - <%= l(trip.ends_on, format: '%e %b %Y', locale: 'fr') %>
             </div>
           </div>

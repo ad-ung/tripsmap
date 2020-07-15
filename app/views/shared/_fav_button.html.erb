@@ -1,0 +1,9 @@
+ <% if @favorite.present?%>
+     <%= link_to ( '<i class= "fas fa-heart"></i>').html_safe,
+     favorite_path(@favorite.id), method: :delete, remote: true %>
+
+<% else %>
+      <%= link_to ( '<i class= "far fa-heart"></i>').html_safe,
+     step_favorites_path(step_id), method: :post, remote: true %>
+
+<% end %>

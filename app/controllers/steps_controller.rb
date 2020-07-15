@@ -7,6 +7,7 @@ class StepsController < ApplicationController
     @trip = @step.trip
     @step_id = @step.id_in_its_trip
     @blocks = @step.blocks
+    @favorite = Favorite.find_by(user: current_user, step: @step)
 
     @marker = {
       lat: @step.latitude,
@@ -17,7 +18,6 @@ class StepsController < ApplicationController
   def new
     @trip = Trip.find(params[:trip_id])
     @step = Step.new
-    @step.blocks.build
   end
 
   def create
@@ -51,7 +51,7 @@ class StepsController < ApplicationController
 
   def step_params
     params.require(:step).permit(:title, :location, :nb_of_days, :id_in_its_trip, blocks_attributes: [
-      :text, :mediatype, files: []
+      :text, :mediatype, :_destroy, :files
     ])
   end
 
