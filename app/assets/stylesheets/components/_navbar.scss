@@ -1,18 +1,21 @@
-.navbar{
-nav{
+.navbar {
+  nav{
 
-  background-color: #FFFFFF ;
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  display: flex;
-  justify-content: space-around;
-  border-top: 1px solid rgba(231, 215, 215, 0.65);
-  padding: 12px;
-  margin-top: 8px;
-}
+    background-color: #FFFFFF ;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid rgba(231, 215, 215, 0.65);
+    padding: 12px;
+    margin-top: 8px;
+  }
 }
 
+nav .active {
+  color: rgba(226, 110, 45, 0.67);
+}
 
 .icone-action {
   display: flex;

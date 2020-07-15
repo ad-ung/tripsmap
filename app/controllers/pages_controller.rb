@@ -7,12 +7,17 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @user = current_user
     @disable_logo = true
-    @trips = current_user.trips
+    @trips = @user.trips
     @markers = []
+    @count_steps = 0
 
     @trips.each do |trip|
       @markers << markers(trip)
+      trip.steps.each do |step|
+        @count_steps += 1
+      end
     end
   end
 
@@ -27,7 +32,7 @@ class PagesController < ApplicationController
       {
         lat: step.latitude,
         lng: step.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { step: step }),
+        infoWindow: render_to_string(partial: "shared/info_window", locals: { step: step }),
         id: trip.id,
       }
     end

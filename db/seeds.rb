@@ -30,9 +30,17 @@ User.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 puts "Creation user"
-User.create!(email: "johndoe@gmail.com", pseudo: "John_Doe", password: "topsecret")
-User.create!(email: "janedoe@gmail.com", pseudo: "Adeline", password: "topsecret")
-User.create!(email: "jean-mi@gmail.com", pseudo: "Bernadette", password: "topsecret")
+
+def create_user(email, pseudo, password, avatar_path)
+  u = User.new(email:email, pseudo: pseudo, password: password)
+  file = URI.open(avatar_path)
+  u.avatar.attach(io: file, filename: "avatar#{User.count + 1}.extension", content_type: "image/png")
+  u.save!
+end
+
+create_user("johndoe@gmail.com", "Alexandre", "topsecret", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg")
+create_user("janedoe@gmail.com", "Adeline", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752028/P1170915_tx7cpm.jpg")
+create_user("jean-mi@gmail.com", "Jean-Mi", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752040/nicolas-horn-MTZTGvDsHFY-unsplash_ia6ohd.jpg")
 
 puts "Creation trips"
 
@@ -116,7 +124,7 @@ locations = [
   ["Chiang Mai", "Bangkok", "Koh phi phi", "Koh Tao,"],
   ["Tokyo", "Osaka", "Kyoto", "Kamakura", "Hiroshima"],
   ["Bodnath", "Kopan", "Lumbini", "Katmandou"],
-  ["Angkor", "Phnom Penh", "Sihanoukville", "Kampot" ],
+  ["Siem Reap", "Phnom Penh", "Sihanoukville", "Kampot" ],
   ["Caire", "Dahab", "Charm el-Cheikh", "Alexandrie"],
   ["Sydney", "Melbourne", "Gold Coast", "Auckland", "Queenstown"]
 ]
