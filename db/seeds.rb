@@ -8,6 +8,7 @@
 
 require "open-uri"
 require "yaml"
+require 'faker'
 
 puts "Destroy favorites"
 Favorite.destroy_all
@@ -52,7 +53,8 @@ User.all.each do |user|
   250.times do |i|
     f = Follower.new
     f.user = user
-    f.follower_pseudo = "person_#{i}"
+    f.follower_pseudo = Faker::FunnyName.name
+    # "person_#{i}"
     f.save
   end
 end

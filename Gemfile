@@ -25,6 +25,8 @@ gem 'geocoder'
 gem 'cocoon'
 gem 'pg_search', '~> 2.3.0'
 
+gem 'faker', '~> 2.13.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
