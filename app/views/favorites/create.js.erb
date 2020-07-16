@@ -1,5 +1,5 @@
 console.log("coucou")
- document.querySelector(".fav-btn").innerHTML = "<%= j render 'favorites/unlikebutton', step_id: @step.id %>"
+document.getElementById("fav-btn-<%= @step.id %>").innerHTML = "<%= j render 'favorites/unlikebutton', favorite: @favorite %>"
 // const button = document.querySelector(".like-button");
 // console.log(button)
 // button.addEventListener("click", (event) => {
