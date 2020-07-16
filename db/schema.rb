@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_085423) do
+ActiveRecord::Schema.define(version: 2020_07_15_222407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 2020_07_11_085423) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["step_id"], name: "index_favorites_on_step_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "follower_pseudo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_followers_on_user_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -103,6 +111,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_085423) do
   add_foreign_key "blocks", "steps"
   add_foreign_key "favorites", "steps"
   add_foreign_key "favorites", "users"
+  add_foreign_key "followers", "users"
   add_foreign_key "steps", "trips"
   add_foreign_key "trips", "users"
 end

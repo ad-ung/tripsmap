@@ -11,7 +11,7 @@
 }
 
 .card-infos {
-  width: 300px;
+  width: 100%;
 }
 
 .absolute {
@@ -33,7 +33,6 @@
 }
 
 .container-card-infos {
-  width: 340px;
   height: 295px;
 }
 
@@ -48,6 +47,7 @@
   border-radius: 5px;
   font-weight: 525;
   float: left;
+  bottom: 0;
 }
 
 a:hover {
@@ -62,7 +62,7 @@ a:hover {
   border: 1px solid #eaeaea;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
   margin-bottom: 15px;
-  width: 345px;
+  width: 92.5vw;
   height: 110px;
   border-radius: 5px;
   color: rgba(0, 0, 0, 0.85);

@@ -1,16 +1,10 @@
-class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
-
-  def home
-    @disable_logo = true
-    @disable_container = true
-  end
-
-  def profile
-    @user = current_user
+class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:id])
     @disable_logo = true
     @trips = @user.trips
     @follower = Follower.find_by(user: @user, follower_pseudo: current_user.pseudo)
+    @follower_new = Follower.new
     @followers = @user.followers || 0
     @markers = []
     @count_steps = 0
@@ -21,10 +15,6 @@ class PagesController < ApplicationController
         @count_steps += 1
       end
     end
-  end
-
-  def write
-    @trips = current_user.trips
   end
 
   private

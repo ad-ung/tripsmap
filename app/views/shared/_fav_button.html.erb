@@ -1,8 +1,7 @@
-
-  <% if trip.user != current_user %>
+<% if trip.user != current_user %>
   <div class="fav-btn">
     <% if @favorite.present?%>
-     <%= render "favorites/unlikebutton" %>
+      <%= render "favorites/unlikebutton" %>
     <% else %>
       <%= render "favorites/likebutton", step_id: @step.id %>
     <% end %>
