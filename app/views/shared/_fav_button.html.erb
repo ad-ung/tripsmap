@@ -1,18 +1,11 @@
 
+  <% if trip.user != current_user %>
   <div class="fav-btn">
-            <% if @favorite.present?%>
-             <%= render "favorites/unlikebutton" %>
-            <% else %>
-              <%= render "favorites/likebutton", step_id: @step.id %>
-            <% end %>
+    <% if @favorite.present?%>
+     <%= render "favorites/unlikebutton" %>
+    <% else %>
+      <%= render "favorites/likebutton", step_id: @step.id %>
+    <% end %>
   </div>
-
-
-<a class="like-button liked">
-<span class="like-icon">
-<div class="heart-animation-1"></div>
-<div class="heart-animation-2"></div>
-</span>
-Favorite
-</a>
+<% end %>
 

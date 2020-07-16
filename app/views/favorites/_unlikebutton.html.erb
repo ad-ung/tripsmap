@@ -1,17 +1,7 @@
- <%= link_to favorite_path(@favorite.id), method: :delete, remote: true do %>
-    <span class="like-icon">
-      <div class="heart-animation-1"></div>
-      <div class="heart-animation-2"></div>
-     </span>
+ <%= link_to favorite_path(@favorite.id), method: :delete, remote: true, class: "like-button liked" do %>
+  <span class='like-icon'>
+    <div class='heart-animation-1'></div>
+    <div class='heart-animation-2'></div>
+  </span>
  <% end %>
 
-
-
-
-<!-- <a class="like-button">
-<span class="like-icon">
-<div class="heart-animation-1"></div>
-<div class="heart-animation-2"></div>
-</span>
-Favorite
-</a> -->

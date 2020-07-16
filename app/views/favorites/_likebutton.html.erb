@@ -1,33 +1,12 @@
+<%= link_to step_favorites_path(step_id), method: :post, remote: true, class: "like-button" do %>
+  <span class='like-icon'>
+    <div class='heart-animation-1'></div>
+    <div class='heart-animation-2'></div>
+  </span>
 
-   <%= link_to step_favorites_path(step_id), method: :post, remote: true, class: "like-button" do %>
-   <!--  <span class="like-icon"> -->
-       <div class="heart-animation-1"></div>
-      <div class="heart-animation-2"></div>
-    <!-- </span> -->
-    <% end %>
-
-
+<% end %>
 
 
- <script>
-
-let likeButton = document.querySelector(".like-button");
-likeButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  likeButton.classlist.toggle('liked');
-});
-
-
-</script>
-
-
-<!-- <a class="like-button">
-<span class="like-icon">
-<div class="heart-animation-1"></div>
-<div class="heart-animation-2"></div>
-</span>
-Favorite
-</a> -->
 
 
 

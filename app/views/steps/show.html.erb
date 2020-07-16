@@ -34,7 +34,7 @@
     <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>
   </div>
 
-  <%= render 'shared/fav_button', step_id: @step.id %>
+  <%= render 'shared/fav_button', step_id: @step.id, trip: @trip %>
 </div>
 <% if @blocks.sort[0].mediatype === "photos" %>
   <div class="step-map mt-3 text-center" style="margin-bottom: 30px;">
