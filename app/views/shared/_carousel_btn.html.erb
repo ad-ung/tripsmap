@@ -18,10 +18,10 @@
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
           <div class="carousel-inner">
-           <%@contents.each do |content| %>
+           <% @contents.each do |content| %>
             <% content.files.each do |file|  %>
-              <div class="carousel-item <%= "active" if content == @contents.first && file == content.files.first %> font-cursive">
-                  <%= content.step.title%>
+              <div class="carousel-item <%= "active" if content == @contents.first && file == content.files.first %>">
+                  <h6 class="mb-3">Etape <%= content.step.id_in_its_trip %> - <%= content.step.title %></h6>
                   <%= cl_image_tag file.key, class: "img-diapo"%>
               </div>
               <% end %>
