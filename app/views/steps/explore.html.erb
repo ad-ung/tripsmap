@@ -1,21 +1,38 @@
+<div class="explore">
+  <ul class="mt-4 nav nav-pills nav-fill" id="bookingsTabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="upcomingTab" data-toggle="tab" href="#upcomingContent" role="tab" aria-controls="upcomingContent" aria-selected="true"><i class="fas fa-bars"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pastTab" data-toggle="tab" href="#pastContent" role="tab" aria-controls="pastContent" aria-selected="true"><i class="fas fa-search"></i></a>
+    </li>
+  </ul>
 
-<%= render 'shared/explore_search_form' %>
+  <div class="tab-content" id="contentTab">
+    <div class="tab-pane fade show active" id="upcomingContent" role="tabpanel" aria-labelledby="upcomingTab">
+      <p>Hello</p>
+    </div>
 
-<div class="explorer-cards">
+    <div class="tab-pane fade show" id="pastContent" role="tabpanel" aria-labelledby="pastTab">
 
-  <% @steps.each do |step| %>
-      <%=  link_to step_path(step) do %>
-        <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path step.cover_picture_key%>');">
-          <div class="card-infos">
-            <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
-              <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 60px;"><%= "#{(step.nb_of_days)} jours" %></span>
-              <p class="position-absolute w-100"><%= step.title %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-  <% end %>
+      <%= render 'shared/explore_search_form' %>
 
+      <div class="explorer-cards">
+        <% @steps.each do |step| %>
+            <%=  link_to step_path(step) do %>
+              <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path step.cover_picture_key%>');">
+                <div class="card-infos">
+                  <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
+                    <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 60px;"><%= "#{(step.nb_of_days)} jours" %></span>
+                    <p class="position-absolute w-100"><%= step.title %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
 </div>
-
 
