@@ -1,31 +1,18 @@
 
   <div class="fav-btn">
-    <div class="middle-wrapper">
-      <div class="like-wrapper">
-          <span class="like-icon">
             <% if @favorite.present?%>
              <%= render "favorites/unlikebutton" %>
             <% else %>
               <%= render "favorites/likebutton", step_id: @step.id %>
             <% end %>
-          </span>
-
-      </div>
-    </div>
   </div>
 
-           <!--  <div class="heart-animation-1">
-            </div>
-              <div class="heart-animation-2">
-            </div> -->
 
-<script>
+<a class="like-button liked">
+<span class="like-icon">
+<div class="heart-animation-1"></div>
+<div class="heart-animation-2"></div>
+</span>
+Favorite
+</a>
 
-// let likeButton = document.querySelector(".like-button");
-// likeButton.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   likeButton.classlist.toggle('liked');
-// });
-
-
-</script>
