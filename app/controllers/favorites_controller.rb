@@ -9,13 +9,20 @@ class FavoritesController < ApplicationController
     @favorite.step = @step
     @favorite.user = current_user
     @favorite.save
-    redirect_to step_path(@favorite.step)
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    # redirect_to step_path(@favorite.step)
   end
 
   def destroy
     @favorite = Favorite.find(params[:id])
     @step = @favorite.step
     @favorite.destroy
-    redirect_to step_path(@step)
+      respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end
