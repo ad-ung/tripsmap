@@ -1,7 +1,10 @@
- <% if @favorite.present? %>
-     <%= link_to ( '<i class= "fas fa-heart"></i>').html_safe,
-     favorite_path(@favorite.id), method: :delete, remote: true, class: "heart-fav" %>
-<% else %>
-      <%= link_to ( '<i class= "far fa-heart"></i>').html_safe,
-     step_favorites_path(step_id), method: :post, remote: true, class: "heart-fav" %>
+<% if trip.user != current_user %>
+  <div class="fav-btn">
+    <% if @favorite.present?%>
+      <%= render "favorites/unlikebutton" %>
+    <% else %>
+      <%= render "favorites/likebutton", step_id: @step.id %>
+    <% end %>
+  </div>
 <% end %>
+
