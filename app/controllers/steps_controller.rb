@@ -34,7 +34,11 @@ class StepsController < ApplicationController
     @blocks = Block.where(mediatype: 'photos')
     @steps = Step.all
     if params[:search]
-      @steps = Step.search_by_location_and_title(params[:search])
+      respond_to do |format|
+        format.js do
+          @steps = Step.search_by_location_and_title(params[:search][:keyword])
+        end
+      end
     end
   end
 
