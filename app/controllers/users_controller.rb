@@ -4,8 +4,8 @@ class UsersController < ApplicationController
     @disable_logo = true
     @trips = @user.trips
     @follower = Follower.find_by(user: @user, follower_pseudo: current_user.pseudo)
+    @follower_new = Follower.new
     @followers = @user.followers || 0
-    @followed = Follower.find_by(user: @user, follower_pseudo: current_user.pseudo)
     @markers = []
     @count_steps = 0
 

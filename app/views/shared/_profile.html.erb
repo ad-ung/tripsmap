@@ -9,7 +9,7 @@
     <% if @follower %>
       <%= link_to "Abonné(e)",follower_path(@follower.id), method: :delete, remote: true, class: "btn btn-light mt-4" %>
     <% else %>
-      <%= link_to "S'abonner", user_followers_path(@user, @follower), method: :post, remote: true, class: "btn btn-light mt-4" %>
+      <%= link_to "S'abonner", user_followers_path(@user.id), method: :post, remote: true, class: "btn btn-light mt-4" %>
     <% end %>
   <% end %>
 </div>
