@@ -38,6 +38,9 @@ a {
   transition: all .25s $bezier;
   filter: grayscale(100%);
   user-select: none;
+  position: absolute;
+  right: -6px;
+  top: 4px;
 
   &.liked {
     color: $pink;
