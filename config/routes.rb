@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :followers, only: :destroy
 
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [:show, :index, :new] do
     resources :messages, only: :create
   end
 end
