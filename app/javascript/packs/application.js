@@ -39,8 +39,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   packery();
-  location();
   dropdrownForm();
+  location();
   // const dropdown = document.querySelector(".dropdown button");
   // const elements = document.querySelectorAll(".multi-collapse");
   // elements.forEach ((element) => {
