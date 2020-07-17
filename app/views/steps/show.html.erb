@@ -38,6 +38,8 @@
   <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step_id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
   <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>
   <%= render 'shared/fav_button', step_id: @step.id, trip: @trip %>
+  <% @likes = Favorite.where(step_id: @step.id).count %>
+  <p style="font-weight: normal; font-size: 8px;"> <%= "#{@likes} j'aime(s)" %></p>
 </div>
 
 </div>
