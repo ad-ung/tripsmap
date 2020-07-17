@@ -17,6 +17,10 @@ nav .active {
   color: rgba(226, 110, 45, 0.67);
 }
 
+.orange-hover{
+  color: rgba(226, 110, 45, 0.67);
+}
+
 .icone-action {
   display: flex;
   flex-direction: column;
@@ -33,11 +37,14 @@ nav .active {
 
 .icone-action .far {
   &:hover {
-    @extend .fas
+    @extend .fas;
+
   }
 }
 
-
+.icone-action :hover {
+   color: rgba(226, 110, 45, 0.67);
+}
 
 .fa-globe-americas:hover{
   color: grey;
