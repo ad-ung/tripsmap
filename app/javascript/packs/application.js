@@ -33,13 +33,14 @@ import { packery } from '../plugins/packery';
 import { dropdrownForm } from '../plugins/dropdown_form';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
   packery();
-  location();
+  // location(); (A DECOMMENTER POUR ALGOLIA) ERREURS DANS LA CONSOLE
   dropdrownForm();
   // const dropdown = document.querySelector(".dropdown button");
   // const elements = document.querySelectorAll(".multi-collapse");
@@ -49,6 +50,8 @@ document.addEventListener('turbolinks:load', () => {
   //     elements.forEach(l => l.classList.remove("show"));
   //   });
   // });
+
+  initChatroomCable()
 
 });
 // app/assets/javascripts/application.js
