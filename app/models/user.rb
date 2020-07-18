@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :followers
   validates :pseudo, presence: true, uniqueness: true
   has_one_attached :avatar
+  has_many :messages
+  has_many :conversations, foreign_key: :sender_id
 end

@@ -14,13 +14,21 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(chatroom_params)
+    recipient = User.find(params[:recipient_id].to_i)
+    sender = User.find(params[:sender_id].to_i)
+
+    @chatroom = Chatroom.new(sender_id: sender.id, recipient_id: recipient.id)
+    if @chatroom.save
+      redirect_to chatroom_path(@chatroom)
+    else
+      render :new
+    end
   end
 
 
   private
 
-  def chatroom_params
-    params.require(:chatroom).permit(:name)
-  end
+  # def chatroom_params
+  #   params.require(:chatroom).permit(:name)
+  # end
 end

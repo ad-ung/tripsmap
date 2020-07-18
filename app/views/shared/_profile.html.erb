@@ -19,6 +19,28 @@
     <h5><%= @user.pseudo %></h5>
     <p>Aventurier chevronné, j'aime parcourir le monde pour découvrir des paysages exceptionnels que nous offre la nature.</p>
   </div>
+<!--    <#%= simple_form_for Chatroom.new do |f|%>
+  <#% f.hidden_field :sender_id, value: current_user  %>
+  <#% f.hidden_field :recipient_id, value: @user  %>
+  <#% f.button :submit, 'message', class: "btn btn-light mt-4" %>
+
+<#% end %> -->
+
+<!-- <#%= link_to 'messages', new_chatroom_path, method: :post %> -->
+
+<%= form_tag({controller: 'chatrooms', action: 'create'},
+              method: 'post',
+              remote: true) do %>
+<%#= text_area_tag(:message_body,
+                    nil,
+                  rows: 3,
+                placeholder: 'Send a messsage to the user') %>
+  <%= hidden_field_tag "sender_id", "#{current_user.id}"  %>
+  <%= hidden_field_tag "recipient_id", "#{@user.id}"  %>
+  <%= submit_tag('Send a message') %>
+<% end %>
+
+
   <div class="inline-infos-trips mb-4">
     <div class="container d-flex justify-content-around">
     <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @count_steps %></span></strong> étapes</div>
