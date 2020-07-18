@@ -47,7 +47,7 @@ create_user("johndoe@gmail.com", "Alexandre", "topsecret", "https://res.cloudina
 create_user("janedoe@gmail.com", "Adeline", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752028/P1170915_tx7cpm.jpg")
 create_user("jean-mi@gmail.com", "Jean-Mi", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752040/nicolas-horn-MTZTGvDsHFY-unsplash_ia6ohd.jpg")
 
-followers_pĥotos_path = [
+followers_photos_path = [
   'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926055/TRIPSMAP/followers_picture/gabriel-silverio-u3WmDyKGsrY-unsplash_afwr8n.jpg',
   'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926054/TRIPSMAP/followers_picture/albert-dera-ILip77SbmOE-unsplash_sj8ca3.jpg',
   'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926054/TRIPSMAP/followers_picture/stefan-stefancik-QXevDflbl8A-unsplash_bhzeac.jpg',
@@ -63,12 +63,13 @@ followers_pĥotos_path = [
 puts "Creation followers"
 
 User.all.each do |user|
-  250.times do |i|
+  10.times do |i|
     f = Follower.new
     f.user = user
     f.follower_pseudo = Faker::Superhero.name
     f.name = Faker::FunnyName.name
-    f.photo.attach(followers_pĥotos_path.sample)
+    file = URI.open(followers_photos_path.sample)
+    f.photo.attach(io: file, filename: "avatar#{i}.jpg", content_type: "image/jpg")
     # "person_#{i}"
     f.save
   end
