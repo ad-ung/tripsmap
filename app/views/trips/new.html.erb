@@ -20,8 +20,8 @@
   <div class="container">
     <div class="form-wrapper" style="width: 500px; margin: 0 auto;"></div>
     <%= simple_form_for :search, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
-    <%= f.input :starts_on, as: :string, placeholder: "Date de début", label: false, input_html: { class: " datepicker form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" } %>
-    <%= f.input :ends_on, as: :string, placeholder: "Date de fin", label: false, input_html: { class: "datepicker form-control-lg bg-white field", id:'booking_end_date', style: "width: 180px; margin: 8px;"} %>
+    <%= f.input :starts_on, as: :string, placeholder: "Début", label: "Date de début", input_html: { class: " datepicker form-control-lg bg-white field", id:'booking_start_date', style: "width: 139px; margin: 8px; text-align: center" } %>
+    <%= f.input :ends_on, as: :string, placeholder: "Fin", label: "  Date de fin", input_html: { class: "datepicker form-control-lg bg-white field", id:'booking_end_date', style: "width: 139px; margin: 8px; text-align:center"} %>
     <% end %>
     </div>
 <div style="text-align: center">
