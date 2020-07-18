@@ -37,7 +37,7 @@
 <div class="step-infos bg-light py-3 position-relative">
   <p style="color: rgba(226, 110, 45, 0.67);">Etape <%= @step_id %> sur <%= @trip.steps.count %> : <br> <%= @step.title %></p>
   <p style="font-weight: normal;">- <br><%= @step.nb_of_days %> jours</p>
-  <%= render 'shared/fav_button', step_id: @step.id, trip: @trip %>
+  <%= render 'shared/fav_button', step_id: @step.id, trip: @trip, step: @step, favorite: @favorite %>
 </div>
 
 </div>
