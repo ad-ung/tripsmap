@@ -32,7 +32,7 @@ class StepsController < ApplicationController
 
   def explore
     @blocks = Block.where(mediatype: 'photos')
-    @steps = Step.all
+    @steps_search = Step.all
     @followers = Follower.where(follower_pseudo: current_user)
     if params[:search]
       respond_to do |format|

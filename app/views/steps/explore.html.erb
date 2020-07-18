@@ -10,16 +10,19 @@
 
   <div class="tab-content" id="contentTab">
     <div class="tab-pane fade show active" id="upcomingContent" role="tabpanel" aria-labelledby="upcomingTab">
-      <h6 class="my-4">Ce mois-ci</h6>
-      <div class="notif">
-        <div class="d-flex align-items-center">
-          <%= cl_image_tag User.find(1).avatar.key, class: "avatar-average" %>
-          <p style="padding: 0px 12px; line-height: 22px; text-align: justify; width:70%; font-size: 14px;"><strong><%= User.find(1).pseudo %></strong> a posté une nouvelle étape dans <strong><%= Trip.last.title %></strong>.</p>
-          <%= cl_image_tag Step.last.cover_picture_key, class: "step-illustration" %>
-        </div>
-        <p class="pl-0 pb-2" style="font-size: 13px;">Le <%= l(Step.last.created_at, format: '%d %b %Y', locale: 'fr') %></p>
-      </div>
+      <h6 class="mt-5 mb-4">Ce mois-ci</h6>
+      <% current_user.subscriptions_steps.sort_by(&:created_at).reverse!.each do |step|  %>
+        <% if step.created_at.strftime("%B") == Date.today.strftime("%B") %>
+          <%= render 'notif', step: step %>
+        <% end %>
+      <% end %>
       <h6 class="mt-5 mb-4">Plus tôt</h6>
+      <% current_user.subscriptions_steps.sort_by(&:created_at).reverse!.each do |step|  %>
+        <% if step.created_at.strftime("%B") != Date.today.strftime("%B") %>
+          <%= render 'notif', step: step %>
+        <% end %>
+      <% end %>
+
     </div>
 
     <div class="tab-pane fade show" id="pastContent" role="tabpanel" aria-labelledby="pastTab">
@@ -27,7 +30,7 @@
       <%= render 'shared/explore_search_form' %>
 
       <div class="explorer-cards">
-        <%= render 'steps', steps: @steps %>
+        <%= render 'steps', steps: @steps_search %>
       </div>
 
     </div>

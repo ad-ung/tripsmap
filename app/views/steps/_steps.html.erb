@@ -1,4 +1,4 @@
-<% @steps.each do |step| %>
+<% @steps_search.each do |step| %>
   <% if step.trip.user != current_user %>
     <%=  link_to step_path(step) do %>
       <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path step.cover_picture_key%>');">
