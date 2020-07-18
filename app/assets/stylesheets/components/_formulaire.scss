@@ -1,0 +1,23 @@
+
+#d2{background-color: #ffffff;}
+.hide{display: none;}
+
+.img-carousel-map {
+  width: 300px;
+  display:block;
+  margin: 0 auto;
+}
+.upload-pic-cover{
+  label{
+    position: relative;
+    input{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right:0;
+      opacity: 0;
+    }
+  }
+
+}

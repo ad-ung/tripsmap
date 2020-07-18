@@ -31,6 +31,7 @@ import {location} from "../plugins/location";
 import { initMapbox } from '../plugins/init_mapbox';
 import { packery } from '../plugins/packery';
 import { dropdrownForm } from '../plugins/dropdown_form';
+import "../plugins/flatpickr"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -41,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   packery();
   location();
   dropdrownForm();
+  toggleDateInputs();
   // const dropdown = document.querySelector(".dropdown button");
   // const elements = document.querySelectorAll(".multi-collapse");
   // elements.forEach ((element) => {
