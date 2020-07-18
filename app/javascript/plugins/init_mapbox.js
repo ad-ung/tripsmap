@@ -59,8 +59,8 @@ const addMarkersToMap = (map, markers) => {
     element.className = 'marker';
     element.style.backgroundImage = `url('https://res.cloudinary.com/datbhgbcq/image/upload/v1593879728/TRIPSMAP/Plane_gsg74i.png')`;
     element.style.backgroundSize = 'contain';
-    element.style.width = '50px';
-    element.style.height = '50px';
+    element.style.width = '40px';
+    element.style.height = '40px';
 
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
@@ -72,7 +72,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 3 });
 };
 
 const line = (map, trip) => {

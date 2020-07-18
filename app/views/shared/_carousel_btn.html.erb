@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="text-center btn btn-light mt-4 position-absolute" style="top:-5px; right:0;" data-toggle="modal" data-target="#exampleModal">
-  Visualiser mon voyage
+  Visualiser le voyage
 </button>
 
 <!-- Modal -->
@@ -8,7 +8,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title font-cursive" id="exampleModalLabel"><%= @trip.title%></h5>
+        <h5 class="modal-title" id="exampleModalLabel"><%= @trip.title%></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,10 +18,10 @@
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
           <div class="carousel-inner">
-           <%@contents.each do |content| %>
+           <% @contents.each do |content| %>
             <% content.files.each do |file|  %>
-              <div class="carousel-item <%= "active" if content == @contents.first && file == content.files.first %> font-cursive">
-                  <%= content.step.title%>
+              <div class="carousel-item <%= "active" if content == @contents.first && file == content.files.first %>">
+                  <h6 class="mb-3">Etape <%= content.step.id_in_its_trip %> - <%= content.step.title %></h6>
                   <%= cl_image_tag file.key, class: "img-diapo"%>
               </div>
               <% end %>
