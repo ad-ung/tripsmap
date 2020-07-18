@@ -9,11 +9,11 @@ class FavoritesController < ApplicationController
     @favorite.step = @step
     @favorite.user = current_user
     @favorite.save
+    redirect_to step_path(@favorite.step)
     respond_to do |format|
       format.html
       format.js
     end
-    # redirect_to step_path(@favorite.step)
   end
 
   def destroy
