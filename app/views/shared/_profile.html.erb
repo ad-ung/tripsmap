@@ -26,18 +26,15 @@
 
 <#% end %> -->
 
-<!-- <#%= link_to 'messages', new_chatroom_path, method: :post %> -->
+<% #if Chatroom.where(sender_id: current_user.id ).or(Chatroom.where(recipient_id: current_user.id) %>
+  <%#=  link_to 'Envoyer un message', chatroom_path(@) %>
 
 <%= form_tag({controller: 'chatrooms', action: 'create'},
               method: 'post',
               remote: true) do %>
-<%#= text_area_tag(:message_body,
-                    nil,
-                  rows: 3,
-                placeholder: 'Send a messsage to the user') %>
   <%= hidden_field_tag "sender_id", "#{current_user.id}"  %>
   <%= hidden_field_tag "recipient_id", "#{@user.id}"  %>
-  <%= submit_tag('Send a message') %>
+  <%= submit_tag('Envoyer un message') %>
 <% end %>
 
 

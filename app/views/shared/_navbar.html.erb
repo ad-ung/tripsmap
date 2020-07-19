@@ -11,7 +11,9 @@
         <%= link_to write_path, class: "icone-action #{current_class?(write_path)}" do%>
           <i class="far fa-edit"></i> <p class="d-none d-sm-block">Ecrire</p>
         <% end %>
-        <div class="icone-action"> <i class="far fa-comment-alt"></i> <p class="d-none d-sm-block">Messages</p></div>
+         <%= link_to chatrooms_path, class: "icone-action #{current_class?(chatrooms_path)}" do%>
+          <i class="far fa-comment-alt"></i> <p class="d-none d-sm-block">Messages</p>
+          <% end %>
         <%= link_to profile_path, class: "icone-action #{current_class?(profile_path)}" do %>
           <i class="far fa-user"></i> <p class="d-none d-sm-block"> Profil </p>
         <% end %>
