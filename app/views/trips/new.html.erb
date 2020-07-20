@@ -21,13 +21,7 @@
           <label for="scales">Je ne connais pas encore la date de fin</label>
         </div>
 
-        <%= f.input :cover_picture, label: "Photo de couverture", as: :file %>
-        <!-- <div class="upload-pic-cover" style="text-align: center">
-          <label for="avatar">Ajouter une photo de couverture
-            <input type="file" id="avatar" name="avatar"
-               accept="image/png, image/jpeg">
-          </label>
-        </div> -->
+        <%= f.input :cover_picture, label: "Ajouter une photo de couverture", as: :file %>
         <div class="text-center">
           <%= f.button :submit, "C'est parti!", class: "btn btn-warning mt-3", style: "width: 150px;" %>
         </div>
@@ -35,20 +29,4 @@
     </div>
   <% end %>
 </div>
-
-
-
-  <div class="container">
-    <div class="form-wrapper" style="width: 500px; margin: 0 auto;"></div>
-    <%= simple_form_for :search, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
-    <% end %>
-    </div>
-<br>
-   <div class="text-center">
-        <%= simple_form_for :search, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
-        <% end %>
-
-        </div>
-    </div>
-  </div>
 
