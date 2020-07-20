@@ -44,7 +44,6 @@ document.addEventListener('turbolinks:load', () => {
   toggleDateInputs();
   location();
 
-
 });
 // app/assets/javascripts/application.js
 //= require jquery

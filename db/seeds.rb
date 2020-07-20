@@ -25,6 +25,10 @@ puts "Destroy trips"
 Trip.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('trips')
 
+puts "Destroy followers"
+Follower.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('followers')
+
 puts "Destroy users"
 User.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
@@ -41,6 +45,17 @@ end
 create_user("johndoe@gmail.com", "Alexandre", "topsecret", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591267983/avatar_sx4zw0.jpg")
 create_user("janedoe@gmail.com", "Adeline", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752028/P1170915_tx7cpm.jpg")
 create_user("jean-mi@gmail.com", "Jean-Mi", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752040/nicolas-horn-MTZTGvDsHFY-unsplash_ia6ohd.jpg")
+
+puts "Creation followers"
+
+User.all.each do |user|
+  250.times do |i|
+    f = Follower.new
+    f.user = user
+    f.follower_pseudo = "person_#{i}"
+    f.save
+  end
+end
 
 puts "Creation trips"
 

@@ -10,6 +10,8 @@ class PagesController < ApplicationController
     @user = current_user
     @disable_logo = true
     @trips = @user.trips
+    @follower = Follower.find_by(user: @user, follower_pseudo: current_user.pseudo)
+    @followers = @user.followers || 0
     @markers = []
     @count_steps = 0
 
