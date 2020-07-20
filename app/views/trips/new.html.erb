@@ -1,46 +1,54 @@
-<div class="container">
-  <div id="creerunnewvoyage">
-    <div class="text-center">
-    <br>
-    <br>
-      <h4> Racontez un nouveau voyage</h4>
-    </div>
+
+<div id="creerunnewvoyage">
+  <div class="text-center">
+    <h2 class="trip-title"> Racontez un nouveau voyage</h2>
   </div>
+</div>
   <br>
 </div>
 
 <div id="formnew">
   <%= simple_form_for ([@trip]) do |f| %>
-  <div class="container">
-    <div class="form-wrapper" style="width: 500px; margin: 0 auto;"></div>
-    <%= f.input :title, label: "Donnez un titre à votre voyage", placeholder: "Un voyage au bout du monde", input_html: { class: 'form-control', id: "formGroupExampleInput", style:"text-align: center", type: "text-muted"} %>
-    <% end %>
+    <div class="container">
+      <div class="form-wrapper" style="width: 500px; margin: 0 auto;"></div>
+        <%= f.input :title, label: "Donnez un titre à votre voyage", placeholder: "Un voyage au bout du monde", input_html: { class: 'form-control', id: "formGroupExampleInput", style:"text-align: center", type: "text-muted"} %>
+        <div class="d-flex justify-content-between">
+          <%= f.input :starts_on, as: :string, placeholder: "Début", label: "Date de début", input_html: { class: " datepicker bg-white field", id:'booking_start_date', style: "width: 96%; text-align: center" } %>
+          <%= f.input :ends_on, as: :string, placeholder: "Fin", label: "Date de fin", input_html: { class: "datepicker bg-white field", id:'booking_end_date', style: "width: 96%; margin-left: 5px; text-align:center"} %>
+        </div>
+        <div class="mb-4">
+          <input type="checkbox" id="scales" name="scales">
+          <label for="scales">Je ne connais pas encore la date de fin</label>
+        </div>
+
+        <%= f.input :cover_picture, label: "Photo de couverture", as: :file %>
+        <!-- <div class="upload-pic-cover" style="text-align: center">
+          <label for="avatar">Ajouter une photo de couverture
+            <input type="file" id="avatar" name="avatar"
+               accept="image/png, image/jpeg">
+          </label>
+        </div> -->
+        <div class="text-center">
+          <%= f.button :submit, "C'est parti!", class: "btn btn-warning mt-3", style: "width: 150px;" %>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
+</div>
+
+
+
   <div class="container">
     <div class="form-wrapper" style="width: 500px; margin: 0 auto;"></div>
     <%= simple_form_for :search, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
-    <%= f.input :starts_on, as: :string, placeholder: "Début", label: "Date de début", input_html: { class: " datepicker form-control-lg bg-white field", id:'booking_start_date', style: "width: 139px; margin: 8px; text-align: center" } %>
-    <%= f.input :ends_on, as: :string, placeholder: "Fin", label: "  Date de fin", input_html: { class: "datepicker form-control-lg bg-white field", id:'booking_end_date', style: "width: 139px; margin: 8px; text-align:center"} %>
     <% end %>
     </div>
-<div style="text-align: center">
-  <input type="checkbox" id="scales" name="scales">
-  <label for="scales">Je ne connais pas encore la date de fin</label>
-</div>
 <br>
-<div class="upload-pic-cover" style="text-align: center">
-  <label for="avatar">Ajouter une photo de couverture
-  <input type="file" id="avatar" name="avatar"
-       accept="image/png, image/jpeg">
-     </label>
-   </div>
    <div class="text-center">
         <%= simple_form_for :search, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
-        <%= f.button :submit, "C'est parti!", class: "btn btn-warning mt-3", style: "width: 150px;" %>
         <% end %>
 
         </div>
     </div>
   </div>
-</div>
+

@@ -1,3 +1,3 @@
-import flatpickr from "flatpickr";
+// import flatpickr from "flatpickr";
 
-flatpickr(".datepicker", {disableMobile: true});
+// flatpickr(".datepicker", {disableMobile: true});
