@@ -34,9 +34,10 @@
   <% end %>
 </div>
 
-<div class="container">
-  <button id="reorganize-button" class="btn btn-light mr-0 ml-auto d-block" data-drag="">Réorganiser les étapes</button>
-</div>
-
+<% if @trip.user == current_user %>
+  <div class="container">
+    <button id="reorganize-button" class="btn btn-light mr-0 ml-auto d-block" data-drag="">Réorganiser les étapes</button>
+  </div>
+<% end %>
 
 
