@@ -151,7 +151,7 @@ step_titles = [
 ]
 
 locations = [
-  ["Lima", "Isla Del Sol", "Pica", "Ushuaïa", "Buenos Aires"],
+  ["Lima", "Isla Del Sol", "Iquique", "Ushuaïa", "Buenos Aires"],
   ["Miami", "Chicago", "Dallas", "Los Angeles", "Las Vegas", "Grand Canyon", "Salt Lake City"],
   ["Rome", "Venise", "Florence", "Milan"],
   ["Chiang Mai", "Bangkok", "Koh phi phi", "Koh Tao,"],
