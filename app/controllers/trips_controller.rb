@@ -12,11 +12,14 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.user = current_user
+    @trip.save
+    redirect_to new_trip_step_path(@trip)
   end
 
+  private
 
-   def trip_params
-    params.require(:trip).permit(:title, :starts_on, :ends_on)
+  def trip_params
+    params.require(:trip).permit(:title, :starts_on, :ends_on, :cover_picture)
   end
-
 end

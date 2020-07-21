@@ -1,5 +1,5 @@
 const location = () => {
-  const placesContainer = document.querySelectorAll('.place-address');
+  const placesContainer = document.querySelector('.place-address');
   if (placesContainer) {
     var places = require('places.js');
     var placesAutocomplete = places({
