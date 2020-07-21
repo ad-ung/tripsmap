@@ -10,10 +10,18 @@
     border-top: 1px solid rgba(231, 215, 215, 0.65);
     padding: 12px;
     margin-top: 8px;
+
   }
 }
 
+nav a:hover{
+  color: rgba(226, 110, 45, 0.67);
+}
 nav .active {
+  color: rgba(226, 110, 45, 0.67);
+}
+
+.orange-hover{
   color: rgba(226, 110, 45, 0.67);
 }
 
@@ -33,11 +41,14 @@ nav .active {
 
 .icone-action .far {
   &:hover {
-    @extend .fas
+    @extend .fas;
+
   }
 }
 
-
+.icone-action :hover {
+   color: rgba(226, 110, 45, 0.67);
+}
 
 .fa-globe-americas:hover{
   color: grey;
