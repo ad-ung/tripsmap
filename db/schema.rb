@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_102018) do
     t.string "follower_pseudo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["user_id"], name: "index_followers_on_user_id"
   end
 
