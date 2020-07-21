@@ -23,7 +23,7 @@
     <div class="container d-flex justify-content-around">
     <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @count_steps %></span></strong> étapes</div>
     <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @trips.count %></span></strong> pays</div>
-    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @followers.count %></span></strong> abonnés</div>
+    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem;"><%= link_to @followers.count, user_followers_path(@user.id) %></span></strong><br><%= link_to "abonnés", user_followers_path(@user.id) %></div>
   </div>
   </div>
 </div>
