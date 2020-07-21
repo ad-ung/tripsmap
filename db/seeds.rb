@@ -63,7 +63,7 @@ followers_photos_path = [
 puts "Creation followers"
 
 User.all.each do |user|
-  10.times do |i|
+  25.times do |i|
     f = Follower.new
     f.user = user
     f.follower_pseudo = Faker::Superhero.name
