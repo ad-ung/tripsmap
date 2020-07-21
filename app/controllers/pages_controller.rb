@@ -21,6 +21,7 @@ class PagesController < ApplicationController
         @count_steps += 1
       end
     end
+        @chatroom = Chatroom.new
   end
 
   def write

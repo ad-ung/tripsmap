@@ -1,0 +1,9 @@
+ <div class="message-container" id="message-<%= message.id %>">
+      <i class="author">
+        <div class="legende">
+        <span><%= message.user.pseudo %></span>
+        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+        </div>
+      </i>
+      <p class="msg-content"><%= message.content %></p>
+    </div>

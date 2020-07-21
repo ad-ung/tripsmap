@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-between align-items-center pt-4">
+<div> <%= cl_image_tag User.find(@chatroom.recipient_id).avatar.key, class: "avatar-medium"%> </div>
+ <div style="padding-right: 225px;"> <strong><%="#{User.find(@chatroom.recipient_id).pseudo}"%> </strong></div>
+</div>
+
+<div id="messages" class="pt-4" data-chatroom-id="<%= @chatroom.id %>">
+  <% @chatroom.messages.each do |message| %>
+  <div class="message mb-3 pt-2 pb-2" style="width: 100%; text-align: center;">
+
+   <%= render "messages/message", message: message %>
+
+  </div>
+  <% end %>
+</div>
+
+<div class="champ-texte">
+<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Tapez votre message" %>
+<% end %>
+</div>

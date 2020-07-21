@@ -30,6 +30,14 @@ puts "Destroy followers"
 Follower.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('followers')
 
+puts "Destroy messages"
+Message.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('messages')
+
+puts "Destroy chatrooms"
+Chatroom.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('chatrooms')
+
 puts "Destroy users"
 User.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')

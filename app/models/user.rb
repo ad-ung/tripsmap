@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validates :pseudo, presence: true, uniqueness: true
   has_one_attached :avatar
 
+  has_many :messages
+  has_many :conversations, foreign_key: :sender_id
+
   def subscriptions_steps
     # steps = Follower.where(follower_pseudo: pseudo).map do |follower|
     #   follower.steps
@@ -17,4 +20,5 @@ class User < ApplicationRecord
     # steps.flatten
     Follower.where(follower_pseudo: pseudo).map(&:steps).flatten
   end
+
 end

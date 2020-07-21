@@ -1,0 +1,26 @@
+.legende{
+  font-size: 12px;
+}
+
+
+.champ-texte{
+  position: fixed;
+  bottom: 55px;
+  width: 75%;
+}
+
+
+.message{
+  // background-color: rgba(226, 110, 45, 0.67);
+  // border-radius : 12px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 2px solid #DDDDDD;
+
+}
+
+.entete{
+  display: flex;
+ justify-content : space-between
+
+}

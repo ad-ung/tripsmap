@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   devise_for :users
   root to: 'pages#home'
   get "profile", to: 'pages#profile'
@@ -21,4 +22,8 @@ Rails.application.routes.draw do
   end
 
   resources :followers, only: :destroy
+
+  resources :chatrooms, only: [:show, :index, :new, :create] do
+    resources :messages, only: :create
+  end
 end
