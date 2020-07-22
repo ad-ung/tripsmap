@@ -21,8 +21,19 @@
   }
 }
 
-
 .explore-form {
   display: flex;
-  width: 75%;
+  width: 100%;
+}
+
+.explore {
+  .nav-link.active {
+    color: rgba(0, 0, 0, 0.8);
+    background-color: white;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+  }
+  .nav-link {
+    color: lightgrey;
+    font-size: 20px;
+  }
 }

@@ -9,4 +9,12 @@ class User < ApplicationRecord
   has_many :followers
   validates :pseudo, presence: true, uniqueness: true
   has_one_attached :avatar
+
+  def subscriptions_steps
+    # steps = Follower.where(follower_pseudo: pseudo).map do |follower|
+    #   follower.steps
+    # end
+    # steps.flatten
+    Follower.where(follower_pseudo: pseudo).map(&:steps).flatten
+  end
 end

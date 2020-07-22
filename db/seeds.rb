@@ -8,6 +8,7 @@
 
 require "open-uri"
 require "yaml"
+require 'faker'
 
 puts "Destroy favorites"
 Favorite.destroy_all
@@ -46,16 +47,33 @@ create_user("johndoe@gmail.com", "Alexandre", "topsecret", "https://res.cloudina
 create_user("janedoe@gmail.com", "Adeline", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752028/P1170915_tx7cpm.jpg")
 create_user("jean-mi@gmail.com", "Jean-Mi", "topsecret", "https://res.cloudinary.com/dgsutja6q/image/upload/v1594752040/nicolas-horn-MTZTGvDsHFY-unsplash_ia6ohd.jpg")
 
-puts "Creation followers"
+followers_photos_path = [
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926055/TRIPSMAP/followers_picture/gabriel-silverio-u3WmDyKGsrY-unsplash_afwr8n.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926054/TRIPSMAP/followers_picture/albert-dera-ILip77SbmOE-unsplash_sj8ca3.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926054/TRIPSMAP/followers_picture/stefan-stefancik-QXevDflbl8A-unsplash_bhzeac.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926054/TRIPSMAP/followers_picture/jurica-koletic-7YVZYZeITc8-unsplash_jcyjcs.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926054/TRIPSMAP/followers_picture/michael-dam-mEZ3PoFGs_k-unsplash_t2ltfq.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926053/TRIPSMAP/followers_picture/sam-burriss-8wbxjJBrl3k-unsplash_xsbuym.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926054/TRIPSMAP/followers_picture/jimmy-fermin-bqe0J0b26RQ-unsplash_i58llw.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926054/TRIPSMAP/followers_picture/jimmy-fermin-bqe0J0b26RQ-unsplash_i58llw.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926053/TRIPSMAP/followers_picture/austin-wade-X6Uj51n5CE8-unsplash_ipzerr.jpg',
+  'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926053/TRIPSMAP/followers_picture/christopher-campbell-rDEOVtE7vOs-unsplash_zeg3lt.jpg'
+]
 
-User.all.each do |user|
-  250.times do |i|
-    f = Follower.new
-    f.user = user
-    f.follower_pseudo = "person_#{i}"
-    f.save
-  end
+puts "Creation followers pour JohnDoe"
+
+
+10.times do |i|
+  f = Follower.new
+  f.user = User.find(1)
+  f.follower_pseudo = Faker::Superhero.name
+  f.name = Faker::FunnyName.name
+  file = URI.open(followers_photos_path[i])
+  f.photo.attach(io: file, filename: "avatar#{i}.jpg", content_type: "image/jpg")
+  # "person_#{i}"
+  f.save
 end
+
 
 puts "Creation trips"
 
@@ -73,7 +91,7 @@ trip_titles = [
 
 trip_dates = [
   ["03/04/2016", "06/05/2016"],
-  ["03/06/2016", "06/07/2016"],
+  ["03/06/2020", "06/07/2020"],
   ["03/06/2017", "10/06/2017"],
   ["03/04/2017", "06/05/2017"],
   ["03/06/2018", "06/07/2018"],
@@ -133,7 +151,7 @@ step_titles = [
 ]
 
 locations = [
-  ["Lima", "Isla Del Sol", "Pica", "Ushuaïa", "Buenos Aires"],
+  ["Lima", "Isla Del Sol", "Iquique", "Ushuaïa", "Buenos Aires"],
   ["Miami", "Chicago", "Dallas", "Los Angeles", "Las Vegas", "Grand Canyon", "Salt Lake City"],
   ["Rome", "Venise", "Florence", "Milan"],
   ["Chiang Mai", "Bangkok", "Koh phi phi", "Koh Tao,"],

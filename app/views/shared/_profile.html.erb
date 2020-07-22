@@ -3,15 +3,18 @@
   <div class="logo">
     TripsMap
   </div>
-  <% if @user == current_user %>
-    <button type="button" class="btn btn-light mt-4">Editer mon compte</button>
-  <% else %>
-    <% if @follower %>
-      <%= link_to "Abonné(e)",follower_path(@follower.id), method: :delete, remote: true, class: "btn btn-light mt-4" %>
+
+  <div class="follow-button">
+    <% if @user == current_user %>
+      <button type="button" class="btn btn-light mt-4">Editer mon compte</button>
     <% else %>
-      <%= link_to "S'abonner", user_followers_path(@user.id), method: :post, remote: true, class: "btn btn-light mt-4" %>
+      <% if @follower %>
+        <%= render "followers/unfollow_button" %>
+      <% else %>
+        <%= render "followers/follow_button" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 <div class="profile-infos">
   <div class="main-infos mb-3" style="text-align: center">
@@ -21,13 +24,13 @@
   </div>
   <div class="inline-infos-trips mb-4">
     <div class="container d-flex justify-content-around">
-    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @count_steps %></span></strong> étapes</div>
-    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @trips.count %></span></strong> pays</div>
-    <button type="button" class="access-followers-button" data-toggle="modal" data-target="#exampleModalCenter">
-      <strong><span style="font-size: 1.5rem;"><%= @followers.count %></span></strong><p> abonnés<p>
-    </button>
+      <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @count_steps %></span></strong> étapes</div>
+      <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @trips.count %></span></strong> pays</div>
+      <div id="followers-count" class="text-center" style="width: 52px;"><%= render "followers/followers_count" %></div>
+    </div>
   </div>
 </div>
+
 </div>
 
 <div id="profile-map"
