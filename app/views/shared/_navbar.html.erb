@@ -1,15 +1,15 @@
 <div class="navbar">
   <div class="row">
     <div class="col-xs-12">
-      <nav>
+      <nav class="align-items-center">
         <%= link_to explore_path, class: "icone-action #{current_class?(explore_path)}" do %>
           <i class="fas fa-globe-americas icones"></i> <p class="d-none d-sm-block">Explorer</p>
         <% end %>
         <%= link_to favorites_path, class: "icone-action #{current_class?(favorites_path)}" do %>
           <i class="far fa-heart"></i> <p class="d-none d-sm-block"> Enregistrés </p>
         <% end %>
-        <%= link_to write_path, class: "icone-action #{current_class?(write_path)}" do%>
-          <i class="far fa-edit"></i> <p class="d-none d-sm-block">Ecrire</p>
+        <%= link_to write_path, class: "icone-action-big #{current_class?(write_path)}" do %>
+          <i class="far fa-plus-square"></i> <p class="d-none d-sm-block">Ecrire</p>
         <% end %>
         <div class="icone-action"> <i class="far fa-comment-alt"></i> <p class="d-none d-sm-block">Messages</p></div>
         <%= link_to profile_path, class: "icone-action #{current_class?(profile_path)}" do %>
