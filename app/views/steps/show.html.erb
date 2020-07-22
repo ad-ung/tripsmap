@@ -86,10 +86,9 @@
           </div>
 
         <% else %>
-          <div class="pictures" >
-            <% block.files.each do |photo| %>
-              <%= cl_image_tag photo.key %>
-            <% end %>
+          <div class="row">
+            <div class="col-6" style="padding-right: 2px;"><%= cl_image_tag block.files[0].key %></div>
+            <div class="col-6" style="padding-left: 2px;"><%= cl_image_tag block.files[1].key %></div>
           </div>
         <% end %>
 
