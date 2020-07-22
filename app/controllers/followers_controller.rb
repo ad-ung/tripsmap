@@ -1,4 +1,7 @@
 class FollowersController < ApplicationController
+  def index
+    @followers = Follower.where(user: current_user)
+  end
 
   def create
     @user = User.find(params[:user_id])

@@ -24,12 +24,13 @@
   </div>
   <div class="inline-infos-trips mb-4">
     <div class="container d-flex justify-content-around">
-    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @count_steps %></span></strong> étapes</div>
-    <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @trips.count %></span></strong> pays</div>
-    <div id="followers-count" class="text-center" style="width: 52px;"><%= render "followers/followers_count" %></div>
-  </div>
+      <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @count_steps %></span></strong> étapes</div>
+      <div class="text-center" style="width: 52px;"><strong><span style="font-size: 1.5rem"><%= @trips.count %></span></strong> pays</div>
+      <div id="followers-count" class="text-center" style="width: 52px;"><%= render "followers/followers_count" %></div>
+    </div>
   </div>
 </div>
+
 </div>
 
 <div id="profile-map"
@@ -39,21 +40,24 @@
 </div>
 
 <div class="container text-center">
-<h5 class="mt-4"> Mes voyages </h5>
-<div id="profile-cards" class="row">
-  <% @trips.order('starts_on DESC').each do |trip| %>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-      <%= link_to trip_path(trip) do %>
-        <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path trip.cover_picture.key %>');">
-          <div class="card-infos">
-            <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
-              <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{l(trip.starts_on, format: '%B %Y', locale: 'fr')}" %></span>
-              <h6 style="margin: 0 auto; color: #fff;"><%= trip.steps.count %> étapes</h6>
-              <p class="mb-2" style="margin: 0 auto;"><%= trip.title %></p>
+  <h5 class="mt-4"> Mes voyages </h5>
+  <div id="profile-cards" class="row">
+    <% @trips.order('starts_on DESC').each do |trip| %>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+        <%= link_to trip_path(trip) do %>
+          <div class="card mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path trip.cover_picture.key %>');">
+            <div class="card-infos">
+              <div class="d-flex flex-column align-items-start justify-content-between container-card-infos">
+                <span style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.8); border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 5px 10px; color: rgba(0, 0, 0, 0.6); width: 110px;"><%= "#{l(trip.starts_on, format: '%B %Y', locale: 'fr')}" %></span>
+                <h6 style="margin: 0 auto; color: #fff;"><%= trip.steps.count %> étapes</h6>
+                <p class="mb-2" style="margin: 0 auto;"><%= trip.title %></p>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+

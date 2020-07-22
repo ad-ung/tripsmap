@@ -60,20 +60,22 @@ followers_photos_path = [
   'https://res.cloudinary.com/datbhgbcq/image/upload/v1594926053/TRIPSMAP/followers_picture/christopher-campbell-rDEOVtE7vOs-unsplash_zeg3lt.jpg'
 ]
 
-puts "Creation followers"
+puts "Creation followers pour JohnDoe"
 
-User.all.each do |user|
-  25.times do |i|
-    f = Follower.new
-    f.user = user
-    f.follower_pseudo = Faker::Superhero.name
-    f.name = Faker::FunnyName.name
-    file = URI.open(followers_photos_path.sample)
-    f.photo.attach(io: file, filename: "avatar#{i}.jpg", content_type: "image/jpg")
-    # "person_#{i}"
-    f.save
-  end
+
+10.times do |i|
+  create_user("person#{i}@gmail.com", Faker::FunnyName.name, "topsecret", followers_photos_path[i])
+  u = User.last
+  f = Follower.new
+  f.user = User.find(1)
+  f.follower_pseudo = u.pseudo
+  # f.name = Faker::FunnyName.name
+  # file = URI.open(followers_photos_path[i])
+  # f.photo.attach(io: file, filename: "avatar#{i}.jpg", content_type: "image/jpg")
+  # "person_#{i}"
+  f.save
 end
+
 
 puts "Creation trips"
 
