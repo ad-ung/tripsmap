@@ -11,15 +11,23 @@
   <div class="tab-content" id="contentTab">
     <div class="tab-pane fade show active" id="upcomingContent" role="tabpanel" aria-labelledby="upcomingTab">
       <h6 class="mt-5 mb-4">Ce mois-ci</h6>
-      <% current_user.subscriptions_steps.sort_by(&:created_at).reverse!.each do |step|  %>
-        <% if step.created_at.strftime("%B") == Date.today.strftime("%B") %>
-          <%= render 'notif', step: step %>
+      <% if current_user.subscriptions_steps == [] %>
+        <p class="p-0">Vous n'avez pas encore d'abonnement.</p>
+      <% else %>
+        <% current_user.subscriptions_steps.sort_by(&:created_at).reverse!.each do |step|  %>
+          <% if step.created_at.strftime("%B") == Date.today.strftime("%B") %>
+            <%= render 'notif', step: step %>
+          <% end %>
         <% end %>
       <% end %>
       <h6 class="mt-5 mb-4">Plus tôt</h6>
-      <% current_user.subscriptions_steps.sort_by(&:created_at).reverse!.each do |step|  %>
-        <% if step.created_at.strftime("%B") != Date.today.strftime("%B") %>
-          <%= render 'notif', step: step %>
+      <% if current_user.subscriptions_steps == [] %>
+        <p class="p-0">Vous n'avez pas encore d'abonnement.</p>
+      <% else %>
+        <% current_user.subscriptions_steps.sort_by(&:created_at).reverse!.each do |step|  %>
+          <% if step.created_at.strftime("%B") != Date.today.strftime("%B") %>
+            <%= render 'notif', step: step %>
+          <% end %>
         <% end %>
       <% end %>
 
