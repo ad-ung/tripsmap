@@ -1,4 +1,4 @@
 <%= simple_form_for :search, url: explore_path, method: "GET", html: { class: "explore-form mt-5 mb-3" }, remote: true do |f| %>
-  <%= f.input :keyword, placeholder: "Votre destination", label: false, input_html: { class: "form-control place-address" } %>
+  <%= f.input :keyword, placeholder: "Votre destination", label: false, input_html: { class: "form-control" } %>
   <%= f.button :submit, "Rechercher", class: "flex-grow-1", style: "height: 38px; padding: 0px 8px; margin-left: 8px; color: white; background: #E26E2D;" %>
 <% end %>
