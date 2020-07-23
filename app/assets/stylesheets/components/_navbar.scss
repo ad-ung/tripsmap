@@ -46,11 +46,15 @@ nav .active {
   text-align: center;
   color: #6D6875;
   .far, .fas{
-  font-size: 32px;
+  font-size: 50px;
   // height: 16px;
   margin-top: 4px;
   margin-bottom: 4px;
   }
+}
+
+.orange {
+  color: #e6844d;
 }
 
 .icone-action .far {
@@ -66,4 +70,17 @@ nav .active {
 
 .fa-globe-americas:hover{
   color: grey;
+}
+
+// .fas .fa-plus-circle:active {
+//   color: #e6844d;
+// }
+
+.button:active {
+  color: #e6844d;
+}
+
+.add-button {
+  background-color: #fff !important;
+  border: none;
 }

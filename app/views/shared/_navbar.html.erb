@@ -8,9 +8,11 @@
         <%= link_to favorites_path, class: "icone-action #{current_class?(favorites_path)}" do %>
           <i class="far fa-heart"></i> <p class="d-none d-sm-block"> Enregistrés </p>
         <% end %>
-        <%= link_to write_path, class: "icone-action-big #{current_class?(write_path)}" do %>
-          <i class="far fa-plus-square"></i> <p class="d-none d-sm-block">Ecrire</p>
-        <% end %>
+        <button class="add-button">
+          <%= link_to write_path, class: "icone-action-big #{current_class?(write_path)}" do %>
+            <i class="fas fa-plus-circle"></i> <p class="d-none d-sm-block">Ecrire</p>
+          <% end %>
+        </button>
         <div class="icone-action"> <i class="far fa-comment-alt"></i> <p class="d-none d-sm-block">Messages</p></div>
         <%= link_to profile_path, class: "icone-action #{current_class?(profile_path)}" do %>
           <i class="far fa-user"></i> <p class="d-none d-sm-block"> Profil </p>
