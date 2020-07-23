@@ -17,10 +17,10 @@
     <div class="container">
       <%= f.input :title, label: "Donnez un titre à votre étape", placeholder: "Queenstown la majestueuse", input_html: { class: 'form-control', id: "formGroupExampleInput", style:"text-align: center", type: "text-muted"} %>
       <%= f.input :location, label: "Lieu de l'étape", placeholder: "Queenstown", input_html: { class: 'form-control place-address', style:"text-align: center", type: "text-muted"} %>
-      <div class="form-group d-flex align-items-center justify-content-center my-4">
-        <label class="mr-3 mb-0" for="nb_of_days">Durée:</label>
+      <div class="form-group formulairestep d-flex align-items-center justify-content-center my-4">
+        <label class="mr-3" for="nb_of_days">Durée:</label>
           <%= f.input :nb_of_days, as: :integer, placeholder: '---', label: false, input_html: { style:"width: 100px; text-align: center;" } %>
-        <label class="ml-3 mb-0 mr-3">jours</label>
+        <label class="ml-3">jours</label>
       </div>
     </div>
 
