@@ -37,7 +37,16 @@
     - mediatype: text
       text: Le Caire, capitale de l’Egypte, est la ville la plus peuplée d’Afrique. Grouillante, polluée, bruyante et sale, elle a de quoi faire fuir. Et pourtant, il y a un "je ne sais quoi" au Caire, qui invite à parcourir cette ville, qui donne parfois l’impression d’avoir un pied dans le Moyen Âge.
     - mediatype: photos
-      photos_paths: ["https://www.voyageur-independant.com/wp-content/uploads/pyramides_caire-1024x585.jpg"]
+      photos_paths: [
+        "https://www.voyageur-independant.com/wp-content/uploads/pyramides_caire-1024x585.jpg",
+        "https://cdn.civitatis.com/egipto/alejandria/galeria/giza.jpg",
+        "https://img.ev.mu/images/attractions/7500/960x640/440033.jpg"
+      ]
+    - mediatype: text
+      text: Le Caire se parcourt également pour les merveilles qu’elle possède, un musée incroyable, les pyramides de Guizèh, les ruelles du Caire islamique, les mastabas de Saqqarah... La capitale représente souvent la première étape d'un voyage en Egypte, une intronisation à la culture égyptienne, ancestrale et moderne, avant de foncer plein sud...
+    - mediatype: photos
+      photos_paths: ["https://media.tacdn.com/media/attractions-splice-spp-674x446/07/3b/51/f7.jpg"]
+
   1:
     - mediatype: text
       text: Dahab est une commune d'Égypte située sur la côte Est de la péninsule du Sinaï. Cet ancien village de bédouins, dont l'activité principale était la pêche, a connu la construction de plusieurs hôtels et le développement du tourisme qui est aujourd'hui la principale activité du village.
