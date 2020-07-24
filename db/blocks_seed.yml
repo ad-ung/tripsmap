@@ -1,6 +1,37 @@
 #voyage (de 0 à 8)
   #step
     #block
+
+0:
+  0:
+    - mediatype: text
+      text: Siem Reap est une ville de villégiature du nord-ouest du Cambodge. C'est aussi la porte d'accès vers les ruines d'Angkor, siège de l'Empire khmer du IXe au XVe siècles.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595535434/TRIPSMAP/step_pictures/CAMBODGE/ANGKOR/christian-holzinger-jClYzp03q04-unsplash_btnkzr.jpg"]
+    - mediatype: text
+      text: Ce vaste complexe d'édifices en pierre finement ouvragés inclut le temple principal Angkor Wat, qui figure sur le drapeau du Cambodge. D'immenses visages mystérieux sont sculptés sur le temple du Bayon, à Angkor Thom.
+  1:
+    - mediatype: text
+      text: Phnom Penh, capitale animée du Cambodge située au confluent du Tonlé Sap et du Mékong, était un centre important à la fois pour l'Empire khmer et pour les colons français.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595529463/TRIPSMAP/step_pictures/CAMBODGE/Pnohm-Penh/edmund-lou-LeC-Q8oVoTs-unsplash_xnnhpy.jpg"]
+    - mediatype: text
+      text: Sur ses berges bordées de parcs, de restaurants et de bars se trouvent le palais royal, richement décoré, la pagode d'argent et le musée national, qui présente des objets venant de tout le pays. L'imposant marché central art déco est installé au cœur de la ville.
+  2:
+    - mediatype: text
+      text: Sihanoukville est une ville du sud du Cambodge, capitale de la province de Sihanoukville.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595529635/TRIPSMAP/step_pictures/CAMBODGE/Sihanoukville/tin-ly-ok29ddIXY58-unsplash_1_jgsztc.jpg"]
+    - mediatype: text
+      text: Donnant sur le golfe de Thaïlande, la ville est le seul port maritime en eau profonde du pays. Auparavant désignée Kampong Saom, elle est rebaptisée en 1958 en l'honneur de Norodom Sihanouk, ancien roi du Cambodge.
+  3:
+    - mediatype: text
+      text: Kampot est une ville traversée par la rivière Preaek Tuek Chhu, au sud du Cambodge. Elle est réputée pour ses plantations de poivre et ses marais salants.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595531417/TRIPSMAP/step_pictures/CAMBODGE/Kampot/taylor-simpson-49HjlwadSfw-unsplash_hvaqcy.jpg",]
+    - mediatype: text
+      text: Elle comprend de nombreux bâtiments datant de l'époque coloniale, notamment le palais du gouverneur. Celui-ci est aujourd'hui occupé par le musée provincial de Kampot, dédié à l'histoire de la ville. À l'ouest, le parc national de Preah Monivong bénéficie d'un climat frais. Ses forêts et ses cascades sont le territoire d'animaux sauvages, tels que des gibbons et des félins.
+
 1:
   0:
     - mediatype: text
@@ -16,6 +47,21 @@
     - mediatype: photos
       photos_paths: ["https://media.tacdn.com/media/attractions-splice-spp-674x446/07/3b/51/f7.jpg"]
 
+  1:
+    - mediatype: text
+      text: Dahab est une commune d'Égypte située sur la côte Est de la péninsule du Sinaï. Cet ancien village de bédouins, dont l'activité principale était la pêche, a connu la construction de plusieurs hôtels et le développement du tourisme qui est aujourd'hui la principale activité du village.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595526950/TRIPSMAP/step_pictures/dahab_ir88bc.jpg"]
+    - mediatype: text
+      text: La baie de Naama offre une promenade bordée de palmiers ainsi que de nombreux bars et restaurants. Avec sa vie marine qui se concentre autour de Shark Reef, de Yolanda Reef et de l'épave du Thistlegorm, le parc national Ras Muhammad est une destination prisée par les plongeurs.
+  2:
+    - mediatype: text
+      text: Charm el-Cheikh est une ville balnéaire égyptienne nichée entre le désert de la péninsule du Sinaï et la mer Rouge. Elle est réputée pour ses plages de sable à l'abri des regards, ses eaux claires et ses récifs de corail.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595528155/TRIPSMAP/step_pictures/EGYPTE/CES/simon-berger-boyXZfqpwpU-unsplash_xw6xx4.jpg"]
+    - mediatype: text
+      text: La baie de Naama offre une promenade bordée de palmiers ainsi que de nombreux bars et restaurants. Avec sa vie marine qui se concentre autour de Shark Reef, de Yolanda Reef et de l'épave du Thistlegorm, le parc national Ras Muhammad est une destination prisée par les plongeurs.
+
 2:
   0:
     - mediatype: photos
@@ -29,6 +75,107 @@
   3:
     - mediatype: photos
       photos_paths: ["https://a.cdn-hotels.com/gdcs/production89/d367/e1952dc1-3a3e-47e9-9dac-ff344d2e5836.jpg"]
+
+3:
+  0:
+    - mediatype: text
+      text: La ville de Chiang Mai est située dans les montagnes au nord de la Thaïlande. Fondée en 1296, elle fut la capitale du royaume indépendant de Lanna jusqu'en 1558.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595531642/TRIPSMAP/step_pictures/THAILANDE/CHIANG/robson-hatsukami-morgan-xRoexKKv8fs-unsplash_ubtyec.jpg"]
+    - mediatype: text
+      text: Sa vieille ville comprend les vestiges de remparts et de douves témoignant de son passé de centre culturel et religieux. Elle abrite également des centaines de temples bouddhistes élaborés, tels que le Wat Phra Singh du XIVe siècle et le Wat Chedi Luang du XVe siècle orné de serpents sculptés.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595531665/TRIPSMAP/step_pictures/THAILANDE/CHIANG/lisheng-chang-m9BBVrPl87M-unsplash_iogwcr.jpg",
+    ]
+  1:
+    - mediatype: text
+      text: Bangkok, la capitale de la Thaïlande, est une grande ville connue pour ses sanctuaires richement décorés et ses rues animées.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595531817/TRIPSMAP/step_pictures/THAILANDE/BANGKOK/hanny-naibaho-DHueZ7ZhDHE-unsplash_lldeot.jpg"]
+    - mediatype: text
+      text: Rempli de bateaux, le fleuve Chao Praya alimente son réseau de canaux et passe par le district royal de Rattanakosin, où se trouvent l'opulent Grand Palais et son temple sacré Wat Phra Kaeo. À proximité, le temple Wat Pho dispose d'un énorme Bouddha allongé et, sur la rive opposée, le temple Wat Arun est doté d'escaliers raides et d'une flèche de style Khmer.
+  2:
+    - mediatype: text
+      text: Les îles Phi Phi sont un petit archipel de Thaïlande situé dans la mer d'Andaman au large de la province de Krabi, à laquelle il appartient.
+    - mediatype: photos
+      photos_paths: [
+        "https://res.cloudinary.com/datbhgbcq/image/upload/v1595531936/TRIPSMAP/step_pictures/THAILANDE/KOHPHIPHI/frankie-spontelli-fzEOvcazEtI-unsplash_gkhi0d.jpg"]
+    - mediatype: text
+      text: Très touristique, il comporte deux îles principales, Ko Phi Phi Don et Ko Phi Phi Le, les autres étant essentiellement des rochers.
+  3:
+    - mediatype: text
+      text: Ko Tao est une île située en Thaïlande. Des restaurants, des boîtes de nuit et des boutiques de plongée sont regroupés dans la baie de Mae Haad et près de Sairee Beach.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595532165/TRIPSMAP/step_pictures/THAILANDE/KOHTAO/andrzej-suwara-qfntmjboDyc-unsplash_zlmdng.jpg"]
+    - mediatype: text
+      text: Des villas parsèment les plages bordées de palmiers telles que la baie de Chalok Baan Kao sur la côte sud. Au nord-ouest, Koh Nang Yuan est un groupe d'îlots offrant une vue depuis les collines. Ko Tao est réputée pour ses récifs coralliens tropicaux, qui abritent des espèces comme les requins-baleines et les raies. Des tortues imbriquées et vertes y viennent pour se reproduire.
+
+4:
+  0:
+    - mediatype: text
+      text: Capitale animée du Japon, Tokyo associe les styles ultramodernes et traditionnels, dans un mélange de gratte-ciel aux néons lumineux et de temples anciens.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595532711/TRIPSMAP/step_pictures/JAPAN/TOKYO/clay-banks-hwLAI5lRhdM-unsplash_zme9a2.jpg"]
+    - mediatype: text
+      text: Le somptueux Meiji-jingū est un sanctuaire shinto réputé pour son entrée imposante et les bois qui l'environnent. Le palais impérial est entouré de vastes jardins publics. Les nombreux musées de la ville proposent des expositions allant de l'art classique, au musée national de Tokyo, à un théâtre kabuki reconstruit, au musée d'Edo-Tokyo.
+  1:
+    - mediatype: text
+      text: Osaka est une grande ville portuaire et un centre commerçant de l'île japonaise d'Honshū. Elle est connue pour son architecture moderne, sa vie nocturne et la qualité de sa street food.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595532785/TRIPSMAP/step_pictures/JAPAN/OSAKA/jj-ying-9Qwbfa_RM94-unsplash_wzaw5e.jpg"]
+    - mediatype: text
+      text: Principal monument historique de la ville, le château d'Osaka, construit au XVIe siècle lors du shogunat, a subi plusieurs restaurations. Il est entouré de douves ainsi que d'un parc planté de pruniers, de pêchers et de cerisiers à fleurs. Le Sumiyoshi-taisha est l'un des plus anciens sanctuaires shinto du pays.
+  2:
+    - mediatype: text
+      text: Ancienne capitale du Japon, Kyoto est une ville située sur l'île de Honshū. Elle est réputée pour ses nombreux temples bouddhistes classiques, ainsi que ses jardins, ses palais impériaux, ses sanctuaires shinto et ses maisons en bois traditionnelles.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595532861/TRIPSMAP/step_pictures/JAPAN/KYOTO/walter-mario-stein-kqfE9mvv7Xw-unsplash_tmu8tw.jpg"]
+    - mediatype: text
+      text: Sa renommée vient également de ses traditions comme la cuisine kaiseki, repas composé de plusieurs plats étudiés, et du district de Gion, le quartier des geishas (femmes proposant des prestations de divertissemen
+  3:
+    - mediatype: text
+      text: Kamakura est une ville japonaise située au bord de l'océan, juste au sud de Tokyo. Centre politique du Japon à l'époque médiévale, elle est aujourd'hui une station balnéaire reconnue et dotée de dizaines de temples bouddhistes zen ainsi que de sanctuaires shinto.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595532938/TRIPSMAP/step_pictures/JAPAN/KAMAKURA/christian-joudrey-9bdt03k4ujw-unsplash_prz6bm.jpg"]
+    - mediatype: text
+      text: Son monument le plus reconnaissable est le Grand Bouddha du temple de Kotoku-in, une statue de bronze d'environ 13 mètres de haut qui a survécu à un tsunami au XVe siècle. La plage Yuigahama, dans la baie de Sagami, est un spot de surf appréc
+  4:
+    - mediatype: text
+      text: Ville moderne située sur l'île japonaise de Honshū, Hiroshima a été détruite en grande partie lors d'un bombardement atomique de la Seconde Guerre mondiale.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595533008/TRIPSMAP/step_pictures/JAPAN/HIROSHIMA/ismael-abelleira-MZ00oma1sn0-unsplash_uw7atc.jpg"]
+    - mediatype: text
+      text: Aujourd'hui, son parc du Mémorial de la Paix rend hommage aux victimes de ce drame survenu en 1945. Le parc comporte aussi les ruines du dôme de Genbaku, l'un des quelques bâtiments à ne pas avoir été entièrement décimés. Parmi les autres sites célèbres figurent le jardin japonais Shukkei-en et le château d'Hiroshima, une forteresse entourée par des douves et un pa
+
+5:
+  0:
+    - mediatype: text
+      text: Bodnath (également appelé Bouddhanath) est l'un des principaux sanctuaires bouddhistes de la région de Katmandou au Népal.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595533443/TRIPSMAP/step_pictures/NEPAL/sanjay-hona-2Q2dpVPY6XU-unsplash_kx88gl.jpg"]
+    - mediatype: text
+      text: Son stoupa du xive siècle qui domine l'horizon est l'un des plus grands au monde. Il a pris la place d'un stoupa plus ancien attesté à l'époque licchavi. La base du stoupa se compose de trois terrasses, représentant un mandala géant que les fidèles peuvent parcourir.
+  1:
+    - mediatype: text
+      text: Le monastère de Kopan est un monastère du Bouddhisme tibétain situé près de Bodnath, à la périphérie de Katmandou, au Népal.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595533443/TRIPSMAP/step_pictures/NEPAL/sebastian-pena-lambarri-Wj9ELwGXa6c-unsplash_e1a5uj.jpg"]
+    - mediatype: text
+      text: Il appartient à la Fondation pour la préservation de la tradition du Mahayana (FPMT), un réseau international de centre de dharma Gelugpa, et a servi autrefois de siège principal.
+  2:
+    - mediatype: text
+      text: Lumbini ou Loumbini1 — nom moderne Rummindei — est un village situé sur le territoire du Népal, dans le district de Rupandehi (région du Teraï), à peu de distance de la frontière avec l'Inde.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595533443/TRIPSMAP/step_pictures/NEPAL/kalle-kortelainen-6F-uGWod7Xk-unsplash_xtq2o9.jpg"]
+    - mediatype: text
+      text: Il est considéré comme le lieu de naissance traditionnel de Siddhartha Gautama2, devenu par la suite le Bouddha dans l'Inde ancienne, sa mère ayant accouché sur la route de Kapilavastu, la capitale du clan familial. Elle est de ce fait l'un des quatre lieux saints du bouddhisme
+  3:
+    - mediatype: text
+      text: Katmandou, la capitale du Népal, est située dans une vallée entourée par les montagnes de l'Himalaya. Au cœur des ruelles labyrinthiques de la vieille ville se trouve l'immense place Durbar Square, bondée pendant la fête religieuse Indra Jatra caractérisée par ses danses masquées.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595533445/TRIPSMAP/step_pictures/NEPAL/tim-van-kempen-mpYKQK3GzSE-unsplash_g4jil8.jpg"]
+    - mediatype: text
+      text: Un grand nombre de sites historiques de la ville ont été endommagés ou détruits par le tremblement de terre de 2015. Le palais de Durbar Square, Hanuman Dhoka, et Kasthamandap, un temple hindou en bois, sont en cours de reconstruction.
 
 6:
   0:
@@ -123,3 +270,41 @@
   6:
     - mediatype: photos
       photos_paths: ["https://3wrxqs36sylaoef0l2imhgz1-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/6-shutterstock_325966574-bis-e1490800397170-670x400.jpg"]
+
+
+8:
+  0:
+    - mediatype: text
+      text: Sydney, capitale de la Nouvelle-Galles du Sud et l'une des plus grandes villes d'Australie, est renommée pour son opéra situé dans le port, avec son design distinctif en forme de voiles.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595535249/TRIPSMAP/step_pictures/AUSTRALIE/paul-carmona-5UHgm0Q3n4Y-unsplash_uj6zjq.jpg"]
+    - mediatype: text
+      text: Le vaste Darling Harbour et le plus petit port de Circular Quay sont des pôles majeurs de la vie au bord de l'eau, à proximité du Harbour Bridge et des jardins botaniques royaux. La plate-forme extérieure de Sydney Tower, le Skywalk, offre une vue à 360 degrés sur la ville et ses banlieues.
+  1:
+    - mediatype: text
+      text: Melbourne est la capitale de l'État de Victoria, au sud-est de l'Australie. Federation Square est un site culturel au cœur de la ville, avec des terrasses, bars et restaurants au bord de la rivière Yarra.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595535249/TRIPSMAP/step_pictures/AUSTRALIE/denise-jans--gmtAa0Q5MI-unsplash_allrja.jpg"]
+    - mediatype: text
+      text: Dans le quartier de Southbank, le Melbourne Arts Precinct abrite le Melbourne Arts Centre - un centre des arts du spectacle - et la National Gallery of Victoria, consacrée à l'art australien et indigène.
+  2:
+    - mediatype: text
+      text: La Gold Coast est une région métropolitaine au sud de Brisbane sur la côte est de l'Australie. Elle est connue pour ses longues plages de sable, ses spots de surf et un réseau complexe de canaux et de voies navigables.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595535249/TRIPSMAP/step_pictures/AUSTRALIE/faris-kassim-IDP1eRjKtho-unsplash_dkdssu.jpg"]
+    - mediatype: text
+      text: Elle abrite également des parcs à thème tels que Dreamworld, Sea World et Wet'n'Wild. À l'intérieur des terres, des sentiers de randonnée sillonnent les chaînes de montagne et les vallées du parc national de Lamington peuplé d'oiseaux rares et abritant une forêt tropicale.
+  3:
+    - mediatype: text
+      text: Auckland, fondée autour de 2 grands ports, est l'une des principales villes de l'île du Nord, en Nouvelle-Zélande.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595535303/TRIPSMAP/step_pictures/AUSTRALIE/samuel-ferrara-QEDXqtje6fw-unsplash_lrap8r.jpg"]
+    - mediatype: text
+      text: Dans le centre-ville, sur la rue Queen, l'emblématique Sky Tower offre un point de vue imprenable sur le port de Viaduct et ses immenses yachts ainsi que ses rangées de bars et de cafés. Le domaine d'Auckland, plus vieux parc de la ville, se trouve au pied d'un volcan éteint, et abrite les jardins paysagés de Wintergardens. Près du centre-ville, la plage de Mission Bay permet de se promener en bord de mer.
+  4:
+    - mediatype: text
+      text: Queenstown, en Nouvelle-Zélande, est située sur les rives du lac Wakatipu au sud de l'île, avec les spectaculaires Alpes du Sud comme toile de fond.
+    - mediatype: photos
+      photos_paths: ["https://res.cloudinary.com/datbhgbcq/image/upload/v1595535303/TRIPSMAP/step_pictures/AUSTRALIE/samuel-ferrara-lVvKvecbRrI-unsplash_tj6enr.jpg"]
+    - mediatype: text
+      text: Renommée pour ses sports d'aventure, elle permet également d'explorer les vignobles de la région et les anciennes villes minières. Du saut à l'élastique est proposé depuis le pont suspendu des gorges de Kawarau, et il est possible de faire du jet-boat sur les rivières Shotover et Dart. En hiver, les pentes des Remarkables et de Coronet Peak sont propices au ski.
