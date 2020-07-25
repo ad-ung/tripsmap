@@ -1,5 +1,5 @@
 meta_product_name: "Tripsmap"
 meta_title: "Tripsmap - Créez et revivez vos souvenir de vacances en quelques clics"
 meta_description: "Ramenez vos souvenirs de vacances à la vie."
-meta_image: "banner.png" # should exist in `app/assets/images/`
+meta_image: "banner.jpg" # should exist in `app/assets/images/`
 twitter_account: "@TripsMap"   # required for Twitter Cards
