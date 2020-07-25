@@ -70,7 +70,7 @@
     <!-- </div> -->
     <% elsif block.mediatype === "video" %>
       <% block.files.each do |video| %>
-        <%= cl_video_tag video.key, controls: true, width: '345' %>
+        <%= cl_video_tag video.key, controls: true, width: '100%' %>
       <% end %>
     <% elsif block.mediatype === "photos" %>
       <% if block.files.size % 2 === 0 %>
@@ -95,11 +95,17 @@
 
       <% else %>
 
-        <div class="pictures" >
-          <% block.files[0..-2].each do |photo| %>
-            <%= cl_image_tag photo.key %>
+
+        <div class="row">
+          <% block.files[0..-2].each_with_index do |photo, id| %>
+            <% if id % 2 === 0 %>
+              <div class="col-6" style="padding-right: 2px;"><%= cl_image_tag photo.key %></div>
+            <% else %>
+              <div class="col-6" style="padding-left: 2px;"><%= cl_image_tag photo.key %></div>
+            <% end %>
           <% end %>
         </div>
+
         <div class="picture-big">
           <%= cl_image_tag block.files[-1].key %>
         </div>
