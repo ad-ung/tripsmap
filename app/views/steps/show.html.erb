@@ -70,7 +70,7 @@
     <!-- </div> -->
     <% elsif block.mediatype === "video" %>
       <% block.files.each do |video| %>
-        <%= cl_video_tag video.key, controls: true, width: '345' %>
+        <%= cl_video_tag video.key, controls: true, width: '100%' %>
       <% end %>
     <% elsif block.mediatype === "photos" %>
       <% if block.files.size % 2 === 0 %>
